@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       flash[:notice] = "アカウント情報を更新しました"
       redirect_to("/users/#{@user.id}")
     else
-      render("users/#{@user.id}/edit")
+      render("users/edit")
     end
   end 
 end

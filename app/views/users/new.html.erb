@@ -8,7 +8,7 @@
         </div>
     <% end %>
     <%= form_tag("/users/create") do %>
-        <p>ユーザー名</p>
+        <p>ニックネーム</p>
         <input type="text" name="name" value="<%= @user.name %>">
         <p>メールアドレス</p>
         <input type="email" name="email" value="<%= @user.email %>">
