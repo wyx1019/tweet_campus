@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def my_page
+  def show
     @user = User.find_by(id: params[:id])
   end
 
