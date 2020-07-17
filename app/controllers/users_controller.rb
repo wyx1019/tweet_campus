@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name],
       email: params[:email],
+      password: params[:password]
       # image_name: "default_user.jpg",
-      # password: params[:password]
     )
     if @user.save
       # session[:user_id] = @user.id
@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
+    # @user.password = params[:password]
     if @user.save
       # session[:user_id] = @user.id
       flash[:notice] = "アカウント情報を更新しました"

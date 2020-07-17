@@ -12,8 +12,10 @@
         <input type="text" name="name" value="<%= @user.name %>">
         <p>メールアドレス</p>
         <input type="email" name="email" value="<%= @user.email %>">
-        <%# <p>パスワード</p>
-        <input type="password" name="password" > %>
+        <p>パスワード</p>
+        <input type="password" name="password" value="<%= @user.password %>">
+        <p>パスワード確認</p>
+        <input type="password" name="password" value="<%= @user.password %>">
         <input class="btn submit" type="submit" value="新規登録">
     <% end %>
 </div>
