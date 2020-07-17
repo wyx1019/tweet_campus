@@ -13,10 +13,30 @@ class UsersController < ApplicationController
     if @user.save
       # session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
-      # redirect_to("/users/#{@user.id}")
-      redirect_to("/")
+      redirect_to("/users/#{@user.id}")
     else
       render("users/new")
     end
   end
+
+  def my_page
+    @user = User.find_by(id: params[:id])
+  end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    @user.name = params[:name]
+    @user.email = params[:email]
+    if @user.save
+      # session[:user_id] = @user.id
+      flash[:notice] = "アカウント情報を更新しました"
+      redirect_to("/users/#{@user.id}")
+    else
+      render("users/#{@user.id}/edit")
+    end
+  end 
 end
