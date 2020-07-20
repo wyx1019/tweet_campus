@@ -33,6 +33,16 @@ input {
   margin: 0 auto 20px;
 }
 
-// input[type="submit"] {
-//   margin-top: 20px;
-// }
+#error_explanation {
+  color: rgb(206, 49, 49);
+  margin: 35px auto;
+  padding: 15px;
+  padding-left: 0;
+  width: 50%;
+  border: rgb(206, 49, 49) solid 2px;
+
+  li {
+    list-style-type: none;
+    margin: 10px;
+  }
+}

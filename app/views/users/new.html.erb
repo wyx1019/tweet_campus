@@ -1,15 +1,10 @@
 <% provide(:title, '新規登録') %>
 <h1>新規登録</h1>
-
 <div class="form">
-    <% @user.errors.full_messages.each do |message| %>
-        <div class="form-error">
-            <%= message %>
-        </div>
-    <% end %>
+    <%= render 'shared/error_messages' %>
     <%= form_with(model: @user, local: true) do |f| %>
-      <%= f.label :nickname %>
-      <%= f.text_field :nickname %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
       <%= f.label :email %>
       <%= f.email_field :email %>
       <%= f.label :password %>
