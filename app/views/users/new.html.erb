@@ -7,15 +7,15 @@
             <%= message %>
         </div>
     <% end %>
-    <%= form_tag("/users/create") do %>
-        <p>ニックネーム</p>
-        <input type="text" name="name" value="<%= @user.name %>">
-        <p>メールアドレス</p>
-        <input type="email" name="email" value="<%= @user.email %>">
-        <p>パスワード</p>
-        <input type="password" name="password" value="<%= @user.password %>">
-        <p>パスワード確認</p>
-        <input type="password" name="password" value="<%= @user.password %>">
-        <input class="btn submit" type="submit" value="新規登録">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= f.label :nickname %>
+      <%= f.text_field :nickname %>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+      <%= f.submit "新規登録", class: "btn btn-primary" %>
     <% end %>
 </div>

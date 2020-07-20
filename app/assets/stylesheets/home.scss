@@ -16,7 +16,7 @@ body {
 }
 
 main {
-  margin: 20%;
+  margin: 15%;
   color: rosybrown;
 }
 
@@ -27,3 +27,12 @@ main {
   margin-top: 45px;
   @include box_sizing;
 }
+
+input {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+// input[type="submit"] {
+//   margin-top: 20px;
+// }
