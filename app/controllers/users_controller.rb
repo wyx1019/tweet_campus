@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   before_action :forbid_login_user, only:[:new, :create]
   before_action :not_login_user
 
+  def index
+    @users = User.all.order(created_at: :DESC)
+  end
+
   def new
     @user = User.new
   end
@@ -38,7 +42,7 @@ class UsersController < ApplicationController
     else
       render("users/edit")
     end
-  end 
+  end
 
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
@@ -49,8 +53,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+      params.require(:user).permit(:name, :email, :password,:password_confirmation)
     end
 
 end

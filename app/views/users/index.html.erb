@@ -1,0 +1,14 @@
+
+<% provide(:title, 'ユーザーを探す') %>
+<h1 class="users-heading">最新のユーザー</h1>
+    <% @users.each do |user| %>
+      <div class="card">
+        <div class="">
+          <img src="">
+        </div>
+        <div class="">
+          <%= link_to(user.name, "/users/#{user.id}") %>
+        </div>
+        <button type="button" name="" id="" class="btn btn-primary btn-sm">フォロー</button>
+      </div>
+    <% end %>
