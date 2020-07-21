@@ -16,7 +16,7 @@
     <%= link_to "sample app", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
+        <% if @current_user %>
           <li><%= link_to "プロフィール",  "/users/#{@current_user.id}" %></li>
           <li><%= link_to "競技トピックス一覧", "#" %></li>
         <% else %>

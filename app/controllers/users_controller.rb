@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :ensure_correct_user, {only: [:edit, :update]}
+
   def new
     @user = User.new
   end
@@ -35,6 +37,13 @@ class UsersController < ApplicationController
       render("users/edit")
     end
   end 
+
+  def ensure_correct_user
+    if @current_user.id != params[:id].to_i
+      flash[:danger] = "権限がありません"
+      redirect_to("/about")
+    end
+  end
 
   private
     def user_params

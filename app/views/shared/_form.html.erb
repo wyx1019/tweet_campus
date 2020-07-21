@@ -5,7 +5,7 @@
       <%= f.email_field :email %>
       <%= f.label :password, "パスワード" %>
       <%= f.password_field :password %>
-      <% if logged_in? %>
+      <% if @current_user %>
       <%= f.label :image, "画像をアップロード" %>
       <%= f.file_field :image %>
       <% else %>
