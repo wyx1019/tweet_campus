@@ -7,4 +7,12 @@ class User < ApplicationRecord
                 uniqueness: { case_sensitive: false }
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
+    def self.search(search)
+        if search
+          User.where('name LIKE(?)', "%#{search}%")
+        else
+          User.all.order(created_at: :DESC)
+        end
+      end
 end

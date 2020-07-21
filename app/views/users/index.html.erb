@@ -1,14 +1,12 @@
-
 <% provide(:title, 'ユーザーを探す') %>
-<h1 class="users-heading">最新のユーザー</h1>
-    <% @users.each do |user| %>
-      <div class="card">
-        <div class="">
-          <img src="">
-        </div>
-        <div class="">
-          <%= link_to(user.name, "/users/#{user.id}") %>
-        </div>
-        <button type="button" name="" id="" class="btn btn-primary btn-sm">フォロー</button>
-      </div>
-    <% end %>
+
+<%= form_with(url: search_users_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :name, placeholder: "名前を入力して友達を探す", class: "search-input" %>
+  <%= form.submit "検索", class: "btn btn-primary btn-sm search-btn" %>
+<% end %>
+
+<div class="user-list">
+  <% @users.each do |user| %>
+     <%= render partial: "/shared/users", locals: { user: user } %>
+  <% end %>
+</div>

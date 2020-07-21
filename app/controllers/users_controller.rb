@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @users = User.all.order(created_at: :DESC)
   end
 
+  def search
+    @users = User.search(params[:name])
+  end
+
   def new
     @user = User.new
   end
