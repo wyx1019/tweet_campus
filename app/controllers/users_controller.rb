@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
   before_action :forbid_login_user, only:[:new, :create]
-  before_action :not_login_user
+  before_action :not_login_user,only:[:index, :show, :edit, :update]
 
   def index
     @users = User.all.order(created_at: :DESC)
