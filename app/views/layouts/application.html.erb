@@ -17,15 +17,18 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if @current_user %>
-          <li><%= link_to "プロフィール",  "/users/#{@current_user.id}" %></li>
+          <li><%= link_to "投稿する", "#" %></li>
           <li><%= link_to "競技トピックス一覧", "#" %></li>
         <% else %>
           <li><%= link_to "SPOFES TWEETを始めよう",  root_path %></li>
           <li><%= link_to "ログイン", login_path %></li>
         <% end %>
           <li><%= link_to "スゲジュール", "#" %></li>
-          <li><%= link_to "Q&A",  "#" %></li>
+          <li><%= link_to "Q&A",  about_path %></li>
           <li><%= link_to "アクセス", '#'%></li>
+        <% if @current_user %>
+          <li><%= link_to "アカウント情報",  "/users/#{@current_user.id}" %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

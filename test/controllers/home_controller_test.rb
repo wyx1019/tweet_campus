@@ -10,7 +10,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   test "should get about" do
     get about_path
     assert_response :success
-    assert_select "title", "About | Campus Tweets"
+    assert_select "title", "Q&A | Campus Tweets"
   end 
 
 end
