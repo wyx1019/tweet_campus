@@ -1,19 +1,8 @@
-<% provide(:title, 'アカウント編集') %>
-<h1>アカウント編集</h1>
+<% provide(:title, 'プロフィール編集') %>
+<% provide(:button_text, '更新する') %>
+<h1>プロフィール編集</h1>
 
 <div class="form">
-    <% @user.errors.full_messages.each do |message| %>
-        <div class="form-error">
-            <%= message %>
-        </div>
-    <% end %>
-    <%= form_tag("/users/#{@user.id}/update") do %>
-        <p>ユーザー名</p>
-        <input type="text" name="name" value="<%= @user.name %>">
-        <p>メールアドレス</p>
-        <input type="email" name="email" value="<%= @user.email %>">
-        <%# <p>パスワードを入力してください</p> %>
-        <%# <input type="password" name="password" value=" "> %>
-        <input class="btn submit" type="submit" value="更新する">
-    <% end %>
+    <%= render 'shared/error_messages' %>
+    <%= render 'shared/form' %>
 </div>
