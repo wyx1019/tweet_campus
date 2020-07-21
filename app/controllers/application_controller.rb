@@ -5,17 +5,17 @@ class ApplicationController < ActionController::Base
       @current_user = User.find_by(id: session[:user_id])
     end
     
-    def authenticate_user
+    def not_login_user
       if @current_user == nil
         flash[:danger] = "ログインが必要です"
-        redirect_to("/login")
+        redirect_to login_path
       end
     end
     
     def forbid_login_user
       if @current_user
         flash[:danger] = "すでにログインしています"
-        redirect_to("/about")
+        redirect_to about_path
       end
     end
 end

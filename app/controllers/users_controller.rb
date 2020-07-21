@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :ensure_correct_user, {only: [:edit, :update]}
+  before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :forbid_login_user, only:[:new, :create]
+  before_action :not_login_user
 
   def new
     @user = User.new
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:danger] = "権限がありません"
-      redirect_to("/about")
+      redirect_to about_path
     end
   end
 
