@@ -1,0 +1,9 @@
+<% provide(:title, '投稿詳細') %>
+
+<div class="post-box">
+    <div class="post-content">
+        <%= @micropost.content %>
+    </div>
+    <%= link_to("編集", "/microposts/#{@micropost.id}/edit") %>
+    <%= link_to("削除", "/microposts/#{@micropost.id}", {method: :delete}) %>
+</div>

@@ -17,8 +17,16 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def show
+    @micropost = Micropost.find_by(id:params[:id])
+  end
+
   def destroy
-    
+    @micropost = Micropost.find_by(id:params[:id])
+    if @micropost.destroy
+      flash[:success] = "投稿を削除しました"
+      redirect_to "/microposts"
+    end
   end
 
   private
