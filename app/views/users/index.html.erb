@@ -5,8 +5,14 @@
   <%= form.submit "検索", class: "btn btn-primary btn-sm search-btn" %>
 <% end %>
 
-<div class="user-list">
-  <% @users.each do |user| %>
-     <%= render partial: "/shared/users", locals: { user: user } %>
-  <% end %>
-</div>
+<% if @users.any? %>
+  <div class="user-list">
+      <% @users.each do |user| %>
+        <%= render partial: "/shared/users", locals: { user: user } %>
+      <% end %>
+  </div>
+<% else %>
+    <div class="no-results">
+      <p>検索キーワードと一致するユーザーが見つかりません</p>
+    </div>
+<% end %>
