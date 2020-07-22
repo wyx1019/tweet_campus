@@ -1,0 +1,13 @@
+<% provide(:title, '投稿一覧') %>
+<h2>投稿一覧</h2>
+  <div class="posts">
+    <div class = "card">
+          <div class="post">
+          <% @microposts.each do |micropost| %>
+            <div class="post-box">
+              <%= micropost.content %>
+            </div>
+          <% end %>
+          </div>
+    </div>
+  </div>

@@ -1,0 +1,5 @@
+<%= form_with(model: @micropost, local: true) do |f| %>
+    <%= f.label :content, "投稿内容を入力してください" %>
+    <%= f.text_area :content, class: 'form-control', placeholder: "テキストを入力してください" %>
+<%= f.submit "投稿する", class: "btn btn-primary" %>
+<% end %>

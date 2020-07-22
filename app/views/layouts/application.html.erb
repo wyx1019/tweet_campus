@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title><%= full_title(yield(:title)) %></title>
+    <meta charset="UTF-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title><%= full_title(yield(:title)) %></title>
   </head>
 
   <body>
@@ -17,8 +17,8 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if @current_user %>
-          <li><%= link_to "投稿する", "#" %></li>
-          <li><%= link_to "競技トピックス一覧", "#" %></li>
+          <li><%= link_to "投稿する", "/microposts/new" %></li>
+          <li><%= link_to "競技トピックス一覧", "/microposts" %></li>
           <li><%= link_to "ユーザーを探す", users_path %></li>
         <% else %>
           <li><%= link_to "ホーム",  root_path %></li>
