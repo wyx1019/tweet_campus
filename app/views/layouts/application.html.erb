@@ -17,8 +17,8 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if @current_user %>
-          <li><%= link_to "投稿する", "/microposts/new" %></li>
-          <li><%= link_to "競技トピックス一覧", "/microposts" %></li>
+          <li><%= link_to "投稿する", new_micropost_path %></li>
+          <li><%= link_to "競技トピックス一覧", microposts_path %></li>
           <li><%= link_to "ユーザーを探す", users_path %></li>
         <% else %>
           <li><%= link_to "ホーム",  root_path %></li>
