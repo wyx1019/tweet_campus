@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
   def index
-    @microposts = Micropost.all 
+    @microposts = Micropost.all.order(created_at: :DESC)
   end
 
   def new
