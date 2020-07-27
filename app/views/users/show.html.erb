@@ -7,3 +7,19 @@
     <%= link_to("編集", "/users/#{@user.id}/edit") %>
     <%= link_to("ログアウト", "/logout", {method:"post"} )%>
     <% end %>
+
+    <h3>投稿一覧</h3>
+    　<div class="posts">
+        <div class = "card">
+            <div class="post">
+                <% @user.microposts.each do |micropost| %>
+                    <div class="post-box">
+                        <div class="post-content">
+                            <%= link_to micropost.content,  "/microposts/#{micropost.id}" %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <h3>いいね!</h3>
