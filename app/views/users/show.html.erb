@@ -7,7 +7,7 @@
     <span><%= @user.major %></span>
     <% if @current_user.id == @user.id %>
     <%= link_to("編集", "/users/#{@user.id}/edit") %>
-    <%= link_to("ログアウト", "/logout", {method:"post"} )%>
+    <%= link_to("ログアウト", "/logout", method: :post, data: { confirm: "ログアウトしますか？" )%>
     <%= link_to("アカウント削除", "/users/#{@user.id}/destroy", method: :delete, data: { confirm: "アカウントが削除されます！" } )%>
     <% end %>
 <section>
