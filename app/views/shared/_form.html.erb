@@ -4,10 +4,11 @@
       <%= f.label :email %>
       <%= f.email_field :email %>
       <%= f.label :year, "入学年度" %>
-      <%= f.select :year, [['--- 2018年度 ---', '2018年度'], ['--- 2019年度 ---', '2019年度'],['--- 2020年度 ---', '2020年度']], { include_blank: false, selected: '2020年度' }, {class: "form-select"} %>
+      <%= f.select :year, [['--- 2020年度 ---', '2020年度'], ['--- 2019年度 ---', '2019年度'],['--- 2018年度 ---', '2018年度']], 
+                        { include_blank: false, selected: @user.year }, {class: "form-select"} %>
       <%= f.label :major, "学科" %>
       <%= f.select :major, [['高度情報処理科', '高度情報処理科'], ['ネットワークセキュリティー科', 'ネットワークセキュリティー科'],['ゲーム制作科', 'ゲーム制作科'],['CG科', 'CG科'],['グラフィックデザイン科', 'グラフィックデザイン科'],['Webデザイン科', 'Webデザイン科']], 
-                          { include_blank: '学科を選んでください', selected: '学科を選んでください' }, 
+                          { include_blank: '学科を選んでください', selected: @user.major }, 
                           {class: "form-select"} %>
 
       <% if @current_user %>
@@ -22,5 +23,3 @@
 
       <%= f.submit yield(:button_text), class: "btn btn-medium" %>
     <% end %>
-
-    <%# 各种接收通知设定 %>

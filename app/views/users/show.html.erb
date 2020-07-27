@@ -6,8 +6,16 @@
     <span><%= @user.year %></span>
     <span><%= @user.major %></span>
     <% if @current_user.id == @user.id %>
+<<<<<<< HEAD
     <%= link_to("編集", "/users/#{@user.id}/edit") %>
     <%= link_to("ログアウト", "/logout", method:"post")%>
+=======
+    <%= link_to("編集", edit_user_path(@current_user)) %>
+    <%= link_to("ログアウト", logout_path, method: :post, data: { confirm: "ログアウトしますか？" })%>
+    <% end %>
+    <% if @current_user.admin %>
+    <%= link_to("アカウント削除", user_path, method: :delete, data: { confirm: "アカウントを削除すると、このアカウントの投稿も共に消えますよ！" } )%>
+>>>>>>> develop
     <% end %>
 <section>
     <h3>投稿一覧</h3>
@@ -16,10 +24,10 @@
             <div class="post">
                 <% @user.microposts.each do |micropost| %>
                     <div class="post-box">
-                        <div class="user-image">
-                            <img src="" alt="">
-                        </div>
-                        <div class="post-content">
+                        <%= link_to(user_path(micropost.user), class: "user-image") do %>
+                        <img src="" alt="">
+                        <% end %>
+                        <%= link_to(micropost_path(micropost), class: "post-content") do %>
                             <div class="user-bar">
                                 <div class="user-info">
                                     <span class ="user-name"><%= micropost.user.name %></span>
@@ -28,11 +36,15 @@
                                 <span class ="time"><%= time_ago_in_words(micropost.created_at) %></span>
                             </div>
                             <p><%= micropost.content %></p>
+<<<<<<< HEAD
                             <% if @current_user.id == @user.id %>
                                 <%= link_to("編集", "/microposts/#{micropost.id}/edit") %>
                                 <%= link_to("削除", "/microposts/#{micropost.id}", method: :delete, data: { confirm: "投稿が削除されます！" }) %>
                             <% end %>
                         </div>
+=======
+                        <% end %>
+>>>>>>> develop
                     </div>
                 <% end %>
             </div>

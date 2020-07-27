@@ -8,6 +8,8 @@
 
 User.create!(name:  "Admin",
              email: "admin@gmail.com",
-             password:              "000000",
+             year: "2018年度",
+             major: "Webデザイン科",
+             password: "000000",
              password_confirmation: "000000",
-             admin: true)
+             admin: true )
