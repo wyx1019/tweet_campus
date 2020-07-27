@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
   before_action :forbid_login_user, only:[:new, :create]
-  before_action :not_login_user,only:[:index, :show, :edit, :update]
+  before_action :not_login_user, only:[:index, :show]
+  before_action :admin_user, only: :destroy
+
 
   def index
     @users = User.all.order(created_at: :DESC)
@@ -60,6 +62,13 @@ class UsersController < ApplicationController
     if @current_user.id != params[:id].to_i
       flash[:danger] = "権限がありません"
       redirect_to about_path
+    end
+  end
+
+  def admin_user
+    if @current_user.admin != true
+      flash[:danger] = "権限がありません"
+      redirect_to root_path
     end
   end
 
