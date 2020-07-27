@@ -5,10 +5,10 @@
         <div class="post">
           <% @microposts.each do |micropost| %>
             <div class="post-box">
-                    <%= link_to("/users/#{micropost.user.id}", class: "user-image") do %>
+                    <%= link_to(user_path(micropost.user), class: "user-image") do %>
                       <img src="" alt="">
                     <% end %>
-                    <%= link_to("/microposts/#{micropost.id}", class: "post-content") do %>
+                    <%= link_to(micropost_path(micropost), class: "post-content") do %>
                       <div class="user-bar">
                         <div class="user-info">
                           <span class ="user-name"><%= micropost.user.name %></span>

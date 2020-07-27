@@ -18,4 +18,12 @@ class ApplicationController < ActionController::Base
         redirect_to about_path
       end
     end
+  
+    def admin_user
+      if @current_user.admin != true
+        flash[:danger] = "権限がありません"
+        redirect_to root_path
+      end
+    end
+  
 end

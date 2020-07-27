@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
+  before_action :admin_user, only: :destroy
   before_action :ensure_correct_user, only: [:edit, :update]
   before_action :forbid_login_user, only:[:new, :create]
   before_action :not_login_user, only:[:index, :show]
-  before_action :admin_user, only: :destroy
-
 
   def index
     @users = User.all.order(created_at: :DESC)
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       session[:user_id] = @user.id
       flash[:success] = "ユーザー登録が完了しました"
-      redirect_to("/users/#{@user.id}")
+      redirect_to user_path(@user)
     else
       render("users/new")
     end
@@ -44,7 +43,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       session[:user_id] = @user.id
       flash[:success] = "アカウント情報を更新しました"
-      redirect_to("/users/#{@user.id}")
+      redirect_to user_path(@user)
     else
       render("users/edit")
     end
@@ -52,29 +51,27 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find_by(id: params[:id])
+    if @user.microposts.any?
+      @user.microposts.each do |micropost|
+        micropost.destroy
+      end
+    end
     if @user.destroy
       flash[:success] = "アカウントを削除しました"
       redirect_to("/users")
     end
   end
 
-  def ensure_correct_user
-    if @current_user.id != params[:id].to_i
-      flash[:danger] = "権限がありません"
-      redirect_to about_path
-    end
-  end
-
-  def admin_user
-    if @current_user.admin != true
-      flash[:danger] = "権限がありません"
-      redirect_to root_path
-    end
-  end
-
   private
     def user_params
       params.require(:user).permit(:name, :email, :year, :major, :password,:password_confirmation)
+    end
+
+    def ensure_correct_user
+      if @current_user.id != params[:id].to_i
+        flash[:danger] = "権限がありません"
+        redirect_to about_path
+      end
     end
 
 end
