@@ -7,7 +7,7 @@
     <span><%= @user.major %></span>
     <% if @current_user.id == @user.id %>
     <%= link_to("編集", "/users/#{@user.id}/edit") %>
-    <%= link_to("ログアウト", "/logout", {method:"post"} )%>
+    <%= link_to("ログアウト", "/logout", method:"post")%>
     <% end %>
 <section>
     <h3>投稿一覧</h3>
@@ -30,7 +30,7 @@
                             <p><%= micropost.content %></p>
                             <% if @current_user.id == @user.id %>
                                 <%= link_to("編集", "/microposts/#{micropost.id}/edit") %>
-                                <%= link_to("削除", "/microposts/#{micropost.id}", {method: :delete}) %>
+                                <%= link_to("削除", "/microposts/#{micropost.id}", method: :delete, data: { confirm: "投稿が削除されます！" }) %>
                             <% end %>
                         </div>
                     </div>
