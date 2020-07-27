@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users do
     get :search, on: :collection
   end
+  
   get "signup"=>'users#new'
   post "users/:id/update" => "users#update"
   get "users/:id/edit" => "users#edit"
