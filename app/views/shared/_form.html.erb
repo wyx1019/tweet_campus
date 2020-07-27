@@ -3,15 +3,23 @@
       <%= f.text_field :name %>
       <%= f.label :email %>
       <%= f.email_field :email %>
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password %>
+      <%= f.label :year, "入学年度" %>
+      <%= f.select :year, [['--- 2018年度 ---', '2018年度'], ['--- 2019年度 ---', '2019年度'],['--- 2020年度 ---', '2020年度']], { include_blank: false, selected: '2020年度' }, {class: "form-select"} %>
+      <%= f.label :major, "学科" %>
+      <%= f.select :major, [['高度情報処理科', '高度情報処理科'], ['ネットワークセキュリティー科', 'ネットワークセキュリティー科'],['ゲーム制作科', 'ゲーム制作科'],['CG科', 'CG科'],['グラフィックデザイン科', 'グラフィックデザイン科'],['Webデザイン科', 'Webデザイン科']], 
+                          { include_blank: '学科を選んでください', selected: '学科を選んでください' }, 
+                          {class: "form-select"} %>
+
       <% if @current_user %>
       <%= f.label :image, "画像をアップロード" %>
       <%= f.file_field :image %>
       <% else %>
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password %>
       <%= f.label :password_confirmation, "パスワード確認" %>
       <%= f.password_field :password_confirmation %>
       <% end %>
+
       <%= f.submit yield(:button_text), class: "btn btn-medium" %>
     <% end %>
 

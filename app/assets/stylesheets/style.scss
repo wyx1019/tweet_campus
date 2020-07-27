@@ -28,11 +28,6 @@ main {
   @include box_sizing;
 }
 
-input {
-  display: block;
-  margin: 0 auto 20px;
-}
-
 #error_explanation {
   color: rgb(206, 49, 49);
   margin: 35px auto;
@@ -43,6 +38,15 @@ input {
   li {
     list-style-type: none;
     margin: 10px;
+  }
+
+  a {
+    display: inline-block;
+    padding: 5px;
+  }
+
+  section {
+    margin-top: 60px;
   }
 
 }
