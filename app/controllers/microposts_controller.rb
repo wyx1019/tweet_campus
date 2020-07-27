@@ -17,8 +17,31 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def edit
+    @micropost = Micropost.find_by(id:params[:id])
+  end
+
+  def update
+    @micropost = @current_user.microposts.build(micropost_params)
+    if @micropost.save
+      flash[:success] = "編集しました"
+      redirect_to "/microposts/#{@micropost.id}"
+    else
+      render 'microposts/edit'
+    end
+  end
+
+  def show
+    @micropost = Micropost.find_by(id:params[:id])
+  end
+
+
   def destroy
-    
+    @micropost = Micropost.find_by(id:params[:id])
+    if @micropost.destroy
+      flash[:success] = "投稿を削除しました"
+      redirect_to "/microposts"
+    end
   end
 
   private
