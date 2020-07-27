@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
   def index
-    @microposts = Micropost.all.order(created_at: :DESC)
+    @microposts = Micropost.all 
   end
 
   def new
@@ -22,8 +22,8 @@ class MicropostsController < ApplicationController
   end
 
   def update
-    @micropost = Micropost.find_by(id:params[:id])
-    if @micropost.update(micropost_params)
+    @micropost = @current_user.microposts.build(micropost_params)
+    if @micropost.save
       flash[:success] = "編集しました"
       redirect_to "/microposts/#{@micropost.id}"
     else
@@ -34,6 +34,7 @@ class MicropostsController < ApplicationController
   def show
     @micropost = Micropost.find_by(id:params[:id])
   end
+
 
   def destroy
     @micropost = Micropost.find_by(id:params[:id])
