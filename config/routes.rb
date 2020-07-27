@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "users/:id" => "users#show"
   post "users/create"=>"users#create"
   get "users" => "users#index"
+  delete "users/:id/destroy" => "users#destroy"
 
   get "/about"=>"home#about"
   root 'home#top'

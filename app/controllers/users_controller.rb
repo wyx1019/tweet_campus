@@ -48,6 +48,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find_by(id: params[:id])
+    if @user.destroy
+      flash[:success] = "アカウントを削除しました"
+      redirect_to("/users")
+    end
+  end
+
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:danger] = "権限がありません"
