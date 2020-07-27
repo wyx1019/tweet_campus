@@ -17,6 +17,9 @@
             <%= link_to("編集", "/microposts/#{@micropost.id}/edit") %>
             <%= link_to("削除", "/microposts/#{@micropost.id}", method: :delete, data: { confirm: "投稿が削除されます！" }) %>
         <% end %>
+        <% if @current_user.admin %>
+        <%= link_to("削除", "/microposts/#{@micropost.id}", method: :delete, data: { confirm: "投稿が削除されます！" } )%>
+        <% end %>
     </div>
     
 </div>
