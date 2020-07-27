@@ -1,9 +1,22 @@
 <% provide(:title, '投稿詳細') %>
 
 <div class="post-box">
-    <div class="post-content">
-        <%= @micropost.content %>
+    <div class="user-image">
+        <img src="" alt="">
     </div>
-    <%= link_to("編集", "/microposts/#{@micropost.id}/edit") %>
-    <%= link_to("削除", "/microposts/#{@micropost.id}", {method: :delete}) %>
+    <div class="post-content">
+        <div class="user-bar">
+            <div class="user-info">
+                <span class ="user-name"><%= @micropost.user.name %></span>
+                <span class ="user-major">2019年度Webデザイン科</span>
+            </div>
+            <span class ="time">1時間前</span>
+        </div>
+        <p><%= @micropost.content %></p>
+        <% if @current_user.id == @micropost.user.id %>
+            <%= link_to("編集", "/microposts/#{@micropost.id}/edit") %>
+            <%= link_to("削除", "/microposts/#{@micropost.id}", {method: :delete}) %>
+        <% end %>
+    </div>
+    
 </div>

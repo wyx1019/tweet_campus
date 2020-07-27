@@ -5,9 +5,19 @@
         <div class="post">
           <% @microposts.each do |micropost| %>
             <div class="post-box">
-              <div class="post-content">
-                <%= link_to micropost.content,  "/microposts/#{micropost.id}" %>
-              </div>
+                    <%= link_to("/users/#{micropost.user.id}", class: "user-image") do %>
+                      <img src="" alt="">
+                    <% end %>
+                    <%= link_to("/microposts/#{micropost.id}", class: "post-content") do %>
+                      <div class="user-bar">
+                        <div class="user-info">
+                          <span class ="user-name"><%= micropost.user.name %></span>
+                          <span class ="user-major">2019年度Webデザイン科</span>
+                        </div>
+                        <span class ="time">1時間前</span>
+                      </div>
+                      <p><%= micropost.content %></p>
+                    <% end %>
             </div>
           <% end %>
         </div>
