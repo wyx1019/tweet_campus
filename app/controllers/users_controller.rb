@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.search(params[:name])
+    @users = User.search(params[:name]).order(created_at: :DESC)
   end
 
   def new
@@ -56,6 +56,22 @@ class UsersController < ApplicationController
       flash[:success] = "アカウントを削除しました"
       redirect_to("/users")
     end
+  end
+
+  def following
+    @user = User.find(params[:id])
+    @users = @user.following
+    @title = "フォロー中"
+    @heading = "がフォローしているユーザーリスト"
+    render '/users/show_follow'
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers
+    @title = "フォロワー"
+    @heading = "のフォロワーリスト"
+    render 'users/show_follow'
   end
 
   private

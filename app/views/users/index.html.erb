@@ -13,7 +13,8 @@
                 <span class ="user-name"><%= user.name %></span>
                 <span class ="user-major"><%= user.year %><%= user.major %></span>
             </div>
-          <% if @current_user.id != user.id %>
+        <% end %>
+        <% if @current_user.id != user.id %>
             <% if @current_user.following.find_by(id: user.id) == nil %>
                 <%= form_with(model: @current_user.active_relationships.build, local: true) do |f| %>
                 <div><%= hidden_field_tag :followed_id, user.id %></div>
@@ -25,7 +26,6 @@
                 <%= f.submit "フォロー解除", class: "btn btn-sm" %>
                 <% end %>
             <% end %>
-          <% end %>
         <% end %>
       <% end %>
   </div>

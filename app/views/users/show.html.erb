@@ -9,8 +9,12 @@
     </div>
     <div class="profile-actions-wrap">
         <div class="profile-actions follow-status">
-            <a href="">フォロー中</a><span><%= @user.following.count %></span>
-            <a href="">フォロワー</a><span><%= @user.followers.count %></span>
+            <%= link_to( following_user_path) do %>
+                フォロー中<span><%= @user.following.count %></span>
+            <% end %>
+            <%= link_to( followers_user_path) do %>
+                フォロワー<span><%= @user.followers.count %></span>
+            <% end %>
         </div>
         <div class="profile-actions follow-actions">
             <% if @current_user.id != @user.id %>

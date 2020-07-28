@@ -21,6 +21,16 @@ select {
   display: block;
 }
 
+.user-list {
+  width: 40%;
+  margin: 40px auto;
+
+  .card {
+    display: block;
+    margin: 20px auto;
+  }
+}
+
 .profile-actions-wrap {
   margin: 20px auto 40px;
 
