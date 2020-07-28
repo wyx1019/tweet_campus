@@ -20,3 +20,16 @@ select {
 span {
   display: block;
 }
+
+.profile-actions-wrap {
+  margin: 20px auto 40px;
+
+  .profile-actions {
+    margin: 10px;
+
+    a {
+      display: inline-block;
+      margin: 0 5px;
+    }
+  }
+}
