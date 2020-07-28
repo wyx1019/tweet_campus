@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "login"=>'sessions#new'
   post "login" =>"sessions#create"
   post "logout" => "sessions#destroy"
+  get "signup"=>'users#new'
 
   resources :microposts
 
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
       get :search
     end
   end
-  get "signup"=>'users#new'
+
+  resources :relationships, only: [:create, :destroy]
 
   get "about"=>"home#about"
   root 'home#top'

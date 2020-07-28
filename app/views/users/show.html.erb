@@ -14,8 +14,18 @@
         </div>
         <div class="profile-actions follow-actions">
         <% if @current_user.id != @user.id %>
-                <a href="" class="btn btn-primary btn-sm">フォローする</a>
-                <a href="" class="btn btn-primary btn-sm">メッセージ</a>
+            <% if @current_user.following.find_by(id: @user.id) == nil %>
+                <%= form_with(model: @current_user.active_relationships.build, local: true) do |f| %>
+                <div><%= hidden_field_tag :followed_id, @user.id %></div>
+                <%= f.submit "フォローする", class: "btn btn-primary btn-sm" %>
+                <% end %>
+            <% else %>
+                <%= form_with(model: @current_user.active_relationships.find_by(followed_id: @user.id),
+                            html: { method: :delete }, local: true) do |f| %>
+                <%= f.submit "Unfollow", class: "btn" %>
+                <% end %>
+            <% end %>
+
         </div>
         <div class="profile-actions account-actions">
         <% else %>
