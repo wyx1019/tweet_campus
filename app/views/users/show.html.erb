@@ -13,30 +13,29 @@
             <a href="">フォロワー</a><span><%= @user.followers.count %></span>
         </div>
         <div class="profile-actions follow-actions">
-        <% if @current_user.id != @user.id %>
-            <% if @current_user.following.find_by(id: @user.id) == nil %>
-                <%= form_with(model: @current_user.active_relationships.build, local: true) do |f| %>
-                <div><%= hidden_field_tag :followed_id, @user.id %></div>
-                <%= f.submit "フォローする", class: "btn btn-primary btn-sm" %>
+            <% if @current_user.id != @user.id %>
+                <% if @current_user.following.find_by(id: @user.id) == nil %>
+                    <%= form_with(model: @current_user.active_relationships.build, local: true) do |f| %>
+                    <div><%= hidden_field_tag :followed_id, @user.id %></div>
+                    <%= f.submit "フォローする", class: "btn btn-primary btn-sm" %>
+                    <% end %>
+                <% else %>
+                    <%= form_with(model: @current_user.active_relationships.find_by(followed_id: @user.id),
+                                html: { method: :delete }, local: true) do |f| %>
+                    <%= f.submit "フォロー解除", class: "btn btn-sm" %>
+                    <% end %>
                 <% end %>
+        </div>
             <% else %>
-                <%= form_with(model: @current_user.active_relationships.find_by(followed_id: @user.id),
-                            html: { method: :delete }, local: true) do |f| %>
-                <%= f.submit "フォロー解除", class: "btn btn-sm" %>
+            <div class="profile-actions account-actions">
+                <%= link_to("編集", edit_user_path(@current_user)) %>
+                <%= link_to("ログアウト", logout_path, method: :post, data: { confirm: "ログアウトしますか？" })%>
+            <% end %>
+                <% if @current_user.admin %>
+                <%= link_to("アカウント削除", user_path, method: :delete, data: { confirm: "アカウントを削除すると、このアカウントの投稿も共に消えますよ！" } )%>
                 <% end %>
-            <% end %>
-
+            </div>
         </div>
-        <div class="profile-actions account-actions">
-        <% else %>
-            <%= link_to("編集", edit_user_path(@current_user)) %>
-            <%= link_to("ログアウト", logout_path, method: :post, data: { confirm: "ログアウトしますか？" })%>
-        <% end %>
-            <% if @current_user.admin %>
-            <%= link_to("アカウント削除", user_path, method: :delete, data: { confirm: "アカウントを削除すると、このアカウントの投稿も共に消えますよ！" } )%>
-            <% end %>
-        </div>
-    </div>
 <section>
     <h3>投稿一覧</h3>
     　<div class="posts">
