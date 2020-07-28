@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
   before_action :ensure_correct_user, only: [:edit, :update]
   before_action :forbid_login_user, only:[:new, :create]
-  before_action :not_login_user, only:[:index, :show]
+  before_action :not_login_user, only:[:index, :show, :following, :followers]
 
   def index
     @users = User.all.order(created_at: :DESC)
