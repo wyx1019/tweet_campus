@@ -52,11 +52,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find_by(id: params[:id])
-    if @user.microposts.any?
-      @user.microposts.each do |micropost|
-        micropost.destroy
-      end
-    end
     if @user.destroy
       flash[:success] = "アカウントを削除しました"
       redirect_to("/users")
