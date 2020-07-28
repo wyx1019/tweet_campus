@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   resources :microposts
 
   resources :users do
-    get :search, on: :collection
+    collection do
+      get :search
+    end
   end
   get "signup"=>'users#new'
-  resources :users
 
   get "about"=>"home#about"
   root 'home#top'
