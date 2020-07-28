@@ -1,14 +1,16 @@
 <% provide(:title, 'Profile') %>
 <h1>Profile</h1>
 
-    <h2><%= @user.name %></h2>
-    <span><%= @user.email %></span>
-    <span><%= @user.year %></span>
-    <span><%= @user.major %></span>
+    <div class ="user-info">
+        <h2><%= @user.name %></h2>
+        <span><%= @user.email %></span>
+        <span><%= @user.year %></span>
+        <span><%= @user.major %></span>
+    </div>
     <div class="profile-actions-wrap">
         <div class="profile-actions follow-status">
-            <a href="">フォロー中</a>
-            <a href="">フォロワー</a>
+            <a href="">フォロー中</a><span>5人</span>
+            <a href="">フォロワー</a><span>4人</span>
         </div>
         <div class="profile-actions follow-actions">
         <% if @current_user.id != @user.id %>

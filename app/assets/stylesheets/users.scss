@@ -17,7 +17,7 @@ select {
   margin: 20px auto;
 }
 
-span {
+.user-info span {
   display: block;
 }
 
@@ -30,6 +30,10 @@ span {
     a {
       display: inline-block;
       margin: 0 5px;
+    }
+
+    span {
+      color: #337ab7;
     }
   }
 }
