@@ -9,8 +9,8 @@
     </div>
     <div class="profile-actions-wrap">
         <div class="profile-actions follow-status">
-            <a href="">フォロー中</a><span>5人</span>
-            <a href="">フォロワー</a><span>4人</span>
+            <a href="">フォロー中</a><span><%= @user.following.count %></span>
+            <a href="">フォロワー</a><span><%= @user.followers.count %></span>
         </div>
         <div class="profile-actions follow-actions">
         <% if @current_user.id != @user.id %>
