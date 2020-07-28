@@ -17,7 +17,7 @@
     　<div class="posts">
         <div class = "card">
             <div class="post">
-                <% @user.microposts.each do |micropost| %>
+                <% @microposts.each do |micropost| %>
                     <div class="post-box">
                         <%= link_to(user_path(micropost.user), class: "user-image") do %>
                         <img src="" alt="">
