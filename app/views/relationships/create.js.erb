@@ -1,0 +1,5 @@
+$("#follow_form_<%= @user.id %>").html("<%= escape_javascript(render('shared/unfollow_btn', user: @user)) %>");
+
+
+$("#follow_form").html("<%= escape_javascript(render("shared/unfollow_btn", user: @user)) %>");
+$("#followers").html('<%= @user.followers.count %>');

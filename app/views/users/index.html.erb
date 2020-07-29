@@ -13,7 +13,7 @@
             </div>
         <% end %>
         <% if @current_user.id != user.id %>
-            <div id ="follow_form">
+            <div id ="follow_form_<%= user.id %>">
                 <% if @current_user.following?(user) %>
                     <%= render "shared/unfollow_btn", user: user  %>
                 <% else %>
