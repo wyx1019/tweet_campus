@@ -13,3 +13,33 @@ User.create!(name:  "Admin",
              password: "000000",
              password_confirmation: "000000",
              admin: true )
+
+User.create!(name:  "abc",
+                email: "abc@gmail.com",
+                year: "2018年度",
+                major: "Webデザイン科",
+                password: "000000",
+                password_confirmation: "000000",
+                admin: false )
+User.create!(name:  "bcd",
+            email: "bcd@gmail.com",
+            year: "2018年度",
+            major: "Webデザイン科",
+            password: "000000",
+            password_confirmation: "000000",
+            admin: false )
+
+User.create!(name:  "cde",
+            email: "cde@gmail.com",
+            year: "2018年度",
+            major: "Webデザイン科",
+            password: "000000",
+            password_confirmation: "000000",
+            admin: false )
+User.create!(name:  "def",
+            email: "def@gmail.com",
+            year: "2018年度",
+            major: "Webデザイン科",
+            password: "000000",
+            password_confirmation: "000000",
+            admin: false )
