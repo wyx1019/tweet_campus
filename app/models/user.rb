@@ -39,4 +39,12 @@ class User < ApplicationRecord
     def following?(other_user)
       following.include?(other_user)
     end
+
+    def self.search_keyword(keyword)
+      if keyword
+        User.where('name LIKE(?)', "%#{keyword}%")
+      else
+        User.all.order(created_at: :DESC)
+      end
+  end
 end
