@@ -11,6 +11,15 @@
                         <span class ="user-major"><%= user.year %><%= user.major %></span>
                     </div>
                 <% end %>
+                <% if @current_user.id != user.id %>
+                    <div id ="follow_form">
+                        <% if @current_user.following.find_by(id: user.id) == nil %>
+                            <%= render "shared/follow_btn", user: user %>
+                        <% else %>
+                            <%= render "shared/unfollow_btn", user: user  %>
+                        <% end %>
+                    </div id ="follow_form">
+                <% end %>
             <% end %>
         <% else %>
             <p><%= @user.name %><%= @heading %>はいません</p>

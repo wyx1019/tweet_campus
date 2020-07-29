@@ -13,22 +13,18 @@
                 フォロー中<span><%= @user.following.count %></span>
             <% end %>
             <%= link_to( followers_user_path) do %>
-                フォロワー<span><%= @user.followers.count %></span>
+                フォロワー<span id = "followers"><%= @user.followers.count %></span>
             <% end %>
         </div>
         <div class="profile-actions follow-actions">
             <% if @current_user.id != @user.id %>
-                <% if @current_user.following.find_by(id: @user.id) == nil %>
-                    <%= form_with(model: @current_user.active_relationships.build, local: true) do |f| %>
-                    <div><%= hidden_field_tag :followed_id, @user.id %></div>
-                    <%= f.submit "フォローする", class: "btn btn-primary btn-sm" %>
+                <div id ="follow_form">
+                    <% if @current_user.following.find_by(id: @user.id) == nil %>
+                        <%= render "shared/follow_btn", user: @user %>
+                    <% else %>
+                        <%= render "shared/unfollow_btn", user: @user %>
                     <% end %>
-                <% else %>
-                    <%= form_with(model: @current_user.active_relationships.find_by(followed_id: @user.id),
-                                html: { method: :delete }, local: true) do |f| %>
-                    <%= f.submit "フォロー解除", class: "btn btn-sm" %>
-                    <% end %>
-                <% end %>
+                </div>
         </div>
             <% else %>
             <div class="profile-actions account-actions">

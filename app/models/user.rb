@@ -29,5 +29,22 @@ class User < ApplicationRecord
         else
           User.all.order(created_at: :DESC)
         end
-      end
+    end
+
+    # ユーザーをフォローする
+    def follow(other_user)
+      following << other_user 
+      #followingで取得したオブジェクトは、配列のように要素を追加したり削除したりすることができます。
+      #削除の場合: user.following.delete(other_user)
+    end
+
+    # ユーザーをフォロー解除する
+    def unfollow(other_user)
+      active_relationships.find_by(followed_id: other_user.id).destroy
+    end
+
+    # 現在のユーザーがフォローしてたらtrueを返す
+    def following?(other_user)
+      following.include?(other_user)
+    end
 end
