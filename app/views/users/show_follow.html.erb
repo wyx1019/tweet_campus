@@ -13,10 +13,10 @@
                 <% end %>
                 <% if @current_user.id != user.id %>
                     <div id ="follow_form">
-                        <% if @current_user.following.find_by(id: user.id) == nil %>
-                            <%= render "shared/follow_btn", user: user %>
-                        <% else %>
+                        <% if @current_user.following?(user) %>
                             <%= render "shared/unfollow_btn", user: user  %>
+                        <% else %>
+                            <%= render "shared/follow_btn", user: user %>
                         <% end %>
                     </div id ="follow_form">
                 <% end %>
