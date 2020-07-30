@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :likes, only: [:create, :destroy]
+
   resources :relationships, only: [:create, :destroy]
 
   get "about"=>"home#about"

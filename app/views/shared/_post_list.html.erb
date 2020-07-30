@@ -14,13 +14,19 @@
                         <span class ="time"><%= time_ago_in_words(micropost.created_at) %> ago</span>
                       </div>
                       <p><%= micropost.content %></p>
-                      <% if micropost.like?(@current_user)  %>
-                          <span class="fa fa-heart like-btn"></span>
-                      <% else %>
-                          <span class="fa fa-heart like-btn-unlike"></span>
-                      <% end %>
                     <% end %>
             </div>
+            <div class="action-bar">
+                <% if micropost.like?(@current_user)  %>
+                  <%= link_to("/likes/#{micropost.id}/destroy", micropost_id: micropost.id, method: :delete, local: true ) do %>
+                    <span class="fa fa-heart like-btn">  <%= micropost.liked_users.count%></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to(likes_path, micropost_id: micropost.id, method: :post, local: true ) do %>
+                    <span class="fa fa-heart like-btn-unlike">   <%= micropost.liked_users.count%></span>
+                  <% end %>
+                <% end %>
+            </div>   
         </div>
     </div>
   </div>
