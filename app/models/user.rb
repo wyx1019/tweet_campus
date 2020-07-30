@@ -48,5 +48,5 @@ class User < ApplicationRecord
       else
         User.all.order(created_at: :DESC)
       end
-  end
+    end
 end
