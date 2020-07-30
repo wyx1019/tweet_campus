@@ -48,9 +48,9 @@
 </section>
 <section>
     <h3>いいね!</h3>
-    <% if @microposts.any? %>
-        <% @microposts.each do |micropost| %>
-            <%= render 'shared/post_list', micropost: micropost  %>
+    <% if @liked_posts.any? %>
+        <% @liked_posts.each do |liked_post| %>
+            <%= render 'shared/post_list', micropost: liked_post  %>
         <% end %>
     <% else %>
         <p>「いいね」した投稿がありません</p>
