@@ -62,7 +62,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.following
     @title = "フォロー中"
-    @heading = "がフォローしているユーザーリスト"
+    @heading = "がフォローしているユーザー"
     render '/users/show_follow'
   end
 
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers
     @title = "フォロワー"
-    @heading = "のフォロワーリスト"
+    @heading = "のフォロワー"
     render 'users/show_follow'
   end
 

@@ -1,25 +1,5 @@
 <% provide(:title, '投稿一覧') %>
 <h2>投稿一覧</h2>
-  <div class="posts">
-    <div class = "card">
-        <div class="post">
-          <% @microposts.each do |micropost| %>
-            <div class="post-box">
-                    <%= link_to(user_path(micropost.user), class: "user-image") do %>
-                      <img src="" alt="">
-                    <% end %>
-                    <%= link_to(micropost_path(micropost), class: "post-content") do %>
-                      <div class="user-bar">
-                        <div class="user-info">
-                          <span class ="user-name"><%= micropost.user.name %></span>
-                          <span class ="user-major"><%= micropost.user.year %><%= micropost.user.major %></span>
-                        </div>
-                        <span class ="time"><%= time_ago_in_words(micropost.created_at) %></span>
-                      </div>
-                      <p><%= micropost.content %></p>
-                    <% end %>
-            </div>
-          <% end %>
-        </div>
-    </div>
-  </div>
+<% @microposts.each do |micropost| %>
+  <%= render 'shared/post_list', micropost: micropost  %>
+<% end %>
