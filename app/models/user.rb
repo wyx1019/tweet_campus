@@ -42,6 +42,18 @@ class User < ApplicationRecord
       following.include?(other_user)
     end
 
+    def like(other_post)
+      liked_posts << other_post
+    end
+  
+    def unlike(other_post)
+      liked_posts.find_by(post_id: other_post_id).destroy
+    end
+  
+    def like?(other_post)
+      liked_posts.include? (other_post)
+    end
+
     def self.search_keyword(keyword)
       if keyword
         User.where('name LIKE(?)', "%#{keyword}%")

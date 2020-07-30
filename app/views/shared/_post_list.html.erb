@@ -17,15 +17,13 @@
                     <% end %>
             </div>
             <div class="action-bar">
-                <% if micropost.like?(@current_user)  %>
-                  <%= link_to("/likes/#{micropost.id}/destroy", micropost_id: micropost.id, method: :delete, local: true ) do %>
-                    <span class="fa fa-heart like-btn">  <%= micropost.liked_users.count%></span>
-                  <% end %>
-                <% else %>
-                  <%= link_to(likes_path, micropost_id: micropost.id, method: :post, local: true ) do %>
-                    <span class="fa fa-heart like-btn-unlike">   <%= micropost.liked_users.count%></span>
-                  <% end %>
-                <% end %>
+                <div id="like_btn_<%= micropost.id %>">
+                    <% if @current_user.like?(micropost)  %>
+                      <%= render 'shared/unlike_btn', micropost: micropost %>
+                    <% else %>
+                      <%= render 'shared/like_btn', micropost: micropost %>
+                    <% end %>
+                </div>
             </div>   
         </div>
     </div>
