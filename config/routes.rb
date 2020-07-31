@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "signup"=>'users#new'
 
   resources :microposts do
-    resources :comments, except: [:new, :index]
+    resources :comments, only: [:create, :show, :destroy]
   end
 
 

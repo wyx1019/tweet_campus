@@ -3,19 +3,18 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .like-btn,
-.comment-btn {
+.comment-btn,
+.delete-btn {
     display: inline-block;
     margin: 0 5px;
 }
 
-.like-btn-unlike {
+.like-btn-unlike,
+.comment-btn,
+.delete-btn {
     color: #ccc;
 }
 
 .like-btn {
     color: rgb(184, 98, 98);
-}
-
-.comment-btn {
-    color: #ccc;
 }

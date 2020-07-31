@@ -31,6 +31,11 @@
                       <%= render 'shared/like_btn', micropost: micropost %>
                     <% end %>
                 </div>
+                <% if @current_user.id == micropost.user.id && @micropost.present? %>
+                    <%= link_to(micropost_path, method: :delete, class: "delete-btn") do %>
+                      <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
+                    <% end %>
+                <% end %>
             </div>   
         </div>
     </div>

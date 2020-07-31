@@ -5,7 +5,7 @@
 
 <section class="comment-wrap">
     <h4>コメント</h4>
-    <% if @comments.present? %>
+    <% if @comments.any? %>
         <% @comments.each do |comment| %>
             <div class="comment">
                 <div class="post">
@@ -30,6 +30,10 @@
                 </div>
             </div>
         <% end %>
+    <% else %>
+        <div class ="post">
+            <p class="no-comment">コメントがありません</p>
+        </div>
     <% end %>
 </section>
 
