@@ -17,7 +17,11 @@
                     <% end %>
             </div>
             <div class="action-bar">
-                <div id="like_btn_<%= micropost.id %>">
+                <div class="comment-btn">
+                  <span class="fa fa-commenting comment-btn" aria-hidden="true">   2</span>
+                </div>
+
+                <div id="like_btn_<%= micropost.id %>" class="like-btn">
                     <% if @current_user.like?(micropost)  %>
                       <%= render 'shared/unlike_btn', micropost: micropost %>
                     <% else %>

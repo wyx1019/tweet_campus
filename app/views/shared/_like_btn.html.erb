@@ -1,3 +1,3 @@
 <%= link_to(likes_path(micropost_id: micropost.id), method: :post, remote: true) do %>
-    <span id ="liked_count" class="fa fa-heart like-btn-unlike">   <%= micropost.liked_users.count%></span>
+    <span id ="liked_count" class="fa fa-heart like-btn-unlike" aria-hidden="true">   <%= micropost.liked_users.count%></span>
 <% end %>

@@ -1,12 +1,21 @@
 // Place all the styles related to the likes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.like-btn,
+.comment-btn {
+    display: inline-block;
+    margin: 0 5px;
+}
+
 .like-btn-unlike {
     color: #ccc;
-    display: inline-block;
 }
 
 .like-btn {
     color: rgb(184, 98, 98);
-    display: inline-block;
+}
+
+.comment-btn {
+    color: #ccc;
 }
