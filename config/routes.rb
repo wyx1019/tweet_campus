@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   post "logout" => "sessions#destroy"
   get "signup"=>'users#new'
 
-  resources :microposts
+  resources :microposts do
+    resources :comments, except: [:new, :index]
+  end
 
-  resources :comments
 
   resources :users do
     collection do

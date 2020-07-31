@@ -2,6 +2,6 @@
 <% provide(:button_text, '新規登録') %>
 <h1>新規登録</h1>
 <div class="form">
-    <%= render 'shared/error_messages' %>
+    <%= render 'shared/error_messages', user: @user %>
     <%= render 'shared/form' %>
 </div>

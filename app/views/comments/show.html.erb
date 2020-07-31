@@ -17,7 +17,7 @@
                             <span> ago</span>
                         </div>
                     <% end %>
-                    <%= link_to(comment_path(@comment), class: "post-content") do %>
+                    <%= link_to(micropost_comment_path(@comment), class: "post-content") do %>
                         <p><%= @comment.content %></p>
                     <% end %>
                 </div>
