@@ -1,3 +1,12 @@
 <% provide(:title, '投稿詳細') %>
 
 <%= render 'shared/post_list', micropost: @micropost %>
+
+<div id="comment_form">
+    <%= form_with(model: @comment, local: true) do |f| %>
+        <div class="row">
+            <%= f.text_area :content, class: 'form-control', placeholder: "テキストを入力してください", size: "32x1" %>
+            <%= f.submit "投稿する", class: "btn btn-sm" %>
+        </div>
+    <% end %>
+</div>

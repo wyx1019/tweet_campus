@@ -1,0 +1,18 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#comment_form {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .row {
+    display: flex;
+  }
+
+  input[type="submit"] {
+    margin: 0;
+  }
+}
