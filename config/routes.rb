@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :microposts
 
+  resources :comments
+
   resources :users do
     collection do
       get :search
