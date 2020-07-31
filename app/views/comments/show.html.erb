@@ -1,20 +1,26 @@
-    <div class="post">
-            <div class="post-box">
-                  <%= link_to(user_path(@comment.user), class: "user-bar") do %>
-                      <div class="user-image">
-                        <img src="" alt="">
-                      </div>
-                      <div class="user-info">
-                          <span class ="user-name"><%= @comment.user.name %></span>
-                          <span class ="user-major"><%= @comment.user.year %><%= @comment.user.major %></span>
-                      </div>
-                      <div class ="time">
-                          <%= time_ago_in_words(@comment.created_at) %> 
-                          <span> ago</span>
-                      </div>
-                  <% end %>
-                  <%= link_to(comment_path(@comment), class: "post-content") do %>
-                      <p><%= @comment.content %></p>
-                  <% end %>
-            </div>
+<% provide(:title, 'コメント内容') %>
+<h3>コメント内容</h3>  
+<section class="comment-wrap"> 
+    <div class="comment">
+        <div class="post">
+                <div class="post-box">
+                    <%= link_to(user_path(@comment.user), class: "user-bar") do %>
+                        <div class="user-image">
+                            <img src="" alt="">
+                        </div>
+                        <div class="user-info">
+                            <span class ="user-name"><%= @comment.user.name %></span>
+                            <span class ="user-major"><%= @comment.user.year %><%= @comment.user.major %></span>
+                        </div>
+                        <div class ="time">
+                            <%= time_ago_in_words(@comment.created_at) %> 
+                            <span> ago</span>
+                        </div>
+                    <% end %>
+                    <%= link_to(comment_path(@comment), class: "post-content") do %>
+                        <p><%= @comment.content %></p>
+                    <% end %>
+                </div>
+        </div>
     </div>
+</section>

@@ -2,10 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.comment-wrap {
+.comment {
   background-color: #f1f1f1;
   width: 60%;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 5px;
 
   .post {
@@ -16,7 +16,7 @@
 
 #comment_form {
   position: fixed;
-  bottom: 100px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
 
