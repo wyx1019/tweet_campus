@@ -1,2 +1,2 @@
 $("#like_btn_<%= @micropost.id %>").html("<%= escape_javascript(render('shared/unlike_btn', micropost: @micropost)) %>");
-$("#liked_count").html('<%= @micropost.liked_users.count %>');
+$("#liked_count").html('   <%= @micropost.liked_users.count %>');
