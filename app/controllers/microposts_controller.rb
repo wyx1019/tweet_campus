@@ -36,6 +36,7 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost = Micropost.find_by(id:params[:id])
+    @comments = @micropost.comments.all.order(created_at: :DESC)
   end
 
 
@@ -45,6 +46,8 @@ class MicropostsController < ApplicationController
       flash[:success] = "投稿を削除しました"
       redirect_to user_path(@current_user)
   end
+
+
 
   private
     def micropost_params
