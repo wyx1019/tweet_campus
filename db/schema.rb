@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_31_022709) do
+ActiveRecord::Schema.define(version: 2020_08_03_031640) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 2020_07_31_022709) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+  create_table "replies", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id", null: false
+    t.integer "comment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_replies_on_comment_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -68,4 +78,6 @@ ActiveRecord::Schema.define(version: 2020_07_31_022709) do
   add_foreign_key "likes", "microposts"
   add_foreign_key "likes", "users"
   add_foreign_key "microposts", "users"
+  add_foreign_key "replies", "comments"
+  add_foreign_key "replies", "users"
 end
