@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get "signup"=>'users#new'
 
   resources :microposts do
-    resources :comments, only: [:create, :show, :destroy]
+    resources :comments, only: [:create, :show, :destroy] do
+      resources :replies, only: [:create, :destroy]
+    end
   end
 
 

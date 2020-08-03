@@ -20,9 +20,9 @@
                   <% end %>
             </div>
             <div class="action-bar">
-                <div class="comment-btn">
+                <%= link_to(micropost_path(micropost), class: "comment-btn") do %>
                   <span class="fa fa-commenting comment-btn" aria-hidden="true">   <%= micropost.comments.count %></span>
-                </div>
+                <% end %>
 
                 <div id="like_btn_<%= micropost.id %>" class="like-btn">
                     <% if @current_user.like?(micropost)  %>
@@ -31,6 +31,7 @@
                       <%= render 'shared/like_btn', micropost: micropost %>
                     <% end %>
                 </div>
+
                 <% if @current_user.id == micropost.user.id && @micropost.present? %>
                     <%= link_to(edit_micropost_path(micropost), class: "delete-btn") do %>
                       <span class="fa fa-edit edit-btn"></span>
