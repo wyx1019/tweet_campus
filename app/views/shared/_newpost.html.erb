@@ -1,5 +1,5 @@
 <%= form_with(model: @micropost, local: true) do |f| %>
-    <%= f.label :content, "投稿内容を入力してください" %>
+    <%= f.label :content, "250文字以内の投稿を入力してください" %>
     <%= f.text_area :content, class: 'form-control', placeholder: "テキストを入力してください", size: "40x12" %>
     <%= f.submit "投稿する", class: "btn btn-primary" %>
 <% end %>

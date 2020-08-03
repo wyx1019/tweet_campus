@@ -6,5 +6,5 @@ class Micropost < ApplicationRecord
   has_many :commented_users, through: :comments, source: :user
 
   validates :user_id, presence: true
-  validates :content, presence: true, length: { maximum: 140 }
+  validates :content, presence: true, length: { maximum: 250 }
 end
