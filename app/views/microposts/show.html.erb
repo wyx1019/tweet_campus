@@ -32,7 +32,7 @@
                             <span class="fa fa-comments reply-btn" aria-hidden="true">  <%= comment.replies.count %></span>
                         <% end %>
                     </div>
-                    <div class="replies-preview">
+                    <div class="replies">
                         <h5>最新返信</h5>
                     </div>
                 </div>
@@ -45,12 +45,11 @@
     <% end %>
 </section>
 
-<div id="comment_form">
-    <%= render 'shared/error_messages', user: @comment %>
+<div id="form" class="form-comment">
     <%= form_with(model:[@micropost, @comment], method: :post, local: true) do |f| %>
     <%= hidden_field_tag :micropost_id, @micropost.id %>
         <div class="row">
-            <%= f.text_area :content, class: 'form-control', placeholder: "テキストを入力してください", size: "32x1" %>
+            <%= f.text_area :content, class: 'form-control', placeholder: "140文字以内にテキストを入力してください", size: "32x2" %>
             <%= f.submit "投稿する", class: "btn btn-sm" %>
         </div>
     <% end %>

@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
         @comment = Comment.find(params[:comment_id])
         @replies = @comment.replies.order(created_at: :DESC)
         @reply = @comment.replies.build
+        @micropost = @comment.micropost
     end
 
     def create
@@ -26,9 +27,10 @@ class CommentsController < ApplicationController
     def destroy
         @comment = Comment.find(params[:comment_id])
         micropost = Micropost.find(@comment.micropost.id)
-        @comment.destroy
-          flash[:success] = "投稿を削除しました"
+        if @comment.destroy
+          flash[:success] = "コメントを削除しました"
           redirect_to micropost_path(micropost)
+        end
       end
 
     private
@@ -42,5 +44,5 @@ class CommentsController < ApplicationController
           flash[:danger] = "権限がありません"
           redirect_back(fallback_location: root_path)
         end
-      end
+    end
 end

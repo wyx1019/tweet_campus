@@ -3,7 +3,7 @@
 <section class="comment-wrap"> 
     <div class="comment">
         <div class="post">
-                <div class="post-box">
+            <div class="post-box">
                     <%= link_to(user_path(@comment.user), class: "user-bar") do %>
                         <div class="user-image">
                             <img src="" alt="">
@@ -20,8 +20,8 @@
                     <%= link_to("#", class: "post-content") do %>
                         <p><%= @comment.content %></p>
                     <% end %>
-                </div>
-                <div class="action-bar">
+            </div>
+            <div class="action-bar">
                     <%= link_to("#", class: "reply-btn") do %>
                         <span class="fa fa-comments reply-btn" aria-hidden="true">  <%= @comment.replies.count %></span>
                     <% end %>
@@ -30,11 +30,21 @@
                             <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
                         <% end %>
                     <% end %>
-                </div>
+            </div>
                 <%# input form  %>
-                <form></form>
+            <div id="form" class="form-reply">
+                    <%= form_with(model:[@micropost, @comment, @reply], method: :post, local: true) do |f| %>
+                    <%= hidden_field_tag :comment_id, @comment.id %>
+                        <div class="row ">
+                            <%= f.text_area :content, class: 'form-control', placeholder: "140文字以内にテキストを入力してください", size: "32x2" %>
+                            <%= f.submit "返信する", class: "btn btn-sm" %>
+                        </div>
+                    <% end %>
+            </div>
 
-                <% @replies.each do |reply| %>
+            <%# reply list %>
+            <% @replies.each do |reply| %>
+                <div class="replies">
                     <div class="post">
                         <div class="post-box">
                             <%= link_to(user_path(reply.user), class: "user-bar") do %>
@@ -56,13 +66,14 @@
                         </div>
                         <div class="action-bar">
                             <% if @current_user.id == reply.user.id && reply.present? %>
-                                <%= link_to("#", method: :delete, class: "delete-btn", data: { confirm: "この返信を削除しますか？" }) do %>
+                                <%= link_to(micropost_comment_reply_path(reply, comment_id: @comment.id), method: :delete, class: "delete-btn", data: { confirm: "この返信を削除しますか？" }) do %>
                                     <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
                                 <% end %>
                             <% end %>
                         </div>
                     </div>
-                <% end %>
+                </div>
+            <% end %>
         </div>
     </div>
 </section>
