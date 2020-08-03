@@ -29,7 +29,7 @@
                     </div>
                     <div class="action-bar">
                         <%= link_to(micropost_comment_path(comment, comment_id: comment.id), class: "reply-btn") do %>
-                            <span class="fa fa-reply reply-btn" aria-hidden="true">  <%= comment.replies.count %></span>
+                            <span class="fa fa-comments reply-btn" aria-hidden="true">  <%= comment.replies.count %></span>
                         <% end %>
                     </div>
                     <div class="replies-preview">
