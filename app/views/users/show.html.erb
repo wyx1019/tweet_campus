@@ -40,7 +40,15 @@
     <h3>投稿一覧</h3>
     <% if @microposts.any? %>
         <% @microposts.each do |micropost| %>
-            <%= render 'shared/post_list', micropost: micropost  %>
+            <div class="post">
+                <div class="post-box">
+                    <%= render 'shared/user_bar', micropost: micropost  %>
+                    <%= link_to(micropost_path(micropost), class: "post-content") do %>
+                        <p><%= micropost.content %></p>
+                    <% end %>
+                    <%= render 'shared/post_action_bar', micropost: micropost %>
+                </div>
+            </div>
         <% end %>
     <% else %>
         <p>投稿がありません</p>
@@ -50,7 +58,15 @@
     <h3>いいね!</h3>
     <% if @liked_posts.any? %>
         <% @liked_posts.each do |liked_post| %>
-            <%= render 'shared/post_list', micropost: liked_post  %>
+            <div class="post">
+                <div class="post-box">
+                    <%= render 'shared/user_bar', micropost: liked_post  %>
+                    <%= link_to(micropost_path(liked_post), class: "post-content") do %>
+                        <p><%= liked_post.content %></p>
+                    <% end %>
+                    <%= render 'shared/post_action_bar', micropost: liked_post %>
+                </div>
+            </div>
         <% end %>
     <% else %>
         <p>「いいね」した投稿がありません</p>

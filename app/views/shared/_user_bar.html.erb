@@ -1,0 +1,13 @@
+                  <%= link_to(user_path(micropost.user), class: "user-bar") do %>
+                      <div class="user-image">
+                        <img src="" alt="">
+                      </div>
+                      <div class="user-info">
+                          <span class ="user-name"><%= micropost.user.name %></span>
+                          <span class ="user-major"><%= micropost.user.year %><%= micropost.user.major %></span>
+                      </div>
+                      <div class ="time">
+                          <%= time_ago_in_words(micropost.created_at) %> 
+                          <span> ago</span>
+                      </div>
+                  <% end %>

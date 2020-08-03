@@ -1,5 +1,22 @@
 <% provide(:title, '投稿一覧') %>
 <h2>投稿一覧</h2>
 <% @microposts.each do |micropost| %>
-  <%= render 'shared/post_list', micropost: micropost  %>
+    <div class="post">
+        <div class="post-box">
+            <%= render 'shared/user_bar', micropost: micropost  %>
+            <%= link_to(micropost_path(micropost), class: "post-content") do %>
+                <p><%= micropost.content %></p>
+            <% end %>
+            <%= render 'shared/post_action_bar', micropost: micropost %>
+        </div>
+        <% if micropost.comments.first.present? %>
+            <div class="latest">
+              <h5>最新コメント</h5>
+              <%= render 'shared/user_bar', micropost: micropost.comments.first %>
+              <%= link_to(micropost_path(micropost), class: "post-content") do %>
+                  <p><%= micropost.comments.first.content %></p>
+              <% end %>
+            </div>
+        <% end %>
+    </div>
 <% end %>

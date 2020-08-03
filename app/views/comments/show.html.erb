@@ -4,35 +4,12 @@
     <div class="comment">
         <div class="post">
             <div class="post-box">
-                    <%= link_to(user_path(@comment.user), class: "user-bar") do %>
-                        <div class="user-image">
-                            <img src="" alt="">
-                        </div>
-                        <div class="user-info">
-                            <span class ="user-name"><%= @comment.user.name %></span>
-                            <span class ="user-major"><%= @comment.user.year %><%= @comment.user.major %></span>
-                        </div>
-                        <div class ="time">
-                            <%= time_ago_in_words(@comment.created_at) %> 
-                            <span> ago</span>
-                        </div>
-                    <% end %>
-                    <%= link_to("#", class: "post-content") do %>
-                        <p><%= @comment.content %></p>
-                    <% end %>
-            </div>
-            <div class="action-bar">
-                    <%= link_to("#", class: "reply-btn") do %>
-                        <span class="fa fa-comments reply-btn" aria-hidden="true">  <%= @comment.replies.count %></span>
-                    <% end %>
-                    <% if @current_user.id == @comment.user.id && @comment.present? %>
-                        <%= link_to(micropost_comment_path(comment_id: @comment.id), method: :delete, class: "delete-btn", data: { confirm: "このコメントを削除しますか？" }) do %>
-                            <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
-                        <% end %>
-                    <% end %>
+                <%= render 'shared/user_bar', micropost: @comment %>
+                <div class="content post-content"><p><%= @comment.content %></p></div>
+                <%= render 'shared/comment_action_bar', comment: @comment %>
             </div>
 
-<%# input form  %>
+        <%# input form  %>
             <div id="form" class="form-reply">
                     <%= form_with(model:[@micropost, @comment, @reply], method: :post, local: true) do |f| %>
                     <%= hidden_field_tag :comment_id, @comment.id %>
@@ -43,34 +20,21 @@
                     <% end %>
             </div>
 
-<%# reply list %>
+        <%# reply list %>
             <% @replies.each do |reply| %>
                 <div class="replies">
                     <div class="post">
                         <div class="post-box">
-                            <%= link_to(user_path(reply.user), class: "user-bar") do %>
-                                <div class="user-image">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="user-info">
-                                    <span class ="user-name"><%= reply.user.name %></span>
-                                    <span class ="user-major"><%= reply.user.year %><%= reply.user.major %></span>
-                                </div>
-                                <div class ="time">
-                                    <%= time_ago_in_words(reply.created_at) %> 
-                                    <span> ago</span>
-                                </div>
-                            <% end %>
-                            <%= link_to("#", class: "post-content") do %>
-                                <p><%= reply.content %></p>
-                            <% end %>
-                        </div>
-                        <div class="action-bar">
-                            <% if @current_user.id == reply.user.id && reply.present? %>
-                                <%= link_to(micropost_comment_reply_path(reply, comment_id: @comment.id), method: :delete, class: "delete-btn", data: { confirm: "この返信を削除しますか？" }) do %>
-                                    <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
+                            <%= render 'shared/user_bar', micropost: reply %>
+                            <div class="content post-content"><p><%= reply.content %></p></div>
+                            <div class="action-bar">
+                                <span class="fa fa-comments reply-btn" aria-hidden="true"></span>
+                                <% if @current_user.id == reply.user.id && reply.present? %>
+                                    <%= link_to(micropost_comment_reply_path(reply, comment_id: @comment.id), method: :delete, class: "delete-btn", data: { confirm: "この返信を削除しますか？" }) do %>
+                                        <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
+                                    <% end %>
                                 <% end %>
-                            <% end %>
+                            </div>
                         </div>
                     </div>
                 </div>
