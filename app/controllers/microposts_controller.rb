@@ -21,14 +21,14 @@ class MicropostsController < ApplicationController
   end
 
   def edit
-    @micropost = Micropost.find_by(id:params[:id])
+    @micropost = Micropost.find(params[:id])
   end
 
   def update
-    @micropost = Micropost.find_by(id:params[:id])
+    @micropost = Micropost.find(params[:id])
     if @micropost.update(micropost_params)
       flash[:success] = "投稿を編集しました"
-      redirect_to user_path(@current_user)
+      redirect_to microposts_path
     else
       render 'microposts/edit'
     end

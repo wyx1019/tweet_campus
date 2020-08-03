@@ -3,15 +3,12 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .like-btn,
+.like-btn-unlike,
 .comment-btn,
+.edit-btn,
 .delete-btn {
     display: inline-block;
     margin: 0 5px;
-}
-
-.like-btn-unlike,
-.comment-btn,
-.delete-btn {
     color: #ccc;
 }
 
