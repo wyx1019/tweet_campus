@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
 
     def show
         @comment = Comment.find(params[:comment_id])
+        @replies = @comment.replies.order(created_at: :DESC)
+        @reply = @comment.replies.build
     end
 
     def create

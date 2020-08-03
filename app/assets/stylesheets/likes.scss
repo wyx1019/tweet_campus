@@ -5,6 +5,7 @@
 .like-btn,
 .like-btn-unlike,
 .comment-btn,
+.reply-btn,
 .edit-btn,
 .delete-btn {
     display: inline-block;
@@ -17,6 +18,7 @@
 }
 
 .comment-btn,
+.reply-btn,
 .edit-btn,
 .delete-btn {
     &:hover {
@@ -26,6 +28,6 @@
     &:active {
         color: rosybrown;
         position: relative;
-        top: 2px;
+        top: 1px;
     }
 }

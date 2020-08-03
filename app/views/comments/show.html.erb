@@ -17,19 +17,52 @@
                             <span> ago</span>
                         </div>
                     <% end %>
-                    <%= link_to(micropost_comment_path(@comment), class: "post-content") do %>
+                    <%= link_to("#", class: "post-content") do %>
                         <p><%= @comment.content %></p>
                     <% end %>
                 </div>
                 <div class="action-bar">
-                    <div class="comment-btn">
-                        <% if @current_user.id == @comment.user.id && @comment.present? %>
-                            <%= link_to(micropost_comment_path(comment_id: @comment.id), method: :delete, class: "delete-btn", data: { confirm: "このコメントを削除しますか？" }) do %>
+                    <%= link_to("#", class: "reply-btn") do %>
+                        <span class="fa fa-reply reply-btn" aria-hidden="true">  <%= @comment.replies.count %></span>
+                    <% end %>
+                    <% if @current_user.id == @comment.user.id && @comment.present? %>
+                        <%= link_to(micropost_comment_path(comment_id: @comment.id), method: :delete, class: "delete-btn", data: { confirm: "このコメントを削除しますか？" }) do %>
                             <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
-                            <% end %>
                         <% end %>
-                    </div>   
+                    <% end %>
                 </div>
+                <%# input form  %>
+                <form></form>
+
+                <% @replies.each do |reply| %>
+                    <div class="post">
+                        <div class="post-box">
+                            <%= link_to(user_path(reply.user), class: "user-bar") do %>
+                                <div class="user-image">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="user-info">
+                                    <span class ="user-name"><%= reply.user.name %></span>
+                                    <span class ="user-major"><%= reply.user.year %><%= reply.user.major %></span>
+                                </div>
+                                <div class ="time">
+                                    <%= time_ago_in_words(reply.created_at) %> 
+                                    <span> ago</span>
+                                </div>
+                            <% end %>
+                            <%= link_to("#", class: "post-content") do %>
+                                <p><%= reply.content %></p>
+                            <% end %>
+                        </div>
+                        <div class="action-bar">
+                            <% if @current_user.id == reply.user.id && reply.present? %>
+                                <%= link_to("#", method: :delete, class: "delete-btn", data: { confirm: "この返信を削除しますか？" }) do %>
+                                    <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
+                                <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                <% end %>
         </div>
     </div>
 </section>
