@@ -3,13 +3,13 @@ class CommentsController < ApplicationController
     before_action :not_login_user
 
     def show
-        @comment = Comment.find_by(id: params[:id])
+        @comment = Comment.find(params[:comment_id])
     end
 
     def create
         @comment = @current_user.comments.create(comment_params)
         @comment.micropost_id = params[:micropost_id]
-        @micropost = Micropost.find_by(id: params[:micropost_id])
+        @micropost = Micropost.find(params[:micropost_id])
         if @comment.save
             flash[:success] = "コメントを投稿しました"
             redirect_back(fallback_location: root_path)
@@ -21,8 +21,24 @@ class CommentsController < ApplicationController
         end
     end
 
+    def destroy
+        @comment = Comment.find(params[:comment_id])
+        micropost = Micropost.find(@comment.micropost.id)
+        @comment.destroy
+          flash[:success] = "投稿を削除しました"
+          redirect_to micropost_path(micropost)
+      end
+
     private
     def comment_params
       params.require(:comment).permit(:content)
     end
+
+    def ensure_correct_user
+        @comment = @current_user.comments.find(params[:comment_id])
+        if @comment.nil? 
+          flash[:danger] = "権限がありません"
+          redirect_back(fallback_location: root_path)
+        end
+      end
 end

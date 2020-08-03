@@ -23,7 +23,7 @@
                                 <span> ago</span>
                             </div>
                         <% end %>
-                        <%= link_to(micropost_comment_path(comment), class: "post-content") do %>
+                        <%= link_to(micropost_comment_path(comment, comment_id: comment.id), class: "post-content") do %>
                             <p><%= comment.content %></p>
                         <% end %>
                     </div>

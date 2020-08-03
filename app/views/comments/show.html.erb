@@ -21,6 +21,15 @@
                         <p><%= @comment.content %></p>
                     <% end %>
                 </div>
+                <div class="action-bar">
+                    <div class="comment-btn">
+                        <% if @current_user.id == @comment.user.id && @comment.present? %>
+                            <%= link_to(micropost_comment_path(comment_id: @comment.id), method: :delete, class: "delete-btn", data: { confirm: "このコメントを削除しますか？" }) do %>
+                            <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
+                            <% end %>
+                        <% end %>
+                    </div>   
+                </div>
         </div>
     </div>
 </section>

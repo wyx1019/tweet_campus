@@ -32,7 +32,7 @@
                     <% end %>
                 </div>
                 <% if @current_user.id == micropost.user.id && @micropost.present? %>
-                    <%= link_to(micropost_path, method: :delete, class: "delete-btn") do %>
+                    <%= link_to(micropost_path, method: :delete, class: "delete-btn", data: { confirm: "この投稿を削除しますか？" }) do %>
                       <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
                     <% end %>
                 <% end %>
