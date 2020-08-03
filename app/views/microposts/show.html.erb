@@ -32,9 +32,29 @@
                             <span class="fa fa-comments reply-btn" aria-hidden="true">  <%= comment.replies.count %></span>
                         <% end %>
                     </div>
-                    <div class="replies">
-                        <h5>最新返信</h5>
-                    </div>
+                    <% if comment.replies.first.present? %>
+                        <div class="replies">
+                            <h5>最新返信</h5>
+                            <div class="post-box">
+                                <%= link_to(user_path(comment.replies.first.user), class: "user-bar") do %>
+                                    <div class="user-image">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="user-info">
+                                        <span class ="user-name"><%= comment.replies.first.user.name %></span>
+                                        <span class ="user-major"><%= comment.replies.first.user.year %><%= comment.replies.first.user.major %></span>
+                                    </div>
+                                    <div class ="time">
+                                        <%= time_ago_in_words(comment.replies.first.created_at) %> 
+                                        <span> ago</span>
+                                    </div>
+                                <% end %>
+                                <%= link_to(micropost_comment_path(comment, comment_id: comment.id), class: "post-content") do %>
+                                    <p><%= comment.replies.first.content %></p>
+                                <% end %>
+                            </div>
+                        </div>
+                    <% end %>
                 </div>
             </div>
         <% end %>

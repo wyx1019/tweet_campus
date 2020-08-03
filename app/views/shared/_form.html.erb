@@ -1,23 +1,23 @@
     <%= form_with(model: @user, local: true) do |f| %>
-      <%= f.label :name, "名前" %>
+      <%= f.label :名前 %>
       <%= f.text_field :name %>
       <%= f.label :email %>
       <%= f.email_field :email %>
-      <%= f.label :year, "入学年度" %>
+      <%= f.label :入学年度 %>
       <%= f.select :year, [['--- 2020年度 ---', '2020年度'], ['--- 2019年度 ---', '2019年度'],['--- 2018年度 ---', '2018年度']], 
                         { include_blank: false, selected: @user.year }, {class: "form-select"} %>
-      <%= f.label :major, "学科" %>
+      <%= f.label :学科 %>
       <%= f.select :major, [['高度情報処理科', '高度情報処理科'], ['ネットワークセキュリティー科', 'ネットワークセキュリティー科'],['ゲーム制作科', 'ゲーム制作科'],['CG科', 'CG科'],['グラフィックデザイン科', 'グラフィックデザイン科'],['Webデザイン科', 'Webデザイン科']], 
                           { include_blank: '学科を選んでください', selected: @user.major }, 
                           {class: "form-select"} %>
 
       <% if @current_user %>
-      <%= f.label :image, "画像をアップロード" %>
+      <%= f.label :画像をアップロード %>
       <%= f.file_field :image %>
       <% else %>
-      <%= f.label :password, "パスワード" %>
+      <%= f.label :パスワード %>
       <%= f.password_field :password %>
-      <%= f.label :password_confirmation, "パスワード確認" %>
+      <%= f.label :パスワード確認 %>
       <%= f.password_field :password_confirmation %>
       <% end %>
 

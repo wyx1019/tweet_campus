@@ -31,7 +31,8 @@
                         <% end %>
                     <% end %>
             </div>
-                <%# input form  %>
+
+<%# input form  %>
             <div id="form" class="form-reply">
                     <%= form_with(model:[@micropost, @comment, @reply], method: :post, local: true) do |f| %>
                     <%= hidden_field_tag :comment_id, @comment.id %>
@@ -42,7 +43,7 @@
                     <% end %>
             </div>
 
-            <%# reply list %>
+<%# reply list %>
             <% @replies.each do |reply| %>
                 <div class="replies">
                     <div class="post">
