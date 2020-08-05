@@ -11,7 +11,7 @@ class Micropost < ApplicationRecord
 
   def self.search_year(year)
     if year
-      Micropost.where(created_at.year = year)
+      Micropost.where(created_at: year.in_time_zone.all_month)
     end
   end
 end

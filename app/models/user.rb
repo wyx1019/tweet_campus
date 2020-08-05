@@ -62,7 +62,7 @@ class User < ApplicationRecord
     end
 
     def self.search_keyword(keyword,year)
-      if keyword && year
+      if keyword && year != 0
         User.where('name LIKE(?) and year = ? ', "%#{keyword}%", "#{year}") 
       end
     end

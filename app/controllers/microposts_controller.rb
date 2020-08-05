@@ -3,11 +3,12 @@ class MicropostsController < ApplicationController
   before_action :not_login_user
   
   def index
-    @microposts = Micropost.all.order(created_at: :DESC)
+    @microposts = Micropost.all.order(updated_at: :DESC)
   end
 
   def search
     @microposts = Micropost.search_year(params[:year])
+    render 'index'
   end
 
   def new
