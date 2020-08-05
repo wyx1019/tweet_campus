@@ -1,7 +1,9 @@
 <% provide(:title, '新規登録') %>
 <% provide(:button_text, '新規登録') %>
+
 <h1>新規登録</h1>
 <div class="form">
     <%= render 'shared/error_messages', user: @user %>
     <%= render 'shared/form' %>
 </div>
+<%= link_to "←戻る", 'javascript:history.back()' %>
