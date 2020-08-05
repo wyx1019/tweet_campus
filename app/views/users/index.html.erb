@@ -1,7 +1,7 @@
 <% provide(:title, 'ユーザーを探す') %>
 <h2>ユーザーを探す</h2>
 <%= form_with(url: search_users_path, local: true, method: :get, class: "form form-search") do |f| %>
-  <%= f.select :year, [['--- 2020年度 ---', '2020年度'], ['--- 2019年度 ---', '2019年度'],['--- 2018年度 ---', '2018年度']], 
+  <%= f.select :year, [['--- 入学年度を選ぶ ---', '0'], ['--- 2020年度 ---', '2020年度'], ['--- 2019年度 ---', '2019年度'],['--- 2018年度 ---', '2018年度']], 
                         { include_blank: false, selected: params[:year]}, {class: "form-select"} %> 
   <%= f.text_field :name, placeholder: "名前を入力して友達を探す", value: params[:name] %>   
   <%= f.submit "検索", class: "btn btn-sm search-btn" %>

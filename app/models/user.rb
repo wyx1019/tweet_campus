@@ -62,8 +62,10 @@ class User < ApplicationRecord
     end
 
     def self.search_keyword(keyword,year)
-      if keyword && year != 0
+      if keyword && year != '0'
         User.where('name LIKE(?) and year = ? ', "%#{keyword}%", "#{year}") 
+      elsif keyword && year == '0'
+        User.where('name LIKE(?)', "%#{keyword}%").order(created_at: :DESC)
       end
     end
 end

@@ -10,8 +10,10 @@ class Micropost < ApplicationRecord
   validates :content, presence: true, length: { maximum: 250 }
 
   def self.search_year(year)
-    if year
+    if year != '0'
       Micropost.where(created_at: year.in_time_zone.all_month)
+    else 
+      Micropost.all.order(updated_at: :DESC)
     end
   end
 end
