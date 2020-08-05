@@ -47,7 +47,7 @@
         <% end %>
     </div>
 
-    <div class="comment tab-pane">
+    <div class="comment tab-pane" style="display:none">
         <% if @micropost.liked_users.any? %>
                 <% @micropost.liked_users.each do |user| %>
                     <div class="post">

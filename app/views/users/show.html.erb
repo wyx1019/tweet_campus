@@ -59,7 +59,7 @@
                 <p>投稿がありません</p>
             <% end %>
     </div>
-    <div class="tab-pane">
+    <div class="tab-pane" style="display:none">
             <% if @liked_posts.any? %>
                 <% @liked_posts.each do |liked_post| %>
                     <div class="post">
