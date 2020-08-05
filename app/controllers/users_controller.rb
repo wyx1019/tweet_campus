@@ -9,7 +9,8 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.search_keyword(params[:name])
+    @users = User.search_keyword(params[:name], params[:year])
+    render 'index'
   end
 
   def new
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
       flash[:success] = "ユーザー登録が完了しました"
       redirect_to user_path(@user)
     else
-      render("users/new")
+      render 'new'
     end
   end
 
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
       flash[:success] = "アカウント情報を更新しました"
       redirect_to user_path(@user)
     else
-      render("users/edit")
+      render 'edit'
     end
   end
 
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
     @users = @user.following
     @title = "フォロー中"
     @heading = "がフォローしているユーザー"
-    render '/users/show_follow'
+    render 'show_follow'
   end
 
   def followers
@@ -72,7 +73,7 @@ class UsersController < ApplicationController
     @users = @user.followers
     @title = "フォロワー"
     @heading = "のフォロワー"
-    render 'users/show_follow'
+    render 'show_follow'
   end
 
   private

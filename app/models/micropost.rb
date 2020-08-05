@@ -8,4 +8,10 @@ class Micropost < ApplicationRecord
 
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 250 }
+
+  def self.search_year(year)
+    if year
+      Micropost.where(created_at.year = year)
+    end
+  end
 end

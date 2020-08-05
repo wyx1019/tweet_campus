@@ -28,7 +28,6 @@
                             <%= render 'shared/user_bar', micropost: reply %>
                             <div class="content post-content"><p><%= reply.content %></p></div>
                             <div class="action-bar">
-                                <span class="fa fa-comments reply-btn" aria-hidden="true"></span>
                                 <% if @current_user.id == reply.user.id && reply.present? %>
                                     <%= link_to(micropost_comment_reply_path(reply, comment_id: @comment.id), method: :delete, class: "delete-btn", data: { confirm: "この返信を削除しますか？" }) do %>
                                         <span class="fa fa-trash delete-btn" aria-hidden="true"></span>

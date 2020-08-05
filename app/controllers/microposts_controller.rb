@@ -6,6 +6,10 @@ class MicropostsController < ApplicationController
     @microposts = Micropost.all.order(created_at: :DESC)
   end
 
+  def search
+    @microposts = Micropost.search_year(params[:year])
+  end
+
   def new
     @micropost = Micropost.new
   end

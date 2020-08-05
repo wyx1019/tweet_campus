@@ -61,11 +61,9 @@ class User < ApplicationRecord
       liked_posts.include? (other_post)
     end
 
-    def self.search_keyword(keyword)
-      if keyword
-        User.where('name LIKE(?)', "%#{keyword}%")
-      else
-        User.all.order(created_at: :DESC)
+    def self.search_keyword(keyword,year)
+      if keyword && year
+        User.where('name LIKE(?) and year = ? ', "%#{keyword}%", "#{year}") 
       end
     end
 end
