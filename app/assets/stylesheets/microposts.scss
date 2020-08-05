@@ -41,3 +41,28 @@
         text-align: right;
     }
 }
+
+
+.btn-group {
+    margin: 20px auto;
+
+    // width: 50%;
+    // position: sticky;
+    // top: 0px;
+    // text-align: center;
+    .active {
+        color: #f2f2f2;
+        background-color: rosybrown;
+    }
+
+    .btn {
+        border-radius: 10px;
+        outline: none !important;
+
+        &:hover,
+        &:focus {
+            color: #f2f2f2;
+            background-color: rosybrown;
+        }
+    }
+}
