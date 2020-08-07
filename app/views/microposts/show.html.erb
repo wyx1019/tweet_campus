@@ -4,14 +4,14 @@
     <div class="post">
         <div class="post-box">
             <%= render 'shared/user_bar', micropost: @micropost %>
-            <%= link_to("#", class: "post-content") do %>
+            <div class="post-content">
                 <p><%= @micropost.content %></p>
                 <% if @micropost.image.attached? %>
                     <div class="media">
                         <%= image_tag @micropost.image %>
                     </div>
                 <% end %>
-            <% end %>
+            </div>
             <%= render 'shared/post_action_bar', micropost: @micropost %>
         </div>
     </div>
@@ -19,7 +19,7 @@
 <section class="comment-wrap">
     <div class="btn-group">
         <button class="btn tab active"><h4>コメント</h4></button>
-        <button class="btn tab"><h4>いいね！</h4></button>
+        <button class="btn tab"><h4>いいね！</h4></button>  
     </div>
     
     <div class="comment tab-pane active">
