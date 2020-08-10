@@ -1,6 +1,8 @@
                   <%= link_to(user_path(micropost.user), class: "user-bar") do %>
                       <div class="user-image">
-                        <img src="" alt="">
+                        <% if micropost.user.user_image.attached? %>
+                          <%= image_tag micropost.user.user_image %>
+                        <% end %>
                       </div>
                       <div class="user-info">
                           <span class ="user-name"><%= micropost.user.name %></span>

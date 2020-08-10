@@ -10,7 +10,11 @@
   <% if @users.present? %>
       <% @users.each do |user| %>
         <%= link_to(user_path(user), class: "card") do %>
-            <div class="user-image"><img src="" alt=""></div>
+            <div class="user-image">
+                <% if user.user_image.attached? %>
+                    <%= image_tag user.user_image %>
+                <% end %>
+            </div>
             <div class="user-info">
                 <span class ="user-name"><%= user.name %></span>
                 <span class ="user-major"><%= user.year %><%= user.major %></span>

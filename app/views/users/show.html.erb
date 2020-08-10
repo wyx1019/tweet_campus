@@ -3,6 +3,11 @@
 <h1>Profile</h1>
 
     <div class ="user-info">
+        <div class="user-image">
+            <% if @user.user_image.attached? %>
+                <%= image_tag @user.user_image %>
+            <% end %>
+        </div>
         <h2><%= @user.name %></h2>
         <span><%= @user.email %></span>
         <span><%= @user.year %></span>
