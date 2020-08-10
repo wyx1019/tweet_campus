@@ -15,7 +15,7 @@
                     <%= form_with(model:[@micropost, @comment, @reply], method: :post, local: true) do |f| %>
                     <%= hidden_field_tag :comment_id, @comment.id %>
                         <div class="row ">
-                            <%= f.text_area :content, class: 'form-control', placeholder: "140文字以内にテキストを入力してください", size: "32x2" %>
+                            <%= f.text_area :content, class: 'form-control', value: params[:content], placeholder: "140文字以内にテキストを入力してください", size: "32x2" %>
                             <%= f.submit "返信する", class: "btn btn-sm" %>
                         </div>
                     <% end %>

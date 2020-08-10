@@ -12,6 +12,11 @@
             <%= render 'shared/user_bar', micropost: micropost  %>
             <%= link_to(micropost_path(micropost), class: "post-content") do %>
                 <p><%= micropost.content %></p>
+                <% if micropost.image.attached? %>
+                    <div class="media">
+                        <%= image_tag micropost.image %>
+                    </div>
+                <% end %>
             <% end %>
             <%= render 'shared/post_action_bar', micropost: micropost %>
         </div>
