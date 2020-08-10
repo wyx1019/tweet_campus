@@ -6,9 +6,11 @@
             <%= render 'shared/user_bar', micropost: @micropost %>
             <div class="post-content">
                 <p><%= @micropost.content %></p>
-                <% if @micropost.image.attached? %>
+                <% if @micropost.images.attached? %>
                     <div class="media">
-                        <%= image_tag @micropost.image %>
+                        <% @micropost.images.each do |image| %>
+                            <%= image_tag image %>
+                        <% end %>
                     </div>
                 <% end %>
             </div>

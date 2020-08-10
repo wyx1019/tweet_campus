@@ -6,7 +6,7 @@ class Micropost < ApplicationRecord
   has_many :comments, dependent: :destroy
   # has_many :commented_users, through: :comments, source: :user
 
-  has_one_attached :image
+  has_many_attached :images
 
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 250 }
