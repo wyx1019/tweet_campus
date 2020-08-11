@@ -2,60 +2,93 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+$main-color: rgb(255, 209, 77);
+$sub-color: #333;
+
 body {
-    text-align: center;
-    background-image: url("~bg_dome.jpg");
-    background-attachment: fixed;
-    background-size: cover;
+  text-align: center;
+  background-image: url("~bg_dome.jpg");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 main {
-    margin: 15%;
-    background-color: rgb(255, 209, 77);
-    color: #333;
-    padding: 20px;
+  color: $sub-color;
 }
 
+.wrap {
+  border-radius: 80px;
+  margin: 7% 15%;
+  background-color: rgba(255, 209, 77, 0.9);
+  color: $sub-color;
+  padding: 30px;
+}
+
+// header
+header {
+  background-color: $sub-color;
+  color: $main-color;
+  .logo {
+    height: 50px;
+    width: 50px;
+    h1 {
+      font-size: 16px;
+      color: $main-color;
+      margin: 1% 0 0;
+    }
+  }
+  .nav-link {
+    color: $main-color;
+  }
+}
+
+// home#top
+.mv {
+  border-radius: 200px;
+  margin: 7% 15%;
+  background-color: rgba(255, 209, 77, 0.9);
+  color: $sub-color;
+  padding: 30px;
+}
 
 // form base
 input,
 select {
-    display: block;
-    margin: 0 auto 20px;
+  display: block;
+  margin: 0 auto 20px;
 }
 
 select {
-    padding: 3px 2px 6px;
+  padding: 3px 2px 6px;
 }
 
 .submit {
-    display: block;
-    margin: 20px auto;
+  display: block;
+  margin: 20px auto;
 }
 
 //  error msg
 #error_explanation {
-    color: rgb(206, 49, 49);
-    margin: 35px auto;
-    padding: 8px 20px 8px 0;
-    background-color: lightgoldenrodyellow;
+  color: rgb(206, 49, 49);
+  margin: 35px auto;
+  padding: 8px 20px 8px 0;
+  background-color: lightgoldenrodyellow;
 
-    li {
-        list-style-type: none;
-        margin: 10px;
-    }
+  li {
+    list-style-type: none;
+    margin: 10px;
+  }
 
-    a {
-        display: inline-block;
-        padding: 5px;
-    }
+  a {
+    display: inline-block;
+    padding: 5px;
+  }
 
-    section {
-        margin-top: 60px;
-    }
-
+  section {
+    margin-top: 60px;
+  }
 }

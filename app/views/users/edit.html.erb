@@ -1,8 +1,11 @@
 <% provide(:title, 'プロフィール編集') %>
 <% provide(:button_text, '更新する') %>
-<h1>プロフィール編集</h1>
 
-<div class="form">
-    <%= render 'shared/error_messages', user: @user %>
-    <%= render 'shared/form' %>
+<div class="wrap">
+    <h1>プロフィール編集</h1>
+    
+    <div class="form">
+        <%= render 'shared/error_messages', user: @user %>
+        <%= render 'shared/form' %>
+    </div>
 </div>

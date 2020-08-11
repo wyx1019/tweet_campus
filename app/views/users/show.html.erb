@@ -1,85 +1,88 @@
 <% provide(:title, 'Profile') %>
-<%= link_to "←戻る", 'javascript:history.back()' %>
-<h1>Profile</h1>
-
-    <div class ="user-info">
-        <div class="user-image">
-            <% if @user.user_image.attached? %>
-                <%= image_tag @user.user_image %>
-            <% end %>
-        </div>
-        <h2><%= @user.name %></h2>
-        <span><%= @user.email %></span>
-        <span><%= @user.year %></span>
-        <span><%= @user.major %></span>
-    </div>
-    <div class="profile-actions-wrap">
-        <div class="profile-actions follow-status">
-            <%= link_to( following_user_path) do %>
-                フォロー中<span><%= @user.following.count %></span>
-            <% end %>
-            <%= link_to( followers_user_path) do %>
-                フォロワー<span id = "followers"><%= @user.followers.count %></span>
-            <% end %>
-        </div>
-        <div class="profile-actions follow-actions">
-            <% if @current_user.id != @user.id %>
-                <div id ="follow_form">
-                    <% if @current_user.following?(@user) %>
-                        <%= render "shared/unfollow_btn", user: @user  %>
-                    <% else %>
-                        <%= render "shared/follow_btn", user: @user %>
-                    <% end %>
-                </div>
-        </div>
-            <% else %>
-            <div class="profile-actions account-actions">
-                <%= link_to("編集", edit_user_path(@current_user)) %>
-                <%= link_to("ログアウト", logout_path, method: :post, data: { confirm: "ログアウトしますか？" })%>
-            <% end %>
-                <% if @current_user.admin %>
-                <%= link_to("アカウント削除", user_path, method: :delete, data: { confirm: "アカウントを削除すると、このアカウントの投稿も共に消えますよ！" } )%>
+<div class="wrap">
+    <%= link_to "←戻る", 'javascript:history.back()' %>
+    <h1>Profile</h1>
+    
+        <div class ="user-info">
+            <div class="user-image">
+                <% if @user.user_image.attached? %>
+                    <%= image_tag @user.user_image %>
                 <% end %>
             </div>
+            <h2><%= @user.name %></h2>
+            <span><%= @user.email %></span>
+            <span><%= @user.year %></span>
+            <span><%= @user.major %></span>
         </div>
+        <div class="profile-actions-wrap">
+            <div class="profile-actions follow-status">
+                <%= link_to( following_user_path) do %>
+                    フォロー中<span><%= @user.following.count %></span>
+                <% end %>
+                <%= link_to( followers_user_path) do %>
+                    フォロワー<span id = "followers"><%= @user.followers.count %></span>
+                <% end %>
+            </div>
+            <div class="profile-actions follow-actions">
+                <% if @current_user.id != @user.id %>
+                    <div id ="follow_form">
+                        <% if @current_user.following?(@user) %>
+                            <%= render "shared/unfollow_btn", user: @user  %>
+                        <% else %>
+                            <%= render "shared/follow_btn", user: @user %>
+                        <% end %>
+                    </div>
+            </div>
+                <% else %>
+                <div class="profile-actions account-actions">
+                    <%= link_to("編集", edit_user_path(@current_user)) %>
+                    <%= link_to("ログアウト", logout_path, method: :post, data: { confirm: "ログアウトしますか？" })%>
+                <% end %>
+                    <% if @current_user.admin %>
+                    <%= link_to("アカウント削除", user_path, method: :delete, data: { confirm: "アカウントを削除すると、このアカウントの投稿も共に消えますよ！" } )%>
+                    <% end %>
+                </div>
+            </div>
+    
+    <section>
+    <div class="btn-group">
+        <button class="btn tab active"><h4>投稿一覧</h4></button>
+        <button class="btn tab"><h4>いいね！</h4></button>
+    </div>
+        <div class="tab-pane active">
+                <% if @microposts.any? %>
+                    <% @microposts.each do |micropost| %>
+                        <div class="post">
+                            <div class="post-box">
+                                <%= render 'shared/user_bar', micropost: micropost  %>
+                                <%= link_to(micropost_path(micropost), class: "post-content") do %>
+                                    <p><%= micropost.content %></p>
+                                <% end %>
+                                <%= render 'shared/post_action_bar', micropost: micropost %>
+                            </div>
+                        </div>
+                    <% end %>
+                <% else %>
+                    <p>投稿がありません</p>
+                <% end %>
+        </div>
+        <div class="tab-pane" style="display:none">
+                <% if @liked_posts.any? %>
+                    <% @liked_posts.each do |liked_post| %>
+                        <div class="post">
+                            <div class="post-box">
+                                <%= render 'shared/user_bar', micropost: liked_post  %>
+                                <%= link_to(micropost_path(liked_post), class: "post-content") do %>
+                                    <p><%= liked_post.content %></p>
+                                <% end %>
+                                <%= render 'shared/post_action_bar', micropost: liked_post %>
+                            </div>
+                        </div>
+                    <% end %>
+                <% else %>
+                    <p>「いいね」した投稿がありません</p>
+                <% end %>
+        </div>
+    </section>
 
-<section>
-<div class="btn-group">
-    <button class="btn tab active"><h4>投稿一覧</h4></button>
-    <button class="btn tab"><h4>いいね！</h4></button>
-</div>
-    <div class="tab-pane active">
-            <% if @microposts.any? %>
-                <% @microposts.each do |micropost| %>
-                    <div class="post">
-                        <div class="post-box">
-                            <%= render 'shared/user_bar', micropost: micropost  %>
-                            <%= link_to(micropost_path(micropost), class: "post-content") do %>
-                                <p><%= micropost.content %></p>
-                            <% end %>
-                            <%= render 'shared/post_action_bar', micropost: micropost %>
-                        </div>
-                    </div>
-                <% end %>
-            <% else %>
-                <p>投稿がありません</p>
-            <% end %>
-    </div>
-    <div class="tab-pane" style="display:none">
-            <% if @liked_posts.any? %>
-                <% @liked_posts.each do |liked_post| %>
-                    <div class="post">
-                        <div class="post-box">
-                            <%= render 'shared/user_bar', micropost: liked_post  %>
-                            <%= link_to(micropost_path(liked_post), class: "post-content") do %>
-                                <p><%= liked_post.content %></p>
-                            <% end %>
-                            <%= render 'shared/post_action_bar', micropost: liked_post %>
-                        </div>
-                    </div>
-                <% end %>
-            <% else %>
-                <p>「いいね」した投稿がありません</p>
-            <% end %>
-    </div>
-</section>
+</div> 
