@@ -37,6 +37,10 @@
     }
 }
 
+h4 {
+    font-size: 1rem;
+}
+
 .latest {
     margin-left: 10px;
     margin-top: 5px;
@@ -46,7 +50,7 @@
 
 .comment {
     background-color: #f2f2f2;
-    width: 60%;
+    width: 90%;
     margin: 20px auto;
     padding: 5px;
 
@@ -60,9 +64,10 @@
     margin: 15px auto;
 }
 
-.no-comment {
+.no-content {
     margin: 0;
     text-align: center;
+    color: #337ab7;
 }
 
 .content {

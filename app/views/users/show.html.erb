@@ -1,7 +1,7 @@
 <% provide(:title, 'Profile') %>
 <div class="wrap">
-    <%= link_to "←戻る", 'javascript:history.back()' %>
-    <h1>Profile</h1>
+    <%= link_to "←戻る", 'javascript:history.back()', class: "back text-decoration-none" %>
+    <h3>プロフィール</h3>
     
         <div class ="user-info">
             <div class="user-image">
@@ -63,7 +63,9 @@
                         </div>
                     <% end %>
                 <% else %>
-                    <p>投稿がありません</p>
+                    <div class="post">
+                        <p class="no-content">投稿がありません</p>
+                    </div>
                 <% end %>
         </div>
         <div class="tab-pane" style="display:none">
@@ -80,7 +82,9 @@
                         </div>
                     <% end %>
                 <% else %>
-                    <p>「いいね」した投稿がありません</p>
+                    <div class="post">
+                        <p class="no-content">「いいね」した投稿がありません</p>
+                    </div>
                 <% end %>
         </div>
     </section>

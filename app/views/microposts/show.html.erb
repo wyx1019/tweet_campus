@@ -1,90 +1,92 @@
 <% provide(:title, '投稿内容') %>
-<%= link_to "←戻る", 'javascript:history.back()' %>
-<h3>投稿内容</h3>
-    <div class="post">
-        <div class="post-box">
-            <%= render 'shared/user_bar', micropost: @micropost %>
-            <div class="post-content">
-                <p><%= @micropost.content %></p>
-                <% if @micropost.images.attached? %>
-                    <div class="media">
-                        <% @micropost.images.each do |image| %>
-                            <%= image_tag image %>
-                        <% end %>
+
+<div class="wrap">
+<%= link_to "←戻る", 'javascript:history.back()', class: "back text-decoration-none" %>
+    <h3>投稿内容</h3>
+        <div class="post">
+            <div class="post-box">
+                <%= render 'shared/user_bar', micropost: @micropost %>
+                <div class="post-content">
+                    <p><%= @micropost.content %></p>
+                    <% if @micropost.images.attached? %>
+                        <div class="media">
+                            <% @micropost.images.each do |image| %>
+                                <%= image_tag image %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+                <%= render 'shared/post_action_bar', micropost: @micropost %>
+            </div>
+        </div>
+
+    <section class="comment-wrap">
+        <div class="btn-group">
+            <button class="btn tab active"><h4>コメント</h4></button>
+            <button class="btn tab"><h4>いいね！</h4></button>  
+        </div>
+        
+        <div class="comment tab-pane active">
+            <div class="form form-comment">
+                <%= form_with(model:[@micropost, @comment], method: :post, local: true) do |f| %>
+                    <%= hidden_field_tag :micropost_id, @micropost.id %>
+                    <div class="row">
+                        <%= f.text_area :content, class: 'form-control', placeholder: "140文字以内にテキストを入力してください", size: "32x2" %>
+                        <%= f.submit "投稿する", class: "btn btn-sm" %>
                     </div>
                 <% end %>
             </div>
-            <%= render 'shared/post_action_bar', micropost: @micropost %>
-        </div>
-    </div>
 
-<section class="comment-wrap">
-    <div class="btn-group">
-        <button class="btn tab active"><h4>コメント</h4></button>
-        <button class="btn tab"><h4>いいね！</h4></button>  
-    </div>
-    
-    <div class="comment tab-pane active">
-        <% if @comments.any? %>
-            <% @comments.each do |comment| %>
-                <div class="post">
-                    <div class="post-box">
-                        <%= render 'shared/user_bar', micropost: comment %>
-                        <%= link_to(micropost_comment_path(comment, comment_id: comment.id), class: "post-content") do %>
-                            <p><%= comment.content %></p>
-                        <% end %>
-                        <%= render 'shared/comment_action_bar', comment: comment %>
-                        <% if comment.replies.first.present? %>
-                            <div class="latest">
-                                <h5>最新返信</h5>
-                                <div class="post-box">
-                                    <%= render 'shared/user_bar', micropost: comment.replies.first %>
-                                    <%= link_to(micropost_comment_path(comment, comment_id: comment.id), class: "post-content") do %>
-                                        <p><%= comment.replies.first.content %></p>
-                                    <% end %>
+            <% if @comments.any? %>
+                <% @comments.each do |comment| %>
+                    <div class="post">
+                        <div class="post-box">
+                            <%= render 'shared/user_bar', micropost: comment %>
+                            <%= link_to(micropost_comment_path(comment, comment_id: comment.id), class: "post-content") do %>
+                                <p><%= comment.content %></p>
+                            <% end %>
+                            <%= render 'shared/comment_action_bar', comment: comment %>
+                            <% if comment.replies.first.present? %>
+                                <div class="latest">
+                                    <h5>最新返信</h5>
+                                    <div class="post-box">
+                                        <%= render 'shared/user_bar', micropost: comment.replies.first %>
+                                        <%= link_to(micropost_comment_path(comment, comment_id: comment.id), class: "post-content") do %>
+                                            <p><%= comment.replies.first.content %></p>
+                                        <% end %>
+                                    </div>
                                 </div>
-                            </div>
-                        <% end %>
+                            <% end %>
+                        </div>
                     </div>
+                <% end %>
+            <% else %>
+                <div class ="post">
+                    <p class="no-content">コメントがありません</p>
                 </div>
             <% end %>
-        <% else %>
-            <div class ="post">
-                <p class="no-comment">コメントがありません</p>
-            </div>
-        <% end %>
-    </div>
-
-    <div class="comment tab-pane" style="display:none">
-        <% if @micropost.liked_users.any? %>
-                <% @micropost.liked_users.each do |user| %>
-                    <div class="post">
-                        <%= link_to(user_path(user), class: "user-bar") do %>
-                                <div class="user-image">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="user-info">
-                                    <span class ="user-name"><%= user.name %></span>
-                                    <span class ="user-major"><%= user.year %><%= user.major %></span>
-                                </div>
-                        <% end %>
-                    </div>
-                <% end %>
-        <% else %>
-            <div class ="post">
-                <p class="no-comment">いいねがありません</p>
-            </div>
-        <% end %>
-    </div>
-</section>
-
-
-<div id="form" class="form-comment">
-    <%= form_with(model:[@micropost, @comment], method: :post, local: true) do |f| %>
-        <%= hidden_field_tag :micropost_id, @micropost.id %>
-        <div class="row">
-            <%= f.text_area :content, class: 'form-control', placeholder: "140文字以内にテキストを入力してください", size: "32x2" %>
-            <%= f.submit "投稿する", class: "btn btn-sm" %>
         </div>
-    <% end %>
+    
+        <div class="comment tab-pane" style="display:none">
+            <% if @micropost.liked_users.any? %>
+                    <% @micropost.liked_users.each do |user| %>
+                        <div class="post">
+                            <%= link_to(user_path(user), class: "user-bar") do %>
+                                    <div class="user-image">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="user-info">
+                                        <span class ="user-name"><%= user.name %></span>
+                                        <span class ="user-major"><%= user.year %><%= user.major %></span>
+                                    </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+            <% else %>
+                <div class ="post">
+                    <p class="no-content">いいねがありません</p>
+                </div>
+            <% end %>
+        </div>
+    </section>
 </div>

@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-$main-color: rgb(255, 209, 77);
+$main-color: rgb(230, 180, 45);
 $sub-color: #333;
 
 body {
@@ -22,25 +22,34 @@ main {
 
 .wrap {
   border-radius: 80px;
-  margin: 7% 15%;
+  margin: 7% auto;
   background-color: rgba(255, 209, 77, 0.9);
   color: $sub-color;
-  padding: 30px;
+  padding: 40px;
+  width: 80%;
+  max-width: 550px;
+}
+
+h3 {
+  margin-bottom: 1.5rem;
 }
 
 // header
 header {
   background-color: $sub-color;
   color: $main-color;
+
   .logo {
     height: 50px;
     width: 50px;
+
     h1 {
       font-size: 16px;
       color: $main-color;
       margin: 1% 0 0;
     }
   }
+
   .nav-link {
     color: $main-color;
   }
@@ -49,7 +58,7 @@ header {
 // home#top
 .mv {
   border-radius: 200px;
-  margin: 7% 15%;
+  margin: 7% 30%;
   background-color: rgba(255, 209, 77, 0.9);
   color: $sub-color;
   padding: 30px;
@@ -66,9 +75,84 @@ select {
   padding: 3px 2px 6px;
 }
 
-.submit {
-  display: block;
+input[type="submit"] {
+  display: inline-block;
+  margin: 0;
+  background-color: rgb(233, 160, 64);
+
+  &:hover {
+    background-color: rosybrown;
+    color: #f2f2f2;
+  }
+
+  &:active {
+    background-color: rosybrown;
+    color: #f2f2f2;
+    box-shadow: 1px 1px 2px 0px rosybrown;
+  }
+}
+
+.form {
   margin: 20px auto;
+}
+
+// new post form
+.newpost-area {
+  margin: 20px auto;
+  width: 80%;
+}
+
+// comment form
+.form-comment {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+// reply form
+.form-reply {
+  position: sticky;
+  top: 75px;
+}
+
+.reply-to {
+  cursor: pointer;
+}
+
+// btn
+.btn-group {
+  margin: 20px auto;
+
+  .active {
+    color: rgb(233, 160, 64);
+    background-color: #e4ddd3;
+  }
+
+  .btn {
+    border-radius: 10px;
+    outline: none !important;
+
+    &:hover,
+    &:focus {
+      color: rgb(233, 160, 64);
+      background-color: #e4ddd3;
+    }
+  }
+}
+
+// back btn
+
+.back {
+  background-color: #f2f2f2;
+  color: #337ab7;
+  padding: 20px 10px;
+  border-radius: 60%;
+  display: inline-block;
+  position: fixed;
+  top: 40%;
+  left: 25.5%;
 }
 
 //  error msg

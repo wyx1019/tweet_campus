@@ -1,44 +1,46 @@
 <% provide(:title, 'コメント内容') %>
-<%= link_to "←戻る", 'javascript:history.back()' %>
-<h3>コメント内容</h3>  
-<section class="comment-wrap"> 
-    <div class="comment">
-        <div class="post">
-            <div class="post-box">
-                <%= render 'shared/user_bar', micropost: @comment %>
-                <div class="content post-content"><p><%= @comment.content %></p></div>
-                <%= render 'shared/comment_action_bar', comment: @comment %>
-            </div>
-
-        <%# input form  %>
-            <div id="form" class="form-reply">
-                    <%= form_with(model:[@micropost, @comment, @reply], method: :post, local: true) do |f| %>
-                    <%= hidden_field_tag :comment_id, @comment.id %>
-                        <div class="row ">
-                            <%= f.text_area :content, class: 'form-control', value: params[:content], placeholder: "140文字以内にテキストを入力してください", size: "32x2" %>
-                            <%= f.submit "返信する", class: "btn btn-sm" %>
-                        </div>
-                    <% end %>
-            </div>
-
-        <%# reply list %>
-            <% @replies.each do |reply| %>
-                <div class="replies">
-                    <div class="post">
-                        <div class="post-box">
-                            <%= render 'shared/user_bar', micropost: reply %>
-                            <div class="content post-content"><p><%= reply.content %></p></div>
-                            <div class="action-bar">
-                                <% if @current_user.id == reply.user.id && reply.present? %>
-                                    <%= link_to(micropost_comment_reply_path(reply, comment_id: @comment.id), method: :delete, class: "delete-btn", data: { confirm: "この返信を削除しますか？" }) do %>
-                                        <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
+<div class="wrap">
+    <%= link_to "←戻る", 'javascript:history.back()', class: "back text-decoration-none" %>
+    <h3>コメント内容</h3>  
+    <section class="comment-wrap"> 
+        <div class="comment">
+            <div class="post">
+                <div class="post-box">
+                    <%= render 'shared/user_bar', micropost: @comment %>
+                    <div class="content post-content"><p><%= @comment.content %></p></div>
+                    <%= render 'shared/comment_action_bar', comment: @comment %>
+                </div>
+    
+            <%# input form  %>
+                <div class="form-reply">
+                        <%= form_with(model:[@micropost, @comment, @reply], method: :post, local: true) do |f| %>
+                        <%= hidden_field_tag :comment_id, @comment.id %>
+                            <div class="row ">
+                                <%= f.text_area :content, class: 'form-control', value: params[:content], placeholder: "140文字以内にテキストを入力してください", size: "32x2" %>
+                                <%= f.submit "返信する", class: "btn btn-sm" %>
+                            </div>
+                        <% end %>
+                </div>
+    
+            <%# reply list %>
+                <% @replies.each do |reply| %>
+                    <div class="replies">
+                        <div class="post">
+                            <div class="post-box">
+                                <%= render 'shared/user_bar', micropost: reply %>
+                                <div class="content post-content"><p><%= reply.content %></p></div>
+                                <div class="action-bar">
+                                    <% if @current_user.id == reply.user.id && reply.present? %>
+                                        <%= link_to(micropost_comment_reply_path(reply, comment_id: @comment.id), method: :delete, class: "delete-btn", data: { confirm: "この返信を削除しますか？" }) do %>
+                                            <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
+                                        <% end %>
                                     <% end %>
-                                <% end %>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <% end %>
+                <% end %>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>

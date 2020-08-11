@@ -1,35 +1,37 @@
 <% provide(:title, '投稿一覧') %>
-<h2>投稿一覧</h2>
-<%= form_with(url: search_microposts_path, local: true, method: :get, class: "form form-search") do |f| %>
-  <%= f.select :year, [['----- 全て -----', '0'],['2020年9月', '2020-9-1'], ['2020年8月', '2020-8-1'], ['2020年7月', '2020-7-1']], 
-                        { include_blank: false, selected: params[:year]}, {class: "form-select"} %>  
-  <%= f.submit "検索", class: "btn btn-sm search-btn" %>
-<% end %>
-
-<% @microposts.each do |micropost| %>
-    <div class="post">
-        <div class="post-box">
-            <%= render 'shared/user_bar', micropost: micropost  %>
-            <%= link_to(micropost_path(micropost), class: "post-content") do %>
-                <p><%= micropost.content %></p>
-                <% if micropost.images.attached? %>
-                    <div class="media">
-                        <% micropost.images.each do |image| %>
-                            <%= image_tag image %>
-                        <% end %>
-                    </div>
+<div class="wrap">
+    <h2>投稿一覧</h2>
+    <%= form_with(url: search_microposts_path, local: true, method: :get, class: "form form-search") do |f| %>
+      <%= f.select :year, [['----- 全て -----', '0'],['2020年9月', '2020-9-1'], ['2020年8月', '2020-8-1'], ['2020年7月', '2020-7-1']], 
+                            { include_blank: false, selected: params[:year]}, {class: "form-select"} %>  
+      <%= f.submit "検索", class: "btn btn-sm search-btn submit" %>
+    <% end %>
+    
+    <% @microposts.each do |micropost| %>
+        <div class="post">
+            <div class="post-box">
+                <%= render 'shared/user_bar', micropost: micropost  %>
+                <%= link_to(micropost_path(micropost), class: "post-content") do %>
+                    <p><%= micropost.content %></p>
+                    <% if micropost.images.attached? %>
+                        <div class="media">
+                            <% micropost.images.each do |image| %>
+                                <%= image_tag image %>
+                            <% end %>
+                        </div>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <%= render 'shared/post_action_bar', micropost: micropost %>
-        </div>
-        <% if micropost.comments.first.present? %>
-            <div class="latest">
-              <h5>最新コメント</h5>
-              <%= render 'shared/user_bar', micropost: micropost.comments.first %>
-              <%= link_to(micropost_path(micropost), class: "post-content") do %>
-                  <p><%= micropost.comments.first.content %></p>
-              <% end %>
+                <%= render 'shared/post_action_bar', micropost: micropost %>
             </div>
-        <% end %>
-    </div>
-<% end %>
+            <% if micropost.comments.first.present? %>
+                <div class="latest">
+                  <h5>最新コメント</h5>
+                  <%= render 'shared/user_bar', micropost: micropost.comments.first %>
+                  <%= link_to(micropost_path(micropost), class: "post-content") do %>
+                      <d><%= micropost.comments.first.content %></p>
+                  <% end %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>
