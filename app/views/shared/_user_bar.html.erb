@@ -9,10 +9,7 @@
                           <span class ="user-major"><%= micropost.user.year %><%= micropost.user.major %></span>
                       </div>
                       <div class ="time">
-                          <% if micropost.created_at != micropost.updated_at %>
-                            <span>edited</span>
-                          <% end %>
-                          <%= time_ago_in_words(micropost.updated_at) %> 
-                          <span> ago</span>
+                          <%= time_ago_in_words(micropost.updated_at)%><span>前に</span><% if micropost.created_at != micropost.updated_at %><span>編集された</span>
+                          <% else %><span>作成された</span><% end %>
                       </div>
                   <% end %>

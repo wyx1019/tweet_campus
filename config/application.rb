@@ -14,6 +14,8 @@ module CampusTweets
     config.i18n.default_locale = :ja
     config.time_zone = "Tokyo"
     config.active_record.default_timezone = :local
+    # Zeitwerk $LOAD_PATHにPathを追加しない(Zeitwerk有効時false推奨)
+    config.add_autoload_paths_to_load_path = false
 
     config.generators do |g|
       g.test_framework  false
