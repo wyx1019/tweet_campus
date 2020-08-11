@@ -1,0 +1,20 @@
+// btn
+.btn-group {
+    margin: 20px auto;
+
+    .active {
+        color: rosybrown;
+        background-color: #e4d3d3;
+    }
+
+    .btn {
+        border-radius: 10px;
+        outline: none !important;
+
+        &:hover,
+        &:focus {
+            color: rosybrown;
+            background-color: #e4d3d3;
+        }
+    }
+}
