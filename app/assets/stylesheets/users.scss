@@ -2,21 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-input,
-select {
-  display: block;
-  margin: 0 auto 20px;
-}
 
-select {
-  padding: 3px 2px 6px;
-}
-
-.submit {
-  display: block;
-  margin: 20px auto;
-}
-
+//  user-profile
 .user-info span {
   display: block;
 }
@@ -55,6 +42,7 @@ select {
   margin: 5px auto;
 }
 
-.form {
-  margin: 20px auto;
+// login btn
+input[type="submit"] {
+  margin-bottom: 20px;
 }

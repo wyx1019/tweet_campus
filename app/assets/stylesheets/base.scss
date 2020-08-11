@@ -24,6 +24,23 @@ main {
   color: rosybrown;
 }
 
+// form base
+input,
+select {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+select {
+  padding: 3px 2px 6px;
+}
+
+.submit {
+  display: block;
+  margin: 20px auto;
+}
+
+
 .debug_dump {
   clear: both;
   float: left;
@@ -32,6 +49,8 @@ main {
   @include box_sizing;
 }
 
+
+//  error msg
 #error_explanation {
   color: rgb(206, 49, 49);
   margin: 35px auto;
