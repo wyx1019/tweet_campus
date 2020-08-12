@@ -2,7 +2,7 @@
                     <% if micropost.images.attached? %>
                         <div class="media">
                             <% micropost.images.each do |image| %>
-                                <%= image_tag image.variant(resize_to_fit: [300, 200]) %>
+                                <%= image_tag image %>
                             <% end %>
                         </div>
                     <% end %>
