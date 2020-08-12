@@ -54,7 +54,7 @@
                             <div class="post-box">
                                 <%= render 'shared/user_bar', micropost: micropost  %>
                                 <%= link_to(micropost_path(micropost), class: "post-content") do %>
-                                    <p><%= micropost.content %></p>
+                                    <%= render 'shared/post_content', micropost: micropost %>
                                 <% end %>
                                 <%= render 'shared/post_action_bar', micropost: micropost %>
                             </div>
@@ -73,7 +73,7 @@
                             <div class="post-box">
                                 <%= render 'shared/user_bar', micropost: liked_post  %>
                                 <%= link_to(micropost_path(liked_post), class: "post-content") do %>
-                                    <p><%= liked_post.content %></p>
+                                    <%= render 'shared/post_content', micropost: liked_post %>
                                 <% end %>
                                 <%= render 'shared/post_action_bar', micropost: liked_post %>
                             </div>

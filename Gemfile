@@ -26,17 +26,16 @@ gem 'turbolinks', '~> 5'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Use Active Storage variant
-gem 'image_processing', '~> 1.2'
-gem "aws-sdk-s3", require: false
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# Use Active Storage variant
+gem 'image_processing', '~> 1.2'
+gem "aws-sdk-s3", require: false
 gem 'mini_magick',                '4.9.5'
 gem 'active_storage_validations', '0.8.9'
-gem 'faker',                      '2.11.0'
-gem 'will_paginate',              '3.3.0'
+# gem 'faker',                      '2.11.0'
+# gem 'will_paginate',              '3.3.0'
 
 # language --> Japanese
 gem 'rails-i18n', '~> 6.0.0'

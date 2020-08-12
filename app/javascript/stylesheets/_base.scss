@@ -37,23 +37,55 @@ h3 {
 // header
 header {
   background-color: $sub-color;
-  color: $main-color;
-  position: fixed;
-  top: 0;
 
   .logo {
     height: 50px;
     width: 50px;
 
+    .logo-image {
+      display: block;
+      margin-top: -2%;
+    }
+
     h1 {
       font-size: 16px;
       color: $main-color;
-      margin: 1% 0 0;
+      margin: 5% 0 0;
     }
+  }
+
+  button {
+    z-index: 999;
+
+    span {
+      width: 34px;
+      height: 3.5px;
+      background-color: $main-color;
+      display: block;
+      margin-bottom: 7.5px;
+    }
+  }
+
+  .dropdown-menu {
+    background-color: #3c3c3c;
+    border: none;
+    // width: 60%;
+    margin: 0;
+  }
+
+  .dropdown-item {
+    color: $main-color;
+    text-align: center;
+    font-weight: bold;
   }
 
   .nav-link {
     color: $main-color;
+
+    &:hover {
+      background-color: #f8f9fa;
+      color: #333 !important;
+    }
   }
 }
 
@@ -133,7 +165,6 @@ input[type="submit"] {
   background-color: #e4ddd3 !important;
   color: rgb(233, 160, 64) !important;
 }
-
 
 .form {
   margin: 20px auto;

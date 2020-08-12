@@ -15,23 +15,24 @@
 
   <body>
 
-  <header class="navbar navbar-expand-sm font-weight-bold">
-  <div class="container">
-  <div class="logo">
-      <%= link_to root_path, class:"text-decoration-none d-flex" do %>
-        <%= image_tag  "logo.png" %>
-        <h1 class="font-weight-bold">スポフェスCampusTweet</h1>
-      <% end %>
-  </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon bg-light"></span>
-  </button>
-    <nav>
-      <ul id="navbarNav" class="nav justify-content-end collapse navbar-collapse">
+  <header class="navbar navbar-expand-md font-weight-bold fixed-top">
+    <div class="logo navbar-brand">
+        <%= link_to root_path, class:"text-decoration-none d-flex" do %>
+          <%= image_tag  "logo.png", class: "logo-image" %>
+          <h1 class="font-weight-bold">スポフェス<br>CampusTweet</h1>
+        <% end %>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav id="navbarNav" class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
         <% if @current_user %>
           <li class="nav-item"><%= link_to "投稿する", new_micropost_path, class: "nav-link text-decoration-none" %></li>
-          <li class="nav-item"><%= link_to "競技トピックス一覧", microposts_path, class: "nav-link text-decoration-none" %></li>
-          <li class="nav-item"><%= link_to "ユーザーを探す", users_path, class: "nav-link text-decoration-none" %></li>
+          <li class="nav-item"><%= link_to "投稿一覧", microposts_path, class: "nav-link text-decoration-none" %></li>
+          <li class="nav-item"><%= link_to "友達を探す", users_path, class: "nav-link text-decoration-none" %></li>
         <% else %>
           <li class="nav-item"><%= link_to "ホーム",  root_path, class: "nav-link text-decoration-none" %></li>
           <li class="nav-item"><%= link_to "ログイン", login_path, class: "nav-link text-decoration-none" %></li>
@@ -40,10 +41,10 @@
           <a href="#" class=" nav-link text-decoration-none dropdown-toggle" data-toggle="dropdown">
               スポフェス情報 <b class="caret"></b>
           </a>
-          <div class="dropdown-menu">
-            <%= link_to "スゲジュール", "#", class: "nav-link text-decoration-none dropdown-item" %>
-            <%= link_to "Q&A",  about_path, class: "nav-link text-decoration-none dropdown-item" %>
-            <%= link_to "アクセス", '#', class: "nav-link text-decoration-none dropdown-item"%>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "スゲジュール", "#", class: "nav-item text-decoration-none dropdown-item dropdown-info" %>
+            <%= link_to "Q&A",  about_path, class: "nav-item text-decoration-none dropdown-item dropdown-info" %>
+            <%= link_to "アクセス", '#', class: "nav-item text-decoration-none dropdown-item dropdown-info"%>
           </div>
         </li>
         <% if @current_user %>
@@ -51,7 +52,6 @@
         <% end %>
       </ul>
     </nav>
-  </div>
   </header>
   <main>
     <% flash.each do |message_type, message| %>
