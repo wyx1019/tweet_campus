@@ -28,7 +28,7 @@
                   <h5>最新コメント</h5>
                   <%= render 'shared/user_bar', micropost: micropost.comments.first %>
                   <%= link_to(micropost_path(micropost), class: "post-content") do %>
-                      <d><%= micropost.comments.first.content %></p>
+                      <%= micropost.comments.first.content %></p>
                   <% end %>
                 </div>
             <% end %>

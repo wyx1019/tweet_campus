@@ -38,6 +38,8 @@ h3 {
 header {
   background-color: $sub-color;
   color: $main-color;
+  position: fixed;
+  top: 0;
 
   .logo {
     height: 50px;
@@ -92,35 +94,6 @@ input[type="submit"] {
   }
 }
 
-.form {
-  margin: 20px auto;
-}
-
-// new post form
-.newpost-area {
-  margin: 20px auto;
-  width: 80%;
-}
-
-// comment form
-.form-comment {
-  position: fixed;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-}
-
-// reply form
-.form-reply {
-  position: sticky;
-  top: 75px;
-}
-
-.reply-to {
-  cursor: pointer;
-}
-
 // btn
 .btn-group {
   margin: 20px auto;
@@ -153,6 +126,42 @@ input[type="submit"] {
   position: fixed;
   top: 40%;
   left: 25.5%;
+}
+
+// follow中btn
+.following {
+  background-color: #e4ddd3 !important;
+  color: rgb(233, 160, 64) !important;
+}
+
+
+.form {
+  margin: 20px auto;
+}
+
+// new post form
+.newpost-area {
+  margin: 20px auto;
+  width: 80%;
+}
+
+// comment form
+.form-comment {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+// reply form
+.form-reply {
+  position: sticky;
+  top: 75px;
+}
+
+.reply-to {
+  cursor: pointer;
 }
 
 //  error msg
