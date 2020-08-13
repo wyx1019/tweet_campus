@@ -54,6 +54,10 @@ header {
     }
   }
 
+  .navbar-brand {
+    margin-right: 6rem;
+  }
+
   button {
     z-index: 999;
 
@@ -158,6 +162,7 @@ input[type="submit"] {
   position: fixed;
   top: 40%;
   left: 25.5%;
+  z-index: 888;
 }
 
 // follow中btn
