@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
     $(".tab").click(function () {
         if (!$(this).hasClass("active")) {
             $(".tab").removeClass("active");

@@ -34,6 +34,7 @@ gem 'image_processing', '~> 1.2'
 gem "aws-sdk-s3", require: false
 gem 'mini_magick',                '4.9.5'
 gem 'active_storage_validations', '0.8.9'
+gem 'rmagick', '4.1.2'
 # gem 'faker',                      '2.11.0'
 # gem 'will_paginate',              '3.3.0'
 
