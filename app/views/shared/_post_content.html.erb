@@ -1,8 +1,20 @@
-                    <p><%= micropost.content %></p>
+                    <%= micropost.content %></p>
                     <% if micropost.images.attached? %>
-                        <div class="media">
-                            <% micropost.images.each do |image| %>
-                                <%= image_tag image.variant(resize_to_fit: [300, 200]) %>
-                            <% end %>
-                        </div>
+                        <% if micropost.images.count < 4 %>
+                                <div class="media">
+                                    <% micropost.images.each do |image| %>
+                                        <% if micropost.images.count > 1 %>
+                                            <div class="post-media"><%= image_tag image.variant(resize_to_fill: [200, 200]) %></div>
+                                        <% else %>
+                                            <div class="post-media"><%= image_tag image.variant(resize_to_fill: [300, 200]) %></div>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                        <% else %>
+                                <div class="media media-wrap">
+                                    <% micropost.images.each do |image| %>
+                                        <div class="post-media"><%= image_tag image.variant(resize_to_fill: [200, 200]) %></div>
+                                    <% end %>
+                                </div>
+                        <% end %>
                     <% end %>

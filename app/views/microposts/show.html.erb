@@ -7,7 +7,12 @@
             <div class="post-box">
                 <%= render 'shared/user_bar', micropost: @micropost %>
                 <div class="post-content">
-                    <%= render 'shared/post_content', micropost: @micropost %>
+                    <p><%= @micropost.content %></p>
+                    <% if @micropost.images.attached? %>
+                            <% @micropost.images.each do |image| %>
+                                <div class="post-media"><%= image_tag image %></div>
+                            <% end %>
+                    <% end %>
                 </div>
                 <%= render 'shared/post_action_bar', micropost: @micropost %>
             </div>

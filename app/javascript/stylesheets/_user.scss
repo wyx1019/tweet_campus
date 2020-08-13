@@ -1,50 +1,53 @@
 //  user-profile
 
 .user-info {
-    margin-bottom: 20px;
+  margin: 20px;
 
-    span {
-        display: block;
-    }
+  span {
+    display: block;
+  }
 }
 
-
 .user-list {
-    width: 40%;
-    margin: 20px auto;
+  width: 40%;
+  margin: 20px auto;
 
-    .card {
-        display: block;
-        margin: 20px auto;
-    }
+  .card {
+    display: block;
+    margin: 20px auto;
+  }
 }
 
 .profile-actions-wrap {
-    margin: 20px auto 40px;
+  margin: 20px auto 40px;
 
-    .profile-actions {
-        margin: 10px;
+  .profile-actions {
+    margin: 10px;
 
-        a {
-            display: inline-block;
-            margin: 0 5px;
-        }
-
-        span {
-            color: #337ab7;
-        }
+    a {
+      display: inline-block;
+      margin: 0 5px;
     }
+
+    span {
+      color: #337ab7;
+    }
+  }
 }
 
 .user-image {
-    background-color: #ccc;
-    width: 100px;
-    height: 100px;
-    margin: 5px auto;
+  background-color: #ccc;
+  width: 100px;
+  height: 100px;
+  margin: 5px auto;
+  border-radius: 50%;
+
+  img {
     border-radius: 50%;
+  }
 }
 
 // login btn
 input[type="submit"] {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }

@@ -10,11 +10,11 @@
         grid-template-columns: 1fr 4fr 1fr;
 
         span {
-            font-size: 11px;
+            font-size: 12px;
         }
 
         .user-name {
-            font-size: 16px;
+            font-size: 20px;
         }
     }
 
@@ -29,11 +29,14 @@
 
     a {
         display: inline-block;
+        width: 100%;
     }
 
     .action-bar {
         margin-right: 5px;
         text-align: right;
+        display: flex;
+        justify-content: flex-end;
     }
 }
 
@@ -61,8 +64,23 @@ h4 {
 }
 
 .media {
-    margin: 15px auto;
+    display: flex;
 }
+
+.media-wrap {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.post-media {
+    margin: 15px auto;
+
+    img {
+        background-color: #ccc
+    }
+}
+
+
 
 .no-content {
     margin: 0;

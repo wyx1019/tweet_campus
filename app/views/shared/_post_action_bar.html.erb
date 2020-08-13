@@ -1,7 +1,9 @@
             <div class="action-bar">
-                    <%= link_to(micropost_path(micropost), class: "comment-btn") do %>
-                      <span class="fa fa-commenting comment-btn" aria-hidden="true">   <%= micropost.comments.count %></span>
-                    <% end %>
+                    <div class="comment-btn">
+                      <%= link_to(micropost_path(micropost)) do %>
+                        <span class="fa fa-commenting comment-btn" aria-hidden="true">   <%= micropost.comments.count %></span>
+                      <% end %>
+                    </div>
 
                     <div id="like_btn_<%= micropost.id %>" class="like-btn">
                         <% if @current_user.like?(micropost)  %>
@@ -12,11 +14,15 @@
                     </div>
 
                     <% if @current_user.id == micropost.user.id && @micropost.present? %>
-                        <%= link_to(edit_micropost_path(micropost), class: "delete-btn") do %>
-                          <span class="fa fa-edit edit-btn"></span>
-                        <% end %>
-                        <%= link_to(micropost_path, method: :delete, class: "delete-btn", data: { confirm: "この投稿を削除しますか？" }) do %>
-                          <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
-                        <% end %>
+                        <div class="delete-btn">
+                          <%= link_to(edit_micropost_path(micropost)) do %>
+                            <span class="fa fa-edit edit-btn"></span>
+                          <% end %>
+                        </div>
+                        <div class="delte-btn">
+                          <%= link_to(micropost_path, method: :delete, data: { confirm: "この投稿を削除しますか？" }) do %>
+                            <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
+                          <% end %>
+                        </div>
                     <% end %>
             </div>

@@ -1,7 +1,7 @@
                   <%= link_to(user_path(micropost.user), class: "user-bar") do %>
                       <div class="user-image">
                         <% if micropost.user.user_image.attached? %>
-                          <%= image_tag micropost.user.user_image %>
+                          <%= image_tag micropost.user.user_image.variant(resize_to_fill: [150,150]) %>
                         <% end %>
                       </div>
                       <div class="user-info">
@@ -9,7 +9,7 @@
                           <span class ="user-major"><%= micropost.user.year %><%= micropost.user.major %></span>
                       </div>
                       <div class ="time">
-                          <%= time_ago_in_words(micropost.updated_at)%><span>前に</span><% if micropost.created_at != micropost.updated_at %><span>編集された</span>
+                          <span><%= time_ago_in_words(micropost.updated_at)%></span><span>前に</span><% if micropost.created_at != micropost.updated_at %><span>編集された</span>
                           <% else %><span>作成された</span><% end %>
                       </div>
                   <% end %>
