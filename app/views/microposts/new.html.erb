@@ -3,6 +3,7 @@
 <div class="wrap">
     <h2>投稿する</h2>
     <div id="form" class="form-newpost">
+        <%= render 'shared/error_messages', user: @micropost %>
         <%= render 'shared/newpost' %>
     </div>
 </div>

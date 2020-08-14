@@ -16,8 +16,6 @@ class CommentsController < ApplicationController
         if @comment.save
             flash[:success] = "コメントを投稿しました"
             redirect_back(fallback_location: root_path)
-            # redirect_to micropost_comment_path(@comment)
-            # redirect_to micropost_path(@micropost)
         else
             flash[:danger] = "コメントを失敗しました"
             redirect_back(fallback_location: root_path)

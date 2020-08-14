@@ -1,7 +1,8 @@
 <% provide(:title, '編集する') %>
 
 <div class="wrap">
+<%= link_to "←戻る", 'javascript:history.back()', class: "back text-decoration-none" %>
     <h2>編集する</h2>
-    
+        <%= render 'shared/error_messages', user: @micropost %>
         <%= render 'shared/newpost' %>
 </div>

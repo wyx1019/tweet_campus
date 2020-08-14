@@ -2,12 +2,21 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      micropost: 投稿
+      comment: コメント
+      reply: 返信
     attributes:
       user:
         email: メールアドレス
         password: パスワード
         major: 学科
         name: 名前
+      micropost:
+        content: 内容
+      comment:
+        content: 内容
+      reply:
+        content: 内容
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
