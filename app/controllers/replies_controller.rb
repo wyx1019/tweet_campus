@@ -4,9 +4,9 @@ class RepliesController < ApplicationController
         @reply.comment_id = params[:comment_id]
         @comment = Comment.find(params[:comment_id])
         if @reply.save
-            flash[:success] = "コメントを投稿しました"
+            flash[:success] = "返信を投稿しました"
         else
-            flash[:danger] = "コメントを失敗しました"
+            flash[:danger] = "返信を失敗しました"
         end
         redirect_back(fallback_location: root_path)
     end
