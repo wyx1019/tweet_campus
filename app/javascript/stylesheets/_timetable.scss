@@ -1,0 +1,200 @@
+caption {
+    color: black;
+    border: black 2px solid;
+    border-bottom: none;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 10px 4px;
+    margin-top: 30px;
+}
+
+caption h3 {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#table03 {
+    table-layout: auto;
+    width: 100%;
+    border: black 2px solid;
+    border-collapse: collapse;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto 15px;
+    background-color: #eee;
+}
+
+#table03 span {
+    margin: 0;
+    padding: 0;
+}
+
+
+#table03 tr td:first-child {
+    max-width: 60px;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+#table03 thead tr:first-child th {
+    border-bottom: black solid 2px;
+}
+
+.table3 .caption {
+    text-align: right;
+    font-size: 0.8rem;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 900;
+}
+
+#table03 td,
+#table03 th {
+    height: 30px;
+    padding: 10px 0;
+}
+
+section {
+    margin: 10px;
+}
+
+.table01,
+.table02 {
+    max-width: 600px;
+    padding: 40px 15px;
+    color: black;
+    border-radius: .3rem;
+}
+
+/* ====================色別入場時刻========================= */
+.wrap01,
+.wrap02 {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-gap: 10px;
+}
+
+.table01 ul,
+.table02 ul {
+    list-style-type: none;
+    border-left: black solid 2px;
+    margin: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    text-indent: 21%;
+    font-size: 0.9rem;
+    position: relative;
+    text-align: left;
+}
+
+.table01 ul li,
+.table02 ul li {
+    margin: 2%;
+    margin-top: 0;
+}
+
+.time-table {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 auto;
+    color: black;
+    padding-top: .25rem;
+}
+
+.color {
+    font-size: 1rem;
+    font-weight: 700;
+    color: black;
+    text-indent: 2%;
+}
+
+.table01 .color::before,
+.table02 ul li:first-child::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: black
+}
+
+.yellow_ch {
+    padding: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: rgb(240, 240, 50);
+}
+
+.orange_ch {
+    @extend .yellow_ch;
+    background-color: rgb(252, 174, 29);
+}
+
+.blue_ch {
+    @extend .yellow_ch;
+    background-color: rgb(112, 175, 226);
+}
+
+.red_ch {
+    @extend .yellow_ch;
+    background-color: rgb(206, 72, 72);
+}
+
+.white_ch {
+    @extend .yellow_ch;
+    background-color: rgb(240, 239, 239);
+}
+
+.pink_ch {
+    @extend .yellow_ch;
+    background-color: rgb(236, 136, 153);
+}
+
+.green_ch {
+    @extend .yellow_ch;
+    background-color: rgb(97, 206, 97);
+}
+
+.purple_ch {
+    @extend .yellow_ch;
+    background-color: rgb(206, 94, 206);
+}
+
+/* ====================競技の流れ========================= */
+.title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+}
+
+.wrap02 ul {
+    text-indent: 0%;
+    padding: 15px;
+}
+
+.table02 ul {
+    font-size: 0.8rem;
+}
+
+.star {
+    color: black;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.minor {
+    color: black;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
