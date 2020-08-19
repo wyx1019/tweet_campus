@@ -25,8 +25,3 @@ $(document).on("turbolinks:load", function () {
 //         opacity: 0.7
 //     });
 // });
-
-// var scroll = new SmoothScroll('a[href*="#"]', {
-//   header: "#header",
-//   speed: 500,
-// });

@@ -1,5 +1,5 @@
 $(document).on("turbolinks:load", function(){
-  $('a[href*="#"]').click(function(){
+  $('a[href*="#introduction"]').click(function(){
     var adjust = 0;
     var speed = 700;
     var href= $(this).attr("href");
