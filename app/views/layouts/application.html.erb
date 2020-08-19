@@ -7,9 +7,12 @@
     <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all','data-turbolinks-track': 'reload' %>
+
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <title><%= full_title(yield(:title)) %></title>
   </head>
 
@@ -43,12 +46,12 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "スゲジュール", schedule_path, class: "nav-item text-decoration-none dropdown-item dropdown-info" %>
-            <%= link_to "Q&A",  about_path, class: "nav-item text-decoration-none dropdown-item dropdown-info" %>
-            <%= link_to "アクセス", '#', class: "nav-item text-decoration-none dropdown-item dropdown-info"%>
+            <%= link_to "会場案内", '#', class: "nav-item text-decoration-none dropdown-item dropdown-info"%>
+            <%= link_to "FAQ",  about_path, class: "nav-item text-decoration-none dropdown-item dropdown-info" %>
           </div>
         </li>
         <% if @current_user %>
-          <li class="nav-item"><%= link_to "プロフィール",  user_path(@current_user), class: "nav-link text-decoration-none" %></li>
+          <li class="nav-item"><%= link_to "MYプロフィール",  user_path(@current_user), class: "nav-link text-decoration-none" %></li>
         <% end %>
       </ul>
     </nav>

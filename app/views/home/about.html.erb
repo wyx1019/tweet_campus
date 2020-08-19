@@ -1,3 +1,21 @@
-<% provide(:title, "Q&A") %>
-<h1>Q&A</h1>
-<p>this is the start of your new life </p>
+<%= javascript_pack_tag 'accordion', 'data-turbolinks-track': 'reload' %>
+<% provide(:title, "FAQ") %>
+<div class="wrap">
+        <h3>よくある質問</h3>
+                    <div class="card-question">
+                        <p class="question">コスプレ、着ぐるみなども入場できますか？</p>
+                        <p class="ans"> コスプレ、着ぐるみに関しては、一般常識に反するものや、競技特性を考慮した上で、実行委員が危険と判断した場合は、着替えを指示します。</p>
+                    </div>
+                    <div class="card-question">
+                        <p class="question"> 当日の昼飯はどうしますか？</p>
+                        <p class="ans"> 昼食時間は特に定めません。出場競技の合間に各自とるようにして下さい。フェスティバル実施中、一時外出は許可しませんので、事前にお弁当などを準備してください。</p>
+                    </div>
+                    <div class="card-question">
+                        <p class="question"> ロッカーありますか？</p>
+                        <p class="ans"> ロッカーが有料で少しだけありますので、貴重品は、原則的に持ち込まないでください。競技参加時は、クラスの友人に預けるなどして、各自管理徹底をお願いします。 盗難にはいっさいの責任を負いかねます。</p>
+                    </div>
+                    <div class="card-question">
+                        <p class="question"> 運動用具の持ち込みはできますか？</p>
+                        <p class="ans"> 運動用具の持ち込みは禁止しています。野球用バット、ボール、グローブ、サッカーボール、バレーボールなどの運動用具は一切不要です。</p>
+                    </div>
+</div>

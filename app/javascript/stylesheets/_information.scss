@@ -1,0 +1,46 @@
+@import "_timetable";
+
+// FAQ
+.card-question {
+    background-color: white;
+    margin: 5% auto;
+    padding: 4% 10% 1% 5%;
+    border-radius: 30px;
+    font-weight: 700;
+}
+
+.card-question:hover {
+    cursor: pointer;
+}
+
+.question {
+    position: relative;
+    text-align: left;
+}
+
+.question::after {
+    content: "";
+    background: url(https://www.consorte.jp/exam_lp/images/index_ic07.png) no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 8px;
+    position: absolute;
+    top: 50%;
+    right: -6%;
+    transform: rotate(0deg), translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.ans-open::after {
+    transform: rotate(180deg);
+    transition: all 0.3s ease;
+}
+
+.ans {
+    background-color: #f0f0f0;
+    padding: 6% 7%;
+    margin: 5% -5% 7% 0;
+    display: none;
+    font-weight: normal;
+    text-align: left;
+}

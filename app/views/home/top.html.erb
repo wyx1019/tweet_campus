@@ -1,8 +1,31 @@
-<div class="mv">
-    <h1>
-        <%= image_tag  "title.png" %>
-    </h1>
-    
-    <p>The time is now: <%= Time.now %> </p>
+<%= javascript_pack_tag 'smoothscroll', 'data-turbolinks-track': 'reload' %>
+<% provide(:title, "HOME") %> 
+<div class="mv-wrap">
+    <div class="mv">
+        <h1>
+            <%= image_tag  "title.png" %>
+        </h1>
+        <p class="countdown">開催日まで、あと<br><span>224</span>日</p>
+    </div>
+    <a href="#introduction" class="jump"><span class="fa fa-3x fa-angle-double-down"></span></a>
+</div>
 
+<div data-scroll id="introduction" class="introduction">
+    <div class="text-box">
+        <p>
+        今年のキャッチコピーは<br>
+        楽しさの限界へ
+        </p>
+        <p>
+        一年一回の行事<br>
+        全校生徒が同じ場所に集まる唯一のチャンス<br>
+        他学科の友達が増えるかも！
+        </p>
+        <p>
+        CampusTweetを使って<br>
+        校内の先輩、後輩とつなぐ<br>
+        スポフェスの歴史、未来とつなぐ
+        </p>
+        <a href="https://www.youtube.com/embed/uQf8w-j1z9I?rel=0&vq=hd720" class="movie">Digest Movie >></a>
+    </div>
 </div>

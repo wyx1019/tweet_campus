@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   get "about"=>"home#about"
   get "schedule"=>"home#schedule"
+  get "access"=>"home#access"
   root 'home#top'
   
 end

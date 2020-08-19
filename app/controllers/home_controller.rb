@@ -6,4 +6,7 @@ class HomeController < ApplicationController
   def schedule
     
   end
+  def access
+    
+  end
 end

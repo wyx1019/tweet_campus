@@ -7,7 +7,11 @@ $sub-color: #333;
 
 body {
   text-align: center;
-  background-image: url("~bg_dome.jpg");
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: url("~bg_dome") center center no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -17,6 +21,9 @@ img {
 }
 
 main {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   color: $sub-color;
 }
 
@@ -73,13 +80,13 @@ header {
   .dropdown-menu {
     background-color: #3c3c3c;
     border: none;
-    // width: 60%;
+    min-width: 0rem;
     margin: 0;
   }
 
   .dropdown-item {
     color: $main-color;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
   }
 
@@ -94,12 +101,63 @@ header {
 }
 
 // home#top
-.mv {
-  border-radius: 200px;
-  margin: 7% 30%;
-  background-color: rgba(255, 209, 77, 0.9);
-  color: $sub-color;
-  padding: 30px;
+.mv-wrap {
+  height: 100vh;
+
+  .jump {
+    display: block;
+    width: 70px;
+    margin: -7% auto 0;
+    background-color: rgba(255, 209, 77, 0.9);
+    padding: 1%;
+    border-radius: 40px;
+
+    .fa-angle-double-down {
+      color: #fff;
+    }
+  }
+
+  .mv {
+    border-radius: 200px;
+    margin: 10% 30%;
+    background-color: rgba(255, 209, 77, 0.9);
+    color: $sub-color;
+    padding: 30px;
+
+    .countdown {
+      font-weight: 700;
+      color: #383737;
+      margin: 20px 0 0;
+      font-size: 20px;
+
+      span {
+        font-size: 36px;
+        background-color: #fafafa;
+        display: inline-block;
+        padding: 0 10px;
+        margin: 0 5px;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+.introduction {
+  background: url("~introduction") center center no-repeat;
+  background-size: cover;
+  padding: 1%;
+  height: 100vh;
+
+  .text-box {
+    margin: 7% 30%;
+    padding: 4%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background-color: rgba(255, 209, 77, 0.8);
+    border-radius: 130px;
+    line-height: 1.8;
+  }
 }
 
 // form base
