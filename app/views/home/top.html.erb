@@ -1,11 +1,13 @@
-<%= javascript_pack_tag 'smoothscroll', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'top', 'data-turbolinks-track': 'reload' %>
 <% provide(:title, "HOME") %> 
 <div class="mv-wrap">
     <div class="mv">
         <h1>
             <%= image_tag  "title.png" %>
         </h1>
-        <p class="countdown">開催日まで、あと<br><span>224</span>日</p>
+        <p id="countdown">開催日まで、あと
+		    <br><span id="day">224</span>日<span id="hour">6</span>時間<span id="min">50</span>分<span id="sec">39</span>秒
+	    </p>
     </div>
     <a href="#introduction" class="jump"><span class="fa fa-3x fa-angle-double-down"></span></a>
 </div>
@@ -41,13 +43,3 @@
                 </div>
             </div>
         </div>
-<script>
-$(document).on("turbolinks:load", function () {
-            $('.movie-open').click(function () {
-                $('.movie').fadeIn();
-            });
-            $('.movie-close').click(function () {
-                $('.movie').fadeOut();
-            });
-        });
-</script>

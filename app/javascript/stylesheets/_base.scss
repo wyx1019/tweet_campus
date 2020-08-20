@@ -124,7 +124,7 @@ header {
     color: $sub-color;
     padding: 30px;
 
-    .countdown {
+    #countdown {
       font-weight: 700;
       color: #383737;
       margin: 20px 0 0;
@@ -137,6 +137,10 @@ header {
         padding: 0 10px;
         margin: 0 5px;
         border-radius: 8px;
+      }
+
+      b {
+        font-size: 42px;
       }
     }
   }
