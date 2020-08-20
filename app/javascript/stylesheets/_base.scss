@@ -186,6 +186,10 @@ header {
     background: rgba(255, 209, 77, 0.9);
     border-radius: 80px;
 
+    .movie-inner {
+      height: 100%;
+    }
+
     .movie-close {
       margin: 2%;
       position: absolute;
