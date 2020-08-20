@@ -8,6 +8,7 @@ Rails.start();
 
 import "bootstrap";
 import "../stylesheets/application";
+import "../stylesheets/information";
 
 // import "../javasripts/jquery.colorbox-min"
 import "../javascripts/script";

@@ -26,6 +26,28 @@
         校内の先輩、後輩とつなぐ<br>
         スポフェスの歴史、未来とつなぐ
         </p>
-        <a href="https://www.youtube.com/embed/uQf8w-j1z9I?rel=0&vq=hd720" class="movie">Digest Movie >></a>
+        <span class="movie-open" data-target="movie">Digest Movie >></span>
     </div>
 </div>
+        <div id="movie" class="movie" style="display:none">
+            <div class="movie-box">
+                <button class="movie-close"><span>&times;</span></button>
+                <div class="movie-inner">
+                    <iframe width="80%" height="100%" 
+                            src="https://www.youtube.com/embed/-vgiNdWcNJQ" 
+                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+<script>
+$(document).on("turbolinks:load", function () {
+            $('.movie-open').click(function () {
+                $('.movie').fadeIn();
+            });
+            $('.movie-close').click(function () {
+                $('.movie').fadeOut();
+            });
+        });
+</script>
