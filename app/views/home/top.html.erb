@@ -14,10 +14,8 @@
 
 <div data-scroll id="introduction" class="introduction">
     <div class="text-box">
-        <p>
-        今年のキャッチコピーは<br>
-        楽しさの限界へ
-        </p>
+        
+        <h3>今年のキャッチコピーは、<br><b>楽しさの限界へ</b></h3>
         <p>
         一年一回の行事<br>
         全校生徒が同じ場所に集まる唯一のチャンス<br>
@@ -43,3 +41,72 @@
                 </div>
             </div>
         </div>
+
+<script>
+    function showCount() {
+        var nowDate = new Date(); //Date() 現在の日付を取得する
+        var now = nowDate.getTime(); //日時データをミリ秒に変化する
+        var tDate = new Date("2020/8/26 10:00:00"); //日付を指定する monthは０からカウントする
+        var t = tDate.getTime();
+        var diffDate = t - now; //指定した日時と現在の日時の差分
+
+        var day = Math.floor(diffDate / (1000 * 60 * 60 * 24)); //diffDate の中に何日ある
+        diffDate = diffDate % (1000 * 60 * 60 * 24); // diffDate の中に何日ある？割れない分を新たなdiffDateにする
+        var hour = Math.floor(diffDate / (1000 * 60 * 60)); //diffDate の中に何時間ある
+        diffDate = diffDate % (1000 * 60 * 60); //diffDate の中に何時間ある 割れない分を新たなdiffDateにする
+        var min = Math.floor(diffDate / (1000 * 60));
+        diffDate = diffDate % (1000 * 60);
+        var sec = Math.floor(diffDate / 1000);
+
+        if (t > now) {
+            if (day < 10) {
+                document.getElementById("day").innerHTML = "0" + day;
+            } else {
+                document.getElementById("day").innerHTML = day;
+            };
+            if (hour < 10) {
+                document.getElementById("hour").innerHTML = "0" + hour;
+            } else {
+                document.getElementById("hour").innerHTML = hour;
+            };
+
+            if (min < 10) {
+                document.getElementById("min").innerHTML = "0" + min;
+            } else {
+                document.getElementById("min").innerHTML = min;
+            };
+            if (sec < 10) {
+                document.getElementById("sec").innerHTML = "0" + sec;
+            } else {
+                document.getElementById("sec").innerHTML = sec;
+            };
+
+        } else if (day == -1 && (hour <= 0) | (min <= 0) && sec <= 0) {
+            document.getElementById("countdown").innerHTML = "<span><b>開催日です</b></span>";
+        } else {
+            document.getElementById("countdown").innerHTML = "<span>終了しました</span>";
+        }
+    }
+
+    window.onload = function () {
+        setInterval("showCount()", 1000);
+    };
+</script>
+
+    <div class="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12962.409588078453!2d139.696836!3d35.686791!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x62fe91bd63a8fc2a!2z44Kz44Oz44K944Or44OG77yI5qCq77yJ!5e0!3m2!1sja!2sjp!4v1591850839667!5m2!1sja!2sjp"
+                    width="800" height="600" frameborder="0" style="border:0;" allowfullscreen=""
+                    aria-hidden="false" tabindex="0"></iframe>
+        <h3>アクセス</h3>
+        <p>〒112-0004 <br>東京都文京区後楽園1-3-61  東京ドーム</p>
+        <dl>
+            <dt>水道橋駅</dt>
+            <dd>JR総武線　　西口</dd>
+            <dd>都営三田線 　A2出口</dd>
+            <dt>春日駅 </dt>
+            <dd>都営大江戸線　　6番出口</dd>
+            <dt>後楽園駅 </dt>
+            <dd>丸ノ内線／南北線 　2番出口</dd>              
+        </dl>
+    </div>
