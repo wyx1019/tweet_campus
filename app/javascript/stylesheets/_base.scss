@@ -16,14 +16,11 @@ body {
   background-size: cover;
 }
 
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//   font-weight: 700;
-// }
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
 
 img {
   width: 100%;
@@ -300,22 +297,28 @@ input[type="submit"] {
 
 // btn
 .btn-group {
-  margin: 20px auto;
-
-  .active {
-    color: rgb(233, 160, 64);
-    background-color: #e4ddd3;
-  }
+  margin: 20px auto 10px;
 
   .btn {
     border-radius: 10px;
     outline: none !important;
+    color: rgb(233, 160, 64);
+    background-color: #ebe4dc;
 
     &:hover,
     &:focus {
-      color: rgb(233, 160, 64);
-      background-color: #e4ddd3;
+      color: #fcf5ec;
+      background-color: rgb(233, 160, 64);
     }
+
+    h4 {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+  }
+  .active {
+    color: #fcf5ec;
+    background-color: rgb(233, 160, 64);
   }
 }
 
@@ -399,8 +402,10 @@ input[type="submit"] {
 footer {
   background-color: $sub-color;
   color: $main-color;
+
   address {
     margin-bottom: 0;
+
     a {
       color: $main-color;
       text-decoration: none;
