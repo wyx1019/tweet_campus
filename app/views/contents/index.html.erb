@@ -1,0 +1,48 @@
+<% provide(:title, "競技詳細") %>
+<div class="wrap">
+    <h2>競技詳細</h2>
+    <div id="guide">  
+            <h4>*絆度とは</h4>
+            <p>どれだけの協力が必要を示す。<br><span class="important">友達との距離が一気に縮むかも！</span></p>
+            <h4>*運動度とは</h4>
+            <p>運動の激しさを示す。<br><span class="important">運動苦手な方もできるかも！</span></p>
+    </div>
+    <% if @current_user.admin %>
+        <%= link_to new_content_path, class: "add-link" do %>
+            <div class="add">
+                <i class="fa fa-plus" aria-hidden="true"></i><span>　競技追加</span>
+            </div>
+        <% end %>
+    <% end %>
+    <hr>
+    <section>
+        <h4>色別対抗</h4>
+        <% @contents01.each do |content01| %>
+            <%= render "shared/content", content: content01 %>
+        <% end %>
+    </section>
+    <section>
+        <h4>クラス対抗</h4>
+        <% @contents02.each do |content02| %>
+            <%= render "shared/content", content: content02 %>
+        <% end %>
+    </section>
+    <section>
+        <h4>自由参加</h4>
+        <% @contents03.each do |content03| %>
+            <%= render "shared/content", content: content03 %>
+        <% end %>
+    </section>
+    <section>
+        <h4>アトラクション</h4>
+        <% @contents04.each do |content04| %>
+            <%= render "shared/content", content: content04 %>
+        <% end %>
+    </section>
+    <section>
+        <h4>エキシビション</h4>
+        <% @contents05.each do |content05| %>
+            <%= render "shared/content", content: content05 %>
+        <% end %>
+    </section>
+</div>

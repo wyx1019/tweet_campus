@@ -1,46 +1,136 @@
 @import "_timetable";
 
+//content
+#guide {
+  font-size: 1rem;
+  margin: 40px 25px 40px;
+  padding: 10px;
+  text-align: center;
+  border: #e9a040 dashed 3px;
+  background-color: #f2f2f2;
+
+  .guide_start {
+    margin: 30px 15px 15px;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  .important {
+    text-decoration: #ff7700 wavy underline;
+  }
+}
+
+.add-link {
+  &:hover {
+    text-decoration: none;
+  }
+
+  .add {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+}
+
+.card {
+  background-color: #f2f2f2;
+
+  .img-box {
+    padding: 1.75rem 0.5rem;
+
+    img {
+      background-color: #ccc;
+    }
+  }
+
+  .no-gutters {
+    margin-left: 1rem;
+
+    .card-body {
+      text-align: left;
+
+      .card-title {
+        display: inline-block;
+        padding: 0.3rem 0.4rem;
+        border-radius: 4px;
+        background: linear-gradient(0deg, #ffcb3d 11%, #f2f2f2 65%);
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.8rem;
+      }
+
+      ul {
+        padding: 0;
+        font-size: 0.75rem;
+        margin-top: 0.4rem;
+
+        li {
+          list-style-type: none;
+        }
+      }
+
+      .card-text {
+        span {
+          font-size: 80%;
+          display: inline-block;
+          margin-right: 7px;
+        }
+
+        .participate {
+          background: linear-gradient(0deg, #ffcb3d 30%, #f2f2f2 100%);
+          padding: 2px;
+        }
+      }
+    }
+  }
+}
+
 // FAQ
 .card-question {
-    background-color: white;
-    margin: 5% auto;
-    padding: 4% 10% 1% 5%;
-    border-radius: 30px;
-    font-weight: 700;
+  background-color: white;
+  margin: 5% auto;
+  padding: 4% 10% 1% 5%;
+  border-radius: 30px;
+  font-weight: 700;
 }
 
 .card-question:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .question {
-    position: relative;
-    text-align: left;
+  position: relative;
+  text-align: left;
 }
 
 .question::after {
-    content: "";
-    background: url(https://www.consorte.jp/exam_lp/images/index_ic07.png) no-repeat;
-    background-size: contain;
-    width: 15px;
-    height: 8px;
-    position: absolute;
-    top: 50%;
-    right: -6%;
-    transform: rotate(0deg), translateY(-50%);
-    transition: all 0.3s ease;
+  content: "";
+  background: url(https://www.consorte.jp/exam_lp/images/index_ic07.png) no-repeat;
+  background-size: contain;
+  width: 15px;
+  height: 8px;
+  position: absolute;
+  top: 50%;
+  right: -6%;
+  transform: rotate(0deg), translateY(-50%);
+  transition: all 0.3s ease;
 }
 
 .ans-open::after {
-    transform: rotate(180deg);
-    transition: all 0.3s ease;
+  transform: rotate(180deg);
+  transition: all 0.3s ease;
 }
 
 .ans {
-    background-color: #f0f0f0;
-    padding: 6% 7%;
-    margin: 5% -5% 7% 0;
-    display: none;
-    font-weight: normal;
-    text-align: left;
+  background-color: #f0f0f0;
+  padding: 6% 7%;
+  margin: 5% -5% 7% 0;
+  display: none;
+  font-weight: normal;
+  text-align: left;
 }

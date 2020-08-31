@@ -1,0 +1,22 @@
+<div class="wrap">
+    <h2>競技を編集する</h2>
+    <%= form_with model: @content do |f| %>
+        <%= f.label :競技名 %>
+        <%= f.text_field :name %>
+        <%= f.label :キャッチコピー %>
+        <%= f.text_field :catch %>
+        <%= f.label :年度 %>
+        <%= f.select :year, [['--- 2019年 ---', '2019年'], ['--- 2020年 ---', '2020年'], ['--- 2021年 ---', '2021年']],
+            {inclued_blank: false, selected:@content.year}, {class: "form-select"}
+            %>
+        <%= f.label :カテゴリー %>
+        <%= f.select :category, [['色別対抗', '色別対抗'],['クラス対抗', 'クラス対抗'],['自由参加', '自由参加'],['アトラクション', 'アトラクション'],['エキシビション', 'エキシビション']], {inclued_blank: false, selected:@content.category}, {class: "form-select"} %>
+        <%= f.label :絆度 %>
+        <%= f.select :collaboration, [['--1--', 1],['--2--', 2],['--3--', 3],['4', 4],['5', 5]], {inclued_blank: false, selected:@content.collaboration}, {class: "form-select"} %>
+        <%= f.label :運動度 %>
+        <%= f.select :intensity, [['1', 1],['2', 2],['3', 3],['4', 4],['5', 5]], {inclued_blank: false, selected:@content.intensity}, {class: "form-select"} %>
+        <%= f.label :詳細 %>
+        <%= f.text_area :detail, class: 'form-control detail-area', placeholder: "250文字以内にテキスト入力してください", size: "20x4"%>
+        <%= f.submit "編集する", class: "btn add-btn" %>
+    <% end %>
+</div>

@@ -16,6 +16,15 @@ body {
   background-size: cover;
 }
 
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   font-weight: 700;
+// }
+
 img {
   width: 100%;
 }
@@ -157,11 +166,13 @@ header {
     padding: 4%;
     background-color: rgba(255, 209, 77, 0.8);
     border-radius: 130px;
+
     h3 {
       font-weight: bold;
       font-size: 26px;
       line-height: 1.5;
       color: #333;
+
       b {
         font-size: 24px;
         display: inline-block;
@@ -170,6 +181,7 @@ header {
         background-color: #fafafa;
       }
     }
+
     p {
       font-size: 18px;
       font-weight: bold;
@@ -247,6 +259,7 @@ header {
     // filter: grayscale(100%);
     // vertical-align: bottom;
   }
+
   h3 {
     margin-top: 40px;
     background-color: #fafafa;
@@ -254,8 +267,6 @@ header {
     padding: 10px 20px;
     border-radius: 8px;
     font-weight: bold;
-  }
-  p {
   }
 }
 
@@ -306,6 +317,11 @@ input[type="submit"] {
       background-color: #e4ddd3;
     }
   }
+}
+
+//add content btn
+.add-btn {
+  margin-top: 20px;
 }
 
 // back btn
@@ -376,5 +392,18 @@ input[type="submit"] {
 
   section {
     margin-top: 60px;
+  }
+}
+
+//footer
+footer {
+  background-color: $sub-color;
+  color: $main-color;
+  address {
+    margin-bottom: 0;
+    a {
+      color: $main-color;
+      text-decoration: none;
+    }
   }
 }

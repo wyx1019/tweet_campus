@@ -45,8 +45,8 @@
               スポフェス情報 <b class="caret"></b>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "スゲジュール", schedule_path, class: "nav-item text-decoration-none dropdown-item dropdown-info" %>
-            <%= link_to "会場案内", '#', class: "nav-item text-decoration-none dropdown-item dropdown-info"%>
+            <%= link_to "競技詳細", contents_path, class: "nav-item text-decoration-none dropdown-item dropdown-info" %>
+            <%= link_to "スゲジュール", schedule_path, class: "nav-item text-decoration-none dropdown-item dropdown-info"%>
             <%= link_to "FAQ",  about_path, class: "nav-item text-decoration-none dropdown-item dropdown-info" %>
           </div>
         </li>
@@ -62,5 +62,11 @@
     <% end %>
     <%= yield %>
   </main>
+  <footer>
+    <small>WANG YUXING</small>
+    <address>
+      <small><a href="mailto:yukiwyx1019@gmail.com">yukiwyx1019@gmail.com</a></small>
+    </address>
+  </footer>
 </body>
 </html>

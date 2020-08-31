@@ -1,0 +1,42 @@
+
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-6 img-box">
+                <%= image_tag "zunahiki.png", class:"card-img" %>
+                </div>
+                <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title"><%= content.name %></h5>
+                    <p class="card-text">
+                        <%= content.catch %>        
+                        <ul class="index">
+                            <li>絆度：
+                                <% content.collaboration.times do %>
+                                    ★
+                                <% end %>
+                            </li>
+                            <li>運動度：                            
+                                <% content.intensity.times do %>
+                                    ★
+                                <% end %> 
+                            </li>
+                        </ul>
+                    </p>
+                    <p class="card-text">
+                    <span class="participate">参加する！</span>
+                    <span class="text-muted">もっと見る >></span>
+                    </p>
+                    <% if @current_user.admin %>
+                        <p class="card-text">
+                        <%= link_to(edit_content_path(content)) do %>
+                            <span class="text-muted">編集</span>
+                        <% end %>
+                        <%= link_to(content_path(content), method: :delete, data: { confirm: "この競技を削除しますか？" }) do %>
+                            <span class="text-muted">削除</span>
+                        <% end %>
+                        </p>
+                    <% end %>
+                </div>
+                </div>
+            </div>
+        </div>

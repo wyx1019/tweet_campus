@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post "logout" => "sessions#destroy"
   get "signup"=>'users#new'
 
+  resources :contents, except: [:show]
+
   resources :microposts do
     collection do
       get :search
@@ -29,7 +31,6 @@ Rails.application.routes.draw do
 
   get "about"=>"home#about"
   get "schedule"=>"home#schedule"
-  get "access"=>"home#access"
   root 'home#top'
   
 end
