@@ -5,14 +5,6 @@
 $main-color: rgb(230, 180, 45);
 $sub-color: #333;
 
-.alert {
-  margin-top: 65px;
-}
-
-.alert-success {
-  background-color: ;
-}
-
 body {
   text-align: center;
   font-size: 15px;
@@ -410,7 +402,7 @@ input[type="submit"] {
   color: red;
 }
 
-//  error msg
+//  error msg & flash
 #error_explanation {
   color: rgb(206, 49, 49);
   margin: 35px auto;
@@ -432,13 +424,18 @@ input[type="submit"] {
   }
 }
 
+.alert {
+  margin-top: 65px;
+}
+
 //footer
 footer {
   background-color: $sub-color;
   color: $main-color;
+  padding: 5px 0 8px;
 
   address {
-    margin-bottom: 0;
+    margin: -4px 0 0;
 
     a {
       color: $main-color;
