@@ -1,3 +1,4 @@
+// タブ
 $(document).on("turbolinks:load", function () {
   $(".tab").click(function () {
     if (!$(this).hasClass("active")) {
@@ -10,6 +11,7 @@ $(document).on("turbolinks:load", function () {
   });
 });
 
+// FAQ accordion
 $(document).on("turbolinks:load", function () {
   $(".card-question").click(function () {
     $(this).children("p.question").toggleClass("ans-open");
@@ -17,11 +19,25 @@ $(document).on("turbolinks:load", function () {
   });
 });
 
-// $(document).on('turbolinks:load', function () {
-//     $(".movie").colorbox({
-//         iframe: true,
-//         width: "80%",
-//         height: "80%",
-//         opacity: 0.7
-//     });
-// });
+// テキストカウント
+$(document).on("turbolinks:load", function () {
+  $(".newpost-area").on("keydown keyup keypress", function () {
+    let count = $(this).val().length;
+    countDif(250, count);
+  });
+});
+
+function countDif(limit, count) {
+  let dif = limit - count;
+  $(".count").text(count);
+  if (dif >= 0 && dif < 250) {
+    $("#count").removeClass("red");
+    $("#count").addClass("green");
+    $("input[type='submit']").prop("disabled", false);
+  } else {
+    $("#count").removeClass("green");
+    $("#count").addClass("red");
+    $("input[type='submit']").prop("disabled", true);
+  }
+  console.log(dif);
+}

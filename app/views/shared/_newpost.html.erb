@@ -1,7 +1,9 @@
 <div class="form">
     <%= form_with(model: @micropost, local: true) do |f| %>
         <%= f.text_area :content, class: 'form-control newpost-area', placeholder: "250文字以内にテキスト入力してください", size: "40x12" %>
+        <div id="count" class="red"><span class="count">0</span>/<span class="limit">250</span></div>
         <%= f.file_field :images, multiple: true %>
-        <%= f.submit "投稿する", class: "btn" %>
+        <%= f.submit "投稿する", class: "btn", disabled: "true" %>
     <% end %>
 </div>
+

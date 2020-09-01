@@ -316,6 +316,7 @@ input[type="submit"] {
       margin-bottom: 0;
     }
   }
+
   .active {
     color: #fcf5ec;
     background-color: rgb(233, 160, 64);
@@ -353,7 +354,7 @@ input[type="submit"] {
 
 // new post form
 .newpost-area {
-  margin: 20px auto;
+  margin: 20px auto 0;
   width: 80%;
 }
 
@@ -374,6 +375,18 @@ input[type="submit"] {
 
 .reply-to {
   cursor: pointer;
+}
+
+// text count
+#count {
+  text-align: right;
+  margin-right: 50px;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
 }
 
 //  error msg
