@@ -57,9 +57,12 @@
     </nav>
   </header>
   <main>
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% if flash.present? %>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
     <% end %>
+    
     <%= yield %>
   </main>
   <footer>

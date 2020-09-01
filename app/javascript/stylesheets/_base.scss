@@ -5,6 +5,14 @@
 $main-color: rgb(230, 180, 45);
 $sub-color: #333;
 
+.alert {
+  margin-top: 65px;
+}
+
+.alert-success {
+  background-color: ;
+}
+
 body {
   text-align: center;
   font-size: 15px;
@@ -389,12 +397,15 @@ input[type="submit"] {
 .count-right {
   margin: -30px 0 0;
 }
+
 .count-content {
   margin: -20px 32% 20px;
 }
+
 .green {
   color: green;
 }
+
 .red {
   color: red;
 }
