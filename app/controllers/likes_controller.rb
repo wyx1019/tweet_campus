@@ -8,7 +8,7 @@ class LikesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to @micropost }
         format.js
-    end
+      end
     end
   end
 
@@ -18,6 +18,6 @@ class LikesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @micropost }
       format.js
-  end
+    end
   end
 end

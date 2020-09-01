@@ -22,6 +22,15 @@ a {
   }
 }
 
+li {
+  list-style-type: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 img {
   width: 100%;
 }
@@ -422,10 +431,6 @@ input[type="submit"] {
   section {
     margin-top: 60px;
   }
-}
-
-.alert {
-  margin-top: 65px;
 }
 
 //footer

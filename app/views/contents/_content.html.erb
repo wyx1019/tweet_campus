@@ -7,7 +7,7 @@
                 <div class="col-md-6">
                 <div class="card-body">
                     <h5 class="card-title"><%= content.name %></h5>
-                    <p class="card-text">
+                    <div class="card-text">
                         <%= content.catch %>        
                         <ul class="index">
                             <li>絆度：
@@ -23,8 +23,20 @@
                         </ul>
                     </p>
                     <p class="card-text">
-                    <span class="participate">参加する！</span>
-                    <span class="text-muted">もっと見る >></span>
+                        <div id="participate_<%= content.id %>">
+                            <% if @current_user.participating?(content) %>
+                                <%= link_to(participation_path(content, content_id: content.id), method: :delete, remote: true) do %>
+                                    <span class="text-muted">参加した </span>
+                                    <span id="participating_users"><%= content.participating_users.count %></span>
+                                <% end %>
+                            <% else %>
+                                <%= link_to(participations_path(content_id: content.id), method: :post, remote: true) do %>
+                                    <span class="participate">参加する！</span> 
+                                    <span id="participating_users"><%= content.participating_users.count %></span>
+                                <% end %>
+                            <% end %>
+                            <span class="text-muted">もっと見る >></span>
+                        </div>
                     </p>
                     <% if @current_user.admin %>
                         <p class="card-text">

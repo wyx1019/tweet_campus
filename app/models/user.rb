@@ -14,9 +14,11 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :micropost
 
   has_many :comments, dependent: :destroy
-  # has_many :commented_posts, through: :comments, source: :micropost
 
   has_many :replies, dependent: :destroy
+
+  has_many :participations, dependent: :destroy
+  has_many :participated_contents, through: :participations, source: :content
 
   has_one_attached :user_image
 
@@ -61,6 +63,10 @@ class User < ApplicationRecord
   
     def like?(other_post)
       liked_posts.include? (other_post)
+    end
+
+    def participating?(other_content)
+      participated_contents.include?(other_content)
     end
 
     def self.search_keyword(keyword,year)

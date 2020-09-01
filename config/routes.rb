@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
+  resources :participations, only:[:create, :destroy]
+
   get "about"=>"home#about"
   get "schedule"=>"home#schedule"
   root 'home#top'

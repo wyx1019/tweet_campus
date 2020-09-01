@@ -1,0 +1,2 @@
+$("#participate_<%= @content.id %>").html("<%= escape_javascript(render('participate_del', content: @content)) %>");
+$("#participating_users").html('   <%= @content.participating_users.count %>')

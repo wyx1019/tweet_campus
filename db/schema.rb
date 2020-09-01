@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_043435) do
+ActiveRecord::Schema.define(version: 2020_09_01_070253) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -74,6 +74,16 @@ ActiveRecord::Schema.define(version: 2020_08_31_043435) do
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
+  create_table "participations", force: :cascade do |t|
+    t.integer "content_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["content_id", "user_id"], name: "index_participations_on_content_id_and_user_id", unique: true
+    t.index ["content_id"], name: "index_participations_on_content_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -112,6 +122,8 @@ ActiveRecord::Schema.define(version: 2020_08_31_043435) do
   add_foreign_key "likes", "microposts"
   add_foreign_key "likes", "users"
   add_foreign_key "microposts", "users"
+  add_foreign_key "participations", "contents"
+  add_foreign_key "participations", "users"
   add_foreign_key "replies", "comments"
   add_foreign_key "replies", "users"
 end

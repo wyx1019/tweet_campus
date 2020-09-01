@@ -1,0 +1,1 @@
+<%= link_to(participations_path(content_id: content.id), method: :post, remote: true) do %><span class="participate">参加する！</span> <span id="participating_users"><%= content.participating_users.count %></span><% end %>
