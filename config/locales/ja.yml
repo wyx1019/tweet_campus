@@ -5,6 +5,7 @@ ja:
       micropost: 投稿
       comment: コメント
       reply: 返信
+      content: 競技
     attributes:
       user:
         email: メールアドレス
@@ -17,6 +18,10 @@ ja:
         content: 内容
       reply:
         content: 内容
+      content:
+        name: 競技名
+        catch: キャッチコピー
+        detail: 競技詳細
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

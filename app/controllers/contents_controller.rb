@@ -15,7 +15,8 @@ class ContentsController < ApplicationController
     end
 
     def create
-        if @content = Content.create!(content_params)
+      @content = Content.new(content_params)  
+      if @content.update(content_params)
           flash[:success] = "競技を追加しました"
           redirect_to contents_path
         else
@@ -24,7 +25,9 @@ class ContentsController < ApplicationController
       end
     
     def destroy
-        @content.destroy!
+        if @content.destroy!
+          flash[:success] = "競技を削除しました"
+        end
     end
     
     def edit

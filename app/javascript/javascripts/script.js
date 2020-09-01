@@ -26,11 +26,23 @@ $(document).on("turbolinks:load", function () {
     countDif(250, count);
   });
 });
-
+$(document).on("turbolinks:load", function () {
+  $(".comment-area").on("keydown keyup keypress", function () {
+    let count = $(this).val().length;
+    countDif(140, count);
+  });
+});
+$(document).on("turbolinks:load", function () {
+  $(".detail-area").on("keydown keyup keypress", function () {
+    let count = $(this).val().length;
+    console.log(count);
+    countDif(300, count);
+  });
+});
 function countDif(limit, count) {
   let dif = limit - count;
   $(".count").text(count);
-  if (dif >= 0 && dif < 250) {
+  if (dif >= 0 && dif < limit) {
     $("#count").removeClass("red");
     $("#count").addClass("green");
     $("input[type='submit']").prop("disabled", false);
