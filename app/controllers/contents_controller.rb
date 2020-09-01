@@ -1,6 +1,7 @@
 class ContentsController < ApplicationController
     before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
-    
+    before_action :set_content, only: [:destroy, :edit, :update]
+
     def index
         @contents01 = Content.where(category: "色別対抗").order(created_at: :ASC)
         @contents02 = Content.where(category: "クラス対抗").order(created_at: :ASC)
@@ -30,7 +31,12 @@ class ContentsController < ApplicationController
     end
     
     def update
-        @content.update!(content_params)
+        if @content.update!(content_params)
+          flash[:success] = "競技内容を更新しました"
+          redirect_to contents_path
+        else
+          render 'edit'
+        end
     end
 
     private

@@ -29,10 +29,10 @@
                     <% if @current_user.admin %>
                         <p class="card-text">
                         <%= link_to(edit_content_path(content)) do %>
-                            <span class="text-muted">編集</span>
+                            <span class="text-muted content-action">編集</span>
                         <% end %>
                         <%= link_to(content_path(content), method: :delete, data: { confirm: "この競技を削除しますか？" }) do %>
-                            <span class="text-muted">削除</span>
+                            <span class="text-muted content-action">削除</span>
                         <% end %>
                         </p>
                     <% end %>
