@@ -14,7 +14,15 @@
             <span><%= @user.year %></span>
             <span><%= @user.major %></span>
             <div class="participation">
-                二人三脚、騎馬戦に出場する
+                <% if @participated_contents.present? %>
+                    
+                        <% @participated_contents.each do |content| %>
+                            <b><% content.name %></b>
+                        <% end %>
+                    
+                <% else %>
+                    出場する競技はありません
+                <% end %>
             </div>
         </div>
         <div class="profile-actions-wrap">

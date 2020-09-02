@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @microposts = @user.microposts.order(created_at: :DESC)
     @liked_posts = @user.liked_posts.order(created_at: :DESC)
+    @participated_contents = @user.participated_contents
   end
 
   def edit
