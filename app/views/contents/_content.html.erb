@@ -2,7 +2,9 @@
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
                 <div class="col-md-6 img-box">
-                <%= image_tag "zunahiki.png", class:"card-img" %>
+                <% if content.content_pic.attached? %>
+                    <%= image_tag content.content_pic.variant(resize_to_fill:[200,150]), class:"card-img" %>
+                <% end %>
                 </div>
                 <div class="col-md-6">
                 <div class="card-body">

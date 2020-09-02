@@ -20,6 +20,7 @@
                 <%= f.label :詳細 %>
                 <%= f.text_area :detail, class: 'form-control detail-area', placeholder: "300文字以内", size: "20x4"%>
                 <div id="count" class="red"><span class="count">0</span>/<span class="limit">300</span></div>
+                <%= f.file_field :content_pic %>
                 <%= f.submit "追加する", class: "btn add-btn" %>
             <% end %>
     </div>
