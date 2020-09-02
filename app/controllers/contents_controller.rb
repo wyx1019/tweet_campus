@@ -3,11 +3,11 @@ class ContentsController < ApplicationController
     before_action :set_content, only: [:destroy, :edit, :update]
 
     def index
-        @contents01 = Content.where(category: "色別対抗").order(created_at: :ASC)
-        @contents02 = Content.where(category: "クラス対抗").order(created_at: :ASC)
-        @contents03 = Content.where(category: "自由参加").order(created_at: :ASC)
-        @contents04 = Content.where(category: "アトラクション").order(created_at: :ASC)
-        @contents05 = Content.where(category: "エキシビション").order(created_at: :ASC)
+        @contents01 = Content.where(category: "色別対抗").where(year: "2019年").order(created_at: :ASC)
+        @contents02 = Content.where(category: "クラス対抗").where(year: "2019年").order(created_at: :ASC)
+        @contents03 = Content.where(category: "自由参加").where(year: "2019年").order(created_at: :ASC)
+        @contents04 = Content.where(category: "アトラクション").where(year: "2019年").order(created_at: :ASC)
+        @contents05 = Content.where(category: "エキシビション").where(year: "2019年").order(created_at: :ASC)
     end
 
     def new
