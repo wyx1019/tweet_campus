@@ -1,22 +1,10 @@
+<% provide(:title, '競技種目編集') %>
+<% provide(:button_text, '更新する') %>
 <div class="wrap">
-    <h2>競技内容を編集する</h2>
-    <%= form_with(model: @content, local: true) do |f| %>
-        <%= f.label :競技名 %>
-        <%= f.text_field :name %>
-        <%= f.label :キャッチコピー %>
-        <%= f.text_field :catch, size: "20x2" %>
-        <%= f.label :年度 %>
-        <%= f.select :year, [['--- 2019年 ---', '2019年'], ['--- 2020年 ---', '2020年'], ['--- 2021年 ---', '2021年']],
-            {inclued_blank: false, selected:@content.year}, {class: "form-select"}
-            %>
-        <%= f.label :カテゴリー %>
-        <%= f.select :category, [['色別対抗', '色別対抗'],['クラス対抗', 'クラス対抗'],['自由参加', '自由参加'],['アトラクション', 'アトラクション'],['エキシビション', 'エキシビション']], {inclued_blank: false, selected:@content.category}, {class: "form-select"} %>
-        <%= f.label :絆度 %>
-        <%= f.select :collaboration, [['--1--', 1],['--2--', 2],['--3--', 3],['--4--', 4],['--5--', 5]], {inclued_blank: false, selected:@content.collaboration}, {class: "form-select"} %>
-        <%= f.label :運動度 %> 
-        <%= f.select :intensity, [['--1--', 1],['--2--', 2],['--3--', 3],['--4--', 4],['--5--', 5]], {inclued_blank: false, selected:@content.intensity}, {class: "form-select"} %>
-        <%= f.label :詳細 %>
-        <%= f.text_area :detail, class: 'form-control detail-area', placeholder: "250文字以内にテキスト入力してください", size: "20x4" %>
-        <%= f.submit "編集する", class: "btn add-btn" %>
-    <% end %>
+    <%= link_to "←戻る", 'javascript:history.back()', class: "back text-decoration-none" %>
+    <h2>競技種目を編集する</h2>
+    <div id="form" class="content-form">
+            <%= render 'shared/error_messages', user: @content %>
+            <%= render 'content_form' %>
+    </div>
 </div>

@@ -1,0 +1,21 @@
+<%= form_with(model: @content, local: true) do |f| %>
+                <%= f.label :競技名 %>
+                <%= f.text_field :name,  placeholder: "10文字以内" %>
+                <%= f.label :キャッチコピー %>
+                <%= f.text_field :catch, placeholder: "25文字以内" %>
+                <%= f.label :年度 %>
+                <%= f.select :year, [['--- 2019年 ---', '2019年'], ['--- 2020年 ---', '2020年'], ['--- 2021年 ---', '2021年']],
+                    {inclued_blank: false, selected:@content.year}, {class: "form-select"}
+                    %>
+                <%= f.label :カテゴリー %>
+                <%= f.select :category, [['色別対抗', '色別対抗'],['クラス対抗', 'クラス対抗'],['自由参加', '自由参加'],['アトラクション', 'アトラクション'],['エキシビション', 'エキシビション']], {inclued_blank: false, selected:@content.category}, {class: "form-select"} %>
+                <%= f.label :絆度 %>
+                <%= f.select :collaboration, [['--1--', 1],['--2--', 2],['--3--', 3],['--4--', 4],['--5--', 5]], {inclued_blank: false, selected:@content.collaboration}, {class: "form-select"} %>
+                <%= f.label :運動度 %>
+                <%= f.select :intensity, [['--1--', 1],['--2--', 2],['--3--', 3],['--4--', 4],['--5--', 5]], {inclued_blank: false, selected:@content.intensity}, {class: "form-select"} %>
+                <%= f.label :詳細 %>
+                <%= f.text_area :detail, class: 'form-control detail-area', placeholder: "300文字以内", size: "20x4"%>
+                <div id="count" class="red"><span class="count">0</span>/<span class="limit">300</span></div>
+                <%= f.file_field :content_pic %>
+                <%= f.submit yield(:button_text), class: "btn add-btn" %>
+<% end %>

@@ -1,9 +1,9 @@
 
-        <div class="card mb-3" style="max-width: 540px;">
+        <div id="content_<%= content.id %>" class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
                 <div class="col-md-6 img-box">
                 <% if content.content_pic.attached? %>
-                    <%= image_tag content.content_pic.variant(resize_to_fill:[200,150]), class:"card-img" %>
+                    <%= image_tag content.content_pic.variant(resize_to_fill:[216,200]), class:"card-img" %>
                 <% end %>
                 </div>
                 <div class="col-md-6">
@@ -25,27 +25,47 @@
                         </ul>
                     </p>
                     <p class="card-text">
-                        <div id="participate_<%= content.id %>">
-                            <% if @current_user.participating?(content) %>
-                                <%= link_to(participation_path(content, content_id: content.id), method: :delete, remote: true) do %>
-                                    <span class="text-muted">参加した </span>
-                                    <span id="participating_users"><%= content.participating_users.count %></span>
+                        <div class="flex-row" >
+                            <div id ="participate_<%= content.id %>">
+                                <% if  @current_user != nil && @current_user.participating?(content) %>
+                                    <%= link_to(participation_path(content, content_id: content.id), method: :delete, remote: true) do %>
+                                        <span class="text-muted">参加した </span>
+                                        <span id="participating_users"><%= content.participating_users.count %></span>
+                                    <% end %>
+                                <% else %>
+                                    <%= link_to(participations_path(content_id: content.id), method: :post, remote: true) do %>
+                                        <span class="participate">参加する！</span> 
+                                        <span id="participating_users"><%= content.participating_users.count %></span>
+                                    <% end %>
                                 <% end %>
-                            <% else %>
-                                <%= link_to(participations_path(content_id: content.id), method: :post, remote: true) do %>
-                                    <span class="participate">参加する！</span> 
-                                    <span id="participating_users"><%= content.participating_users.count %></span>
-                                <% end %>
-                            <% end %>
-                            <span class="text-muted">もっと見る >></span>
+                            </div>
+                            <span class="text-muted detail-open modal-open" data-target="detail_<%= content.id %>">もっと見る >></span>
+                        </div>
+                        <div id ="detail_<%= content.id %>" class="modal">
+                            <div class="modal-box">
+                                    <button class="modal-close"><span class="close-icon">&times;</span></button>
+                                    <div class="modal-inner">
+                                        <p class="detail">
+                                            <%= content.detail %>
+                                            <br>
+                                            <span>この競技に出るユーザー：
+                                            <% content.participating_users.each do |user| %>
+                                                <%= link_to user_path(user) do %>
+                                                    <%= user.name %></span>
+                                                <% end %>
+                                            <% end %>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
                         </div>
                     </p>
-                    <% if @current_user.admin %>
+                    <% if @current_user && @current_user.admin %>
                         <p class="card-text">
                         <%= link_to(edit_content_path(content)) do %>
                             <span class="text-muted content-action">編集</span>
                         <% end %>
-                        <%= link_to(content_path(content), method: :delete, data: { confirm: "この競技を削除しますか？" }) do %>
+                        <%= link_to(content_path(content), method: :delete, remote: true, data: { confirm: "この競技を削除しますか？" }) do %>
                             <span class="text-muted content-action">削除</span>
                         <% end %>
                         </p>

@@ -1,4 +1,6 @@
 class RepliesController < ApplicationController
+    before_action :not_login_user
+    
     def create
         @reply = @current_user.replies.create(reply_params)
         @reply.comment_id = params[:comment_id]

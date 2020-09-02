@@ -1,7 +1,10 @@
 <% provide(:title, 'Profile') %>
 <div class="wrap">
     <%= link_to "←戻る", 'javascript:history.back()', class: "back text-decoration-none" %>
-    <h3>プロフィール</h3>
+    <h3>
+    <% if @current_user.id == @user.id %>MY<% end %>
+    プロフィール
+    </h3>
     
         <div class ="user-info">
             <div class="user-image">
@@ -48,10 +51,12 @@
                         <%= link_to("編集", edit_user_path(@current_user)) %>
                         <%= link_to("ログアウト", logout_path, method: :post, data: { confirm: "ログアウトしますか？" })%>
                 <% end %>
-                <% if @current_user.admin %>
-                <%= link_to("アカウント削除", user_path, method: :delete, data: { confirm: "アカウントを削除すると、このアカウントの投稿も共に消えますよ！" } )%>
-                <% end %>
             </div>
+                        <% if @current_user.admin %>
+                    <%= link_to user_path, method: :delete, data: { confirm: "アカウントを削除すると、このアカウントの投稿も共に消えますよ！" }  do %>
+                        <span class="account-del">アカウント削除</span>
+                    <% end %>
+            <% end %>
         </div>
     <section>
         <div class="btn-group">

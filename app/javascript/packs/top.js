@@ -11,12 +11,3 @@ $(document).on("turbolinks:load", function () {
     return false;
   });
 });
-
-$(document).on("turbolinks:load", function () {
-  $('.movie-open').click(function () {
-    $('.movie').fadeIn();
-  });
-  $('.movie-close').click(function () {
-    $('.movie').fadeOut();
-  });
-});

@@ -6,7 +6,7 @@
             <%= image_tag  "title.png" %>
         </h1>
         <p id="countdown">開催日まで、あと
-		    <br><span id="day"></span>日<span id="hour"></span>時間<span id="min"></span>分<span id="sec"></span>秒
+		    <br><span id="day">00</span>日<span id="hour">00</span>時間<span id="min">00</span>分<span id="sec">00</span>秒
 	    </p>
     </div>
     <a href="#introduction" class="jump"><span class="fa fa-3x fa-angle-double-down"></span></a>
@@ -26,13 +26,13 @@
         校内の先輩、後輩とつなぐ<br>
         スポフェスの歴史、未来とつなぐ
         </p>
-        <span class="movie-open" data-target="movie">Digest Movie >></span>
+        <span class="modal-open movie-open" data-target="movie">Digest Movie >></span>
     </div>
 </div>
-        <div id="movie" class="movie" style="display:none">
-            <div class="movie-box">
-                <button class="movie-close"><span>&times;</span></button>
-                <div class="movie-inner">
+        <div id="movie" class="modal" style="display:none">
+            <div class="modal-box">
+                <button class="modal-close"><span class="close-icon">&times;</span></button>
+                <div class="modal-inner">
                     <iframe width="80%" height="100%" 
                             src="https://www.youtube.com/embed/-vgiNdWcNJQ" 
                             frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 

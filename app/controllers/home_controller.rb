@@ -4,9 +4,5 @@ class HomeController < ApplicationController
   def about
   end
   def schedule
-    
-  end
-  def content
-    
   end
 end

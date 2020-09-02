@@ -7,10 +7,10 @@
             <h4>*運動度とは</h4>
             <p>運動の激しさを示す。<br><span class="important">運動苦手な方もできるかも！</span></p>
     </div>
-    <% if @current_user.admin %>
+    <% if @current_user && @current_user.admin %>
         <%= link_to new_content_path, class: "add-link" do %>
             <div class="add">
-                <i class="fa fa-plus" aria-hidden="true"></i><span>　競技追加</span>
+                <i class="fa fa-plus" aria-hidden="true"></i><span>　競技種目追加</span>
             </div>
         <% end %>
     <% end %>
