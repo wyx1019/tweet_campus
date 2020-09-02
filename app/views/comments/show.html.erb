@@ -16,11 +16,11 @@
                         <%= form_with(model:[@micropost, @comment, @reply], method: :post, local: true) do |f| %>
                         <%= hidden_field_tag :comment_id, @comment.id %>
                             <div class="row ">
-                                <%= f.text_area :content, class: 'form-control comment-area', value: params[:content], placeholder: "140文字以内にテキストを入力してください", size: "32x2" %>
+                                <%= f.text_area :content, class: 'form-control comment-area', value: params[:content], placeholder: "250文字以内にテキストを入力してください", cols: "32", rows:'2' %>
                                 <%= f.submit "返信する", class: "btn btn-sm" %>
                             </div>
                         <% end %>
-                        <div id="count" class="red count-right"><span class="count">0</span>/<span class="limit">140</span></div>
+                        <div id="count" class="red count-right"><span class="count">0</span>/<span class="limit">250</span></div>
                 </div>
     
             <%# reply list %>

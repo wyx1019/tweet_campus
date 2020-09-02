@@ -9,7 +9,7 @@ class Micropost < ApplicationRecord
   has_many_attached :images
 
   validates :user_id, presence: true
-  validates :content, presence: true, length: { maximum: 250 }
+  validates :content, presence: true, length: { maximum: 400 }
 
   def self.search_year(year)
     if year != '0'

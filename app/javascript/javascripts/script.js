@@ -23,13 +23,13 @@ $(document).on("turbolinks:load", function () {
 $(document).on("turbolinks:load", function () {
   $(".newpost-area").on("keydown keyup keypress", function () {
     let count = $(this).val().length;
-    countDif(250, count);
+    countDif(400, count);
   });
 });
 $(document).on("turbolinks:load", function () {
   $(".comment-area").on("keydown keyup keypress", function () {
     let count = $(this).val().length;
-    countDif(140, count);
+    countDif(250, count);
   });
 });
 $(document).on("turbolinks:load", function () {
@@ -39,6 +39,7 @@ $(document).on("turbolinks:load", function () {
     countDif(300, count);
   });
 });
+
 function countDif(limit, count) {
   let dif = limit - count;
   $(".count").text(count);
@@ -53,3 +54,19 @@ function countDif(limit, count) {
   }
   console.log(dif);
 }
+
+// textareaのheightを入力内容に応じて自動的に伸ばす
+$(document)
+  .one('focus.comment-area', 'textarea.comment-area', function () {
+    var savedValue = this.value;
+    this.value = '';
+    this.baseScrollHeight = this.scrollHeight;
+    this.value = savedValue;
+  })
+  .on('input.comment-area', 'textarea.comment-area', function () {
+    var minRows = this.getAttribute('data-min-rows') | 0,
+      rows;
+    this.rows = minRows;
+    rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
+    this.rows = minRows + rows;
+  });
