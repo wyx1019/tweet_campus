@@ -102,7 +102,7 @@
 
         .detail {
           display: block;
-          margin: 1.5rem 3rem;
+          margin: 1.5rem 4.5rem;
           font-size: 1.5rem;
 
           a {
@@ -112,6 +112,7 @@
               color: #0056b3;
             }
           }
+
           span {
             background-color: #f2f2f2;
             padding: 3px 10px;
@@ -143,8 +144,7 @@
 
 .question::after {
   content: "";
-  background: url(https://www.consorte.jp/exam_lp/images/index_ic07.png)
-    no-repeat;
+  background: url(https://www.consorte.jp/exam_lp/images/index_ic07.png) no-repeat;
   background-size: contain;
   width: 15px;
   height: 8px;
