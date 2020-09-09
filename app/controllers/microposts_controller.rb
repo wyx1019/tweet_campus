@@ -1,5 +1,6 @@
 class MicropostsController < ApplicationController
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :admin_user, only: :destroy
+  before_action :ensure_correct_user, only: [:edit, :update]
   before_action :not_login_user
   
   def index

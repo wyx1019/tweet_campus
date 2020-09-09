@@ -1,95 +1,93 @@
 .post {
-    background-color: #f2f2f2;
-    margin: 20px auto;
-    padding: 15px;
-    text-align: left;
+  background-color: #f2f2f2;
+  margin: 20px auto;
+  padding: 15px;
+  text-align: left;
 
-    .user-bar {
-        display: grid;
-        grid-gap: 5px;
-        grid-template-columns: 1fr 4fr 1fr;
+  .user-bar {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 4fr 1fr;
 
-        span {
-            font-size: 12px;
-        }
-
-        .user-name {
-            font-size: 20px;
-        }
+    span {
+      font-size: 12px;
     }
 
-    .time {
-        font-size: 11px;
+    .user-name {
+      font-size: 20px;
     }
+  }
 
-    p {
-        display: block;
-        padding: 5px;
-    }
+  .time {
+    font-size: 11px;
+  }
 
-    a {
-        display: inline-block;
-        width: 100%;
-    }
+  p {
+    display: block;
+    padding: 5px;
+  }
 
-    .action-bar {
-        margin-right: 5px;
-        text-align: right;
-        display: flex;
-        justify-content: flex-end;
-    }
+  a {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .action-bar {
+    margin-right: 5px;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 h4 {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .latest {
-    margin-left: 10px;
-    margin-top: 5px;
-    background-color: #f5eaea;
-    padding: 1px 10px;
+  margin-left: 10px;
+  margin-top: 5px;
+  background-color: #f5eaea;
+  padding: 1px 10px;
 }
 
 .comment {
-    background-color: #f2f2f2;
-    width: 90%;
-    margin: 20px auto;
-    padding: 5px;
+  background-color: #f2f2f2;
+  width: 90%;
+  margin: 20px auto;
+  padding: 5px;
 
-    .post {
-        width: 100%;
-        margin: 5px auto;
-    }
+  .post {
+    width: 100%;
+    margin: 5px auto;
+  }
 }
 
 .media {
-    display: flex;
+  display: flex;
 }
 
 .media-wrap {
-    flex-wrap: wrap;
-    justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .post-media {
-    margin: 15px auto;
+  margin: 15px auto;
 
-    img {
-        background-color: #ccc
-    }
+  img {
+    background-color: #ccc;
+  }
 }
 
-
-
 .no-content {
-    margin: 0;
-    text-align: center;
-    color: #337ab7;
+  margin: 0;
+  text-align: center;
+  color: #337ab7;
 }
 
 .content {
-    color: #337ab7;
+  color: #337ab7;
 }
 
 //  action bar
@@ -100,27 +98,26 @@ h4 {
 .reply-btn,
 .edit-btn,
 .delete-btn {
-    display: inline-block;
-    margin: 5px 0;
-    padding: 0 2px;
-    color: #ccc;
+  display: inline-block;
+  padding: 0 2px;
+  color: #ccc;
 }
 
 .like-btn {
-    color: rgb(184, 98, 98);
+  color: rgb(184, 98, 98);
 }
 
 .comment-btn,
 .reply-btn,
 .edit-btn,
 .delete-btn {
-    &:hover {
-        color: rosybrown;
-    }
+  &:hover {
+    color: rosybrown;
+  }
 
-    &:active {
-        color: rosybrown;
-        position: relative;
-        top: 1px;
-    }
+  &:active {
+    color: rosybrown;
+    position: relative;
+    top: 1px;
+  }
 }

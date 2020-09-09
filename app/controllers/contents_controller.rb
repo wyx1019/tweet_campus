@@ -1,6 +1,5 @@
 class ContentsController < ApplicationController
     before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
-    before_action :admin_user, except:[:index]
     before_action :set_content, only: [:destroy, :edit, :update]
 
     def index

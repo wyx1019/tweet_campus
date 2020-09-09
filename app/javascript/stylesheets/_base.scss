@@ -355,10 +355,15 @@ input[type="submit"] {
   z-index: 888;
 }
 
-// follow中btn
+// follow btn
 .following {
   background-color: #e4ddd3 !important;
   color: rgb(233, 160, 64) !important;
+}
+
+.btn-follow {
+  font-weight: bold;
+  color: #337ab7;
 }
 
 .form {

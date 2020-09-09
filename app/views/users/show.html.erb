@@ -20,7 +20,7 @@
                 <% if @participated_contents.any? %>
                     <b>--- 今年出場する競技 ---</b>
                         <% @participated_contents.each do |content| %>
-                            <span><%= content.name %></span>
+                            <span><b><%= content.name %></b></span>
                         <% end %>
                     
                 <% else %>

@@ -84,8 +84,7 @@ $(document).on("turbolinks:load", function () {
   });
   $(".modal-close").on("click", function () {
     $(".modal").fadeOut();
-    $("body,html").stop().animate(
-      {
+    $("body,html").stop().animate({
         scrollTop: winScrollTop,
       },
       1000
@@ -93,6 +92,7 @@ $(document).on("turbolinks:load", function () {
   });
 });
 
+// stop event
 $(document).on("turbolinks:load", function () {
   $(".stopEvent").click(function (e) {
     e.stopPropagation();

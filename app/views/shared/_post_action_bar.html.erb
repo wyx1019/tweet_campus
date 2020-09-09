@@ -19,7 +19,9 @@
                             <span class="fa fa-edit edit-btn"></span>
                           <% end %>
                         </div>
-                        <div class="delte-btn">
+                    <% end %>
+                    <% if (@current_user.admin == true || @current_user.id == micropost.user.id) && @micropost.present? %>
+                        <div class="delete-btn">
                           <%= link_to(micropost_path, method: :delete, data: { confirm: "この投稿を削除しますか？" }) do %>
                             <span class="fa fa-trash delete-btn" aria-hidden="true"></span>
                           <% end %>
