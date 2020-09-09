@@ -14,6 +14,7 @@ body {
   background: url("~bg_dome") center center no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  position: relative;
 }
 
 a {
@@ -362,8 +363,9 @@ input[type="submit"] {
 
 .form {
   margin: 20px auto;
-  div {
-    text-decoration: underline;
+
+  .underline {
+    text-decoration: underline
   }
 }
 
@@ -376,7 +378,7 @@ input[type="submit"] {
 // comment form
 .form-comment {
   position: fixed;
-  bottom: 10px;
+  bottom: 45px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
@@ -438,6 +440,7 @@ input[type="submit"] {
     margin-top: 60px;
   }
 }
+
 .alert {
   margin-top: 66px;
 }
@@ -447,6 +450,8 @@ footer {
   background-color: $sub-color;
   color: $main-color;
   padding: 5px 0 8px;
+  width: 100%;
+  margin-top: 150px;
 
   address {
     margin: -4px 0 0;

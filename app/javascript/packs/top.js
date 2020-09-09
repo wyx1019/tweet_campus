@@ -1,3 +1,4 @@
+// smoothly jump to #introduction
 $(document).on("turbolinks:load", function () {
   $('a[href*="#introduction"]').click(function () {
     var adjust = 0;

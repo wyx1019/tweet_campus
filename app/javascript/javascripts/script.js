@@ -72,15 +72,6 @@ $(document)
   });
 
 //modal
-// $(document).on("turbolinks:load", function () {
-//   $('.modal-open').click(function () {
-//     $('.modal').fadeIn();
-//   });
-//   $('.modal-close').click(function () {
-//     $('.modal').fadeOut();
-//   });
-// });
-
 $(document).on("turbolinks:load", function () {
   var winScrollTop;
   $(".modal-open").each(function () {
@@ -99,5 +90,11 @@ $(document).on("turbolinks:load", function () {
       },
       1000
     );
+  });
+});
+
+$(document).on("turbolinks:load", function () {
+  $(".stopEvent").click(function (e) {
+    e.stopPropagation();
   });
 });

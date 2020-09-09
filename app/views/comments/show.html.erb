@@ -17,7 +17,7 @@
                         <%= hidden_field_tag :comment_id, @comment.id %>
                             <div class="row ">
                                 <%= f.text_area :content, class: 'form-control comment-area', value: params[:content], placeholder: "250文字以内にテキストを入力してください", cols: "32", rows:'2' %>
-                                <%= f.submit "返信する", class: "btn btn-sm" %>
+                                <%= f.submit "返信する", class: "btn btn-sm",  disabled: "true" %>
                             </div>
                         <% end %>
                         <div id="count" class="red count-right"><span class="count">0</span>/<span class="limit">250</span></div>
