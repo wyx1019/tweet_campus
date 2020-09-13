@@ -2,15 +2,15 @@
 	校内イベント（スポーツフェスティバル）を機に、学生たちが同じ学校にいる人との交流を増やし、新しい友達ができる入口を作る。違う学科の人、違う学年の人との距離を縮むようにする。
 
 開発環境：
-	Window 10
-	Ruby 2.6.6
-	Rails 6.0.3.2
-	webpacker
-	bootstap
-	JQuery
-	データベース：PostgreSQL
-	画像保存：AWS S3
-	デプロイ先：heroku 
+- Window 10
+- Ruby 2.6.6
+- Rails 6.0.3.2
+- webpacker
+- bootstap
+- JQuery
+- データベース：PostgreSQL
+- 画像保存：AWS S3
+- デプロイ先：heroku 
 	https://fast-brook-99776.herokuapp.com/
 
 アプリ機能：
