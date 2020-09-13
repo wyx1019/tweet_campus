@@ -1,24 +1,25 @@
-# README
+サービス目的：
+	校内イベント（スポーツフェスティバル）を機に、学生たちが同じ学校にいる人との交流を増やし、新しい友達ができる入口を作る。違う学科の人、違う学年の人との距離を縮むようにする。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+開発環境：
+	Window 10
+	Ruby 2.6.6
+	Rails 6.0.3.2
+	webpacker
+	bootstap
+	JQuery
+	データベース：PostgreSQL
+	画像保存：AWS S3
+	デプロイ先：heroku 
+	https://fast-brook-99776.herokuapp.com/
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+アプリ機能：
+- ユーザーログイン・登録機能
+- 投稿（画像アップロードできる）・コメント・返信機能
+- いいね機能
+- フォロー機能
+- 複数条件検索機能
+- 入力データのバリエーション
+- adminユーザーが競技種目を追加・更新・削除できる
+- ユーザーの参加している競技種目が分かる
+- ログインユーザーと非ログインユーザーの使える機能が制限されています
